@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang='zh-CN'>
+
+<head>
+  <meta name="generator" content="Hexo 6.3.0">
+  <meta name="hexo-theme" content="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.18.5">
+  <meta charset="utf-8">
+  
+
+  <meta http-equiv='x-dns-prefetch-control' content='on' />
+  <link rel='dns-prefetch' href='https://gcore.jsdelivr.net'>
+  <link rel="preconnect" href="https://gcore.jsdelivr.net" crossorigin>
+  <link rel='dns-prefetch' href='//unpkg.com'>
+
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="HandheldFriendly" content="True" >
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="theme-color" content="#f8f8f8">
+  
+  <title>数字钟的设计 - GuiGe</title>
+
+  
+    <meta name="description" content="一、项目概况1. 选题目的数字钟的出现，给人类提供了巨大的便利，人类可以知道自己某个时刻具体干什么事。例如，秒表可以用来记录某一件事的所用的时间，时钟则可以记录一天的过程。本次实验选题目的，就是通过自己所学到的知识去设计一个数字钟，了解数字钟实现的原理，以及加强自己对所学知识的运用。 2. 项目构思要实现数字钟，需要有计数模块，它是是最核心的一部分；需要有对时钟信号进行分频的分频模块；需要有对输出">
+<meta property="og:type" content="article">
+<meta property="og:title" content="数字钟的设计">
+<meta property="og:url" content="http://example.com/2022/12/30/%E6%95%B0%E5%AD%97%E9%92%9F%E7%9A%84%E8%AE%BE%E8%AE%A1/index.html">
+<meta property="og:site_name" content="GuiGe">
+<meta property="og:description" content="一、项目概况1. 选题目的数字钟的出现，给人类提供了巨大的便利，人类可以知道自己某个时刻具体干什么事。例如，秒表可以用来记录某一件事的所用的时间，时钟则可以记录一天的过程。本次实验选题目的，就是通过自己所学到的知识去设计一个数字钟，了解数字钟实现的原理，以及加强自己对所学知识的运用。 2. 项目构思要实现数字钟，需要有计数模块，它是是最核心的一部分；需要有对时钟信号进行分频的分频模块；需要有对输出">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/2022/12/30/%E6%95%B0%E5%AD%97%E9%92%9F%E7%9A%84%E8%AE%BE%E8%AE%A1/%E5%9B%BE%E7%89%871.png">
+<meta property="og:image" content="http://example.com/2022/12/30/%E6%95%B0%E5%AD%97%E9%92%9F%E7%9A%84%E8%AE%BE%E8%AE%A1/%E5%9B%BE%E7%89%872.png">
+<meta property="og:image" content="http://example.com/2022/12/30/%E6%95%B0%E5%AD%97%E9%92%9F%E7%9A%84%E8%AE%BE%E8%AE%A1/%E5%9B%BE%E7%89%873.png">
+<meta property="og:image" content="http://example.com/2022/12/30/%E6%95%B0%E5%AD%97%E9%92%9F%E7%9A%84%E8%AE%BE%E8%AE%A1/%E5%9B%BE%E7%89%874.png">
+<meta property="og:image" content="http://example.com/2022/12/30/%E6%95%B0%E5%AD%97%E9%92%9F%E7%9A%84%E8%AE%BE%E8%AE%A1/%E5%9B%BE%E7%89%875.png">
+<meta property="og:image" content="http://example.com/2022/12/30/%E6%95%B0%E5%AD%97%E9%92%9F%E7%9A%84%E8%AE%BE%E8%AE%A1/%E5%9B%BE%E7%89%876.png">
+<meta property="og:image" content="http://example.com/2022/12/30/%E6%95%B0%E5%AD%97%E9%92%9F%E7%9A%84%E8%AE%BE%E8%AE%A1/%E5%9B%BE%E7%89%877.png">
+<meta property="og:image" content="http://example.com/2022/12/30/%E6%95%B0%E5%AD%97%E9%92%9F%E7%9A%84%E8%AE%BE%E8%AE%A1/%E5%9B%BE%E7%89%878.png">
+<meta property="og:image" content="http://example.com/2022/12/30/%E6%95%B0%E5%AD%97%E9%92%9F%E7%9A%84%E8%AE%BE%E8%AE%A1/%E5%9B%BE%E7%89%879.png">
+<meta property="og:image" content="http://example.com/2022/12/30/%E6%95%B0%E5%AD%97%E9%92%9F%E7%9A%84%E8%AE%BE%E8%AE%A1/%E5%9B%BE%E7%89%8710.png">
+<meta property="og:image" content="http://example.com/2022/12/30/%E6%95%B0%E5%AD%97%E9%92%9F%E7%9A%84%E8%AE%BE%E8%AE%A1/%E5%9B%BE%E7%89%8711.png">
+<meta property="og:image" content="http://example.com/2022/12/30/%E6%95%B0%E5%AD%97%E9%92%9F%E7%9A%84%E8%AE%BE%E8%AE%A1/%E5%9B%BE%E7%89%8712.png">
+<meta property="og:image" content="http://example.com/2022/12/30/%E6%95%B0%E5%AD%97%E9%92%9F%E7%9A%84%E8%AE%BE%E8%AE%A1/%E5%9B%BE%E7%89%8713.png">
+<meta property="og:image" content="http://example.com/2022/12/30/%E6%95%B0%E5%AD%97%E9%92%9F%E7%9A%84%E8%AE%BE%E8%AE%A1/%E5%9B%BE%E7%89%8714.png">
+<meta property="og:image" content="http://example.com/2022/12/30/%E6%95%B0%E5%AD%97%E9%92%9F%E7%9A%84%E8%AE%BE%E8%AE%A1/%E5%9B%BE%E7%89%8715.png">
+<meta property="article:published_time" content="2022-12-30T03:40:18.000Z">
+<meta property="article:modified_time" content="2022-12-30T06:26:39.816Z">
+<meta property="article:author" content="GuiGe">
+<meta property="article:tag" content="数电">
+<meta property="article:tag" content="数字钟">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/2022/12/30/%E6%95%B0%E5%AD%97%E9%92%9F%E7%9A%84%E8%AE%BE%E8%AE%A1/%E5%9B%BE%E7%89%871.png">
+  
+  
+
+  <!-- feed -->
+  
+
+  
+    
+<link rel="stylesheet" href="/css/main.css">
+
+  
+
+  
+    <link rel="shortcut icon" href="/wengui.work">
+  
+
+  
+
+  
+
+
+  
+</head>
+
+<body>
+  
+
+
+
+
+  <div class='l_body' id='start'>
+    <aside class='l_left' layout='post'>
+    
+
+  
+
+<header class="header"><div class="logo-wrap"><a class="avatar" href="/about/"><div class="bg" style="opacity:0;background-image:url(https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.4/avatar/round/rainbow64@3x.webp);"></div><img no-lazy class="avatar" src="/asset/img/logo.jpg" onerror="javascript:this.classList.add('error');this.src='https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.4/image/2659360.svg';"></a><a class="title" href="/"><div class="main" ff="title">GuiGe</div><div class="sub normal cap">贵歌</div><div class="sub hover cap" style="opacity:0"> wengui.work</div></a></div>
+
+<nav class="menu dis-select"><a class="nav-item active" href="/">文章</a><a class="nav-item" href="/wiki/">项目</a><a class="nav-item" href="/friends/">友链</a><a class="nav-item" href="/about/">关于</a></nav>
+</header>
+
+
+<div class="widgets">
+<widget class="widget-wrapper search"><div class="widget-body"><div class="search-wrapper" id="search"><form class="search-form"><input type="text" class="search-input" id="search-input" data-filter="/blog/" placeholder="文章搜索"><svg t="1670596976048" class="icon search-icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2676" width="200" height="200"><path d="M938.2 832.6L723.8 618.1c-2.5-2.5-5.3-4.4-7.9-6.4 36.2-55.6 57.3-121.8 57.3-193.1C773.3 222.8 614.6 64 418.7 64S64 222.8 64 418.6c0 195.9 158.8 354.6 354.6 354.6 71.3 0 137.5-21.2 193.2-57.4 2 2.7 3.9 5.4 6.3 7.8L832.5 938c14.6 14.6 33.7 21.9 52.8 21.9 19.1 0 38.2-7.3 52.8-21.8 29.2-29.1 29.2-76.4 0.1-105.5M418.7 661.3C284.9 661.3 176 552.4 176 418.6 176 284.9 284.9 176 418.7 176c133.8 0 242.6 108.9 242.6 242.7 0 133.7-108.9 242.6-242.6 242.6" p-id="2677"></path></svg></form><div id="search-result"></div><div class="search-no-result">没有找到内容！</div></div></div></widget>
+
+
+<widget class="widget-wrapper toc single" id="data-toc"><div class="widget-header cap dis-select"><span class="name">数字钟的设计</span></div><div class="widget-body fs14"><div class="doc-tree active"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E9%A1%B9%E7%9B%AE%E6%A6%82%E5%86%B5"><span class="toc-text">一、项目概况</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E9%80%89%E9%A2%98%E7%9B%AE%E7%9A%84"><span class="toc-text">1. 选题目的</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E9%A1%B9%E7%9B%AE%E6%9E%84%E6%80%9D"><span class="toc-text">2. 项目构思</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E6%96%B9%E6%A1%88%E8%AE%BE%E8%AE%A1"><span class="toc-text">二、方案设计</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E7%B3%BB%E7%BB%9F%E7%AE%80%E4%BB%8B"><span class="toc-text">1. 系统简介</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E7%B3%BB%E7%BB%9F%E6%A1%86%E5%9B%BE"><span class="toc-text">2. 系统框图</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E5%90%84%E6%A8%A1%E5%9D%97%E5%85%B7%E4%BD%93%E8%AE%BE%E8%AE%A1"><span class="toc-text">3. 各模块具体设计</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E8%AE%BE%E8%AE%A1%E6%80%BB%E5%9B%BE%EF%BC%88%E7%94%B5%E8%B7%AF%E8%BF%9E%E6%8E%A5%E6%80%BB%E5%9B%BE%EF%BC%89%EF%BC%9A"><span class="toc-text">4. 设计总图（电路连接总图）：</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%E3%80%81%E4%BB%BF%E7%9C%9F%E4%B8%8E%E8%B0%83%E8%AF%95"><span class="toc-text">三、仿真与调试</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E8%AE%A1%E6%95%B0-%E4%BB%BF%E7%9C%9F"><span class="toc-text">1. 计数 仿真</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E9%81%87%E5%88%B0%E4%B8%BB%E8%A6%81%E9%97%AE%E9%A2%98%E5%8F%8A%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95"><span class="toc-text">2. 遇到主要问题及解决办法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%9B%E3%80%81%E7%BB%93%E6%9E%9C%E5%B1%95%E7%A4%BA"><span class="toc-text">四、结果展示</span></a></li></ol></div></div></widget>
+
+
+
+
+</div>
+
+
+    </aside>
+    <div class='l_main'>
+      
+
+      
+
+
+<div class="bread-nav fs12"><div id="breadcrumb"><a class="cap breadcrumb" href="/">主页</a><span class="sep"></span><a class="cap breadcrumb" href="/">文章</a></div><div id="post-meta">发布于&nbsp;<time datetime="2022-12-30T03:40:18.000Z">2022-12-30</time></div></div>
+
+<article class='md-text content post'>
+<h1 class="article-title"><span>数字钟的设计</span></h1>
+<h2 id="一、项目概况"><a href="#一、项目概况" class="headerlink" title="一、项目概况"></a>一、<strong>项目概况</strong></h2><h3 id="1-选题目的"><a href="#1-选题目的" class="headerlink" title="1. 选题目的"></a>1. <strong>选题目的</strong></h3><p>数字钟的出现，给人类提供了巨大的便利，人类可以知道自己某个时刻具体干什么事。例如，秒表可以用来记录某一件事的所用的时间，时钟则可以记录一天的过程。本次实验选题目的，就是通过自己所学到的知识去设计一个数字钟，了解数字钟实现的原理，以及加强自己对所学知识的运用。</p>
+<h3 id="2-项目构思"><a href="#2-项目构思" class="headerlink" title="2. 项目构思"></a>2. <strong>项目构思</strong></h3><p>要实现数字钟，需要有计数模块，它是是最核心的一部分；需要有对时钟信号进行分频的分频模块；需要有对输出结果的动态扫描、显示模块；以及还有设计拓展的各种小功能模块。基于这些模块功能设计，对其进行输入、输出互联，从而去实现一个具有功能性的数字钟。</p>
+<h2 id="二、方案设计"><a href="#二、方案设计" class="headerlink" title="二、方案设计"></a>二、<strong>方案设计</strong></h2><h3 id="1-系统简介"><a href="#1-系统简介" class="headerlink" title="1. 系统简介"></a>1. <strong>系统简介</strong></h3><p>本次实现的数字钟系统中含有各个小模块，具体如下：</p>
+<p>a. 计数模块：数字钟计数的基础，通过计数来实现数字的变化，从而实现对时间变化的同步。</p>
+<p>b. 分频模块：时钟信号的频率过快，我们需要对其实现分频，才可实现现实中1秒时间的变化。</p>
+<p>c. 显示模块：对输出结果进行展示，通过输出绑定数码管，实现数字的显示。</p>
+<p>d. 动态扫描模块：辅助显示模块，选择相应的数码管进行显示模块的输出显示。</p>
+<p>e. 其他功能：基于以上模块，通过其输入输出的连接实现对数字钟的计数，暂停，清零功能。</p>
+<h3 id="2-系统框图"><a href="#2-系统框图" class="headerlink" title="2. 系统框图"></a>2. <strong>系统框图</strong></h3><p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/2022/12/30/%E6%95%B0%E5%AD%97%E9%92%9F%E7%9A%84%E8%AE%BE%E8%AE%A1/%E5%9B%BE%E7%89%871.png" alt="图1"> </p>
+<h3 id="3-各模块具体设计"><a href="#3-各模块具体设计" class="headerlink" title="3. 各模块具体设计"></a>3. <strong>各模块具体设计</strong></h3><p>a. <strong>计数模块：</strong></p>
+<p>①　秒，分（60进制）：利用两个74160分别实现个位计数与十位计数，用个位模块的74160进位端口RCO来实现十位的计数。当十位为0101和个位为1001时，重置计数。</p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/2022/12/30/%E6%95%B0%E5%AD%97%E9%92%9F%E7%9A%84%E8%AE%BE%E8%AE%A1/%E5%9B%BE%E7%89%872.png" alt="图2"> </p>
+<p>②　时（24进制）：利用两个74160分别实现个位计数与十位计数，用个位模块的74160进位端口RCO来实现十位的计数。当十位为0010和个位为0011时，重置计数。</p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/2022/12/30/%E6%95%B0%E5%AD%97%E9%92%9F%E7%9A%84%E8%AE%BE%E8%AE%A1/%E5%9B%BE%E7%89%873.png" alt="图3"> </p>
+<p>b. <strong>分频模块：</strong></p>
+<p>①　利用plm实现对计数模块时钟信号的分频（clkk），设置26位比特位，模值为50<em>1024</em>1024，从而得到1hz分频。</p>
+<p>②　利用plm实现对动态扫描计数部分的分频（lclk），通过不断测试，设置20位比特位，模值为25600显示结果正常。</p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/2022/12/30/%E6%95%B0%E5%AD%97%E9%92%9F%E7%9A%84%E8%AE%BE%E8%AE%A1/%E5%9B%BE%E7%89%874.png" alt="图4"> </p>
+<p>c. <strong>显示模块：</strong></p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/2022/12/30/%E6%95%B0%E5%AD%97%E9%92%9F%E7%9A%84%E8%AE%BE%E8%AE%A1/%E5%9B%BE%E7%89%875.png" alt="图5"> </p>
+<p>①　数据选择器：具体设计如下图，通过动态扫描的数码管位选信号Q的值来选择对应数码管数据（传入的时、分、秒数据）的选择输出。</p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/2022/12/30/%E6%95%B0%E5%AD%97%E9%92%9F%E7%9A%84%E8%AE%BE%E8%AE%A1/%E5%9B%BE%E7%89%876.png" alt="图6"> </p>
+<p>②　7447元件：翻译经数据选择器选择的数据信号，翻译成对应的数码管显示。</p>
+<p>d. <strong>动态扫描模块：</strong></p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/2022/12/30/%E6%95%B0%E5%AD%97%E9%92%9F%E7%9A%84%E8%AE%BE%E8%AE%A1/%E5%9B%BE%E7%89%877.png" alt="图7"> </p>
+<p>前面的74160为模8计数器，重复的进行8个数码管的选择信号输出，74138通过选择信号控制相应数码管的输出，配合显示模块的时钟数据来进行输出。</p>
+<p>e. <strong>秒表，计时器的功能设计：</strong></p>
+<p>①　清零（clrn信号）：</p>
+<p>通过74160异步置零端口CLRN实现，每个计数器连接上clrn控制信号，首先每个信号先加非门，保证没有任何操作时可以正常工作，但操作输入信号1时同时实现异步清零（连接方式如下图）。</p>
+<p>②　暂停（c信号）：</p>
+<p>时钟信号与暂停控制信号组成与门，暂停控制信号后加非门，保证没有任何操作时可以正常工作，而当输入信号1时，通过与门实现对时钟信号的阻断，从而实现暂停（连接方式如下图）。</p>
+<p>③　校时（s信号）：</p>
+<p>在时分秒三个计数模块加入控制信号。控制信号与每个计数器的进位信号组成或门，从而当输入脉冲控制信号时，在没有进位的情况下，每个模块能实现加法计数。（连接方式如下图）</p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/2022/12/30/%E6%95%B0%E5%AD%97%E9%92%9F%E7%9A%84%E8%AE%BE%E8%AE%A1/%E5%9B%BE%E7%89%878.png" alt="图8"> </p>
+<p>f. <strong>准点报时功能：</strong></p>
+<p>通过判断秒钟与分钟的值，当它们都为00：00或00：01时，通过Q输出来控制输出实现报时效果。</p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/2022/12/30/%E6%95%B0%E5%AD%97%E9%92%9F%E7%9A%84%E8%AE%BE%E8%AE%A1/%E5%9B%BE%E7%89%879.png" alt="图9"> </p>
+<h3 id="4-设计总图（电路连接总图）："><a href="#4-设计总图（电路连接总图）：" class="headerlink" title="4. 设计总图（电路连接总图）："></a>4. <strong>设计总图（电路连接总图）：</strong></h3><p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/2022/12/30/%E6%95%B0%E5%AD%97%E9%92%9F%E7%9A%84%E8%AE%BE%E8%AE%A1/%E5%9B%BE%E7%89%8710.png" alt="图10"> </p>
+<h2 id="三、仿真与调试"><a href="#三、仿真与调试" class="headerlink" title="三、仿真与调试"></a>三、<strong>仿真与调试</strong></h2><h3 id="1-计数-仿真"><a href="#1-计数-仿真" class="headerlink" title="1. 计数 仿真"></a>1. <strong>计数 仿真</strong></h3><p>a. 秒，分计数模块仿真：</p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/2022/12/30/%E6%95%B0%E5%AD%97%E9%92%9F%E7%9A%84%E8%AE%BE%E8%AE%A1/%E5%9B%BE%E7%89%8711.png" alt="图11"> </p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/2022/12/30/%E6%95%B0%E5%AD%97%E9%92%9F%E7%9A%84%E8%AE%BE%E8%AE%A1/%E5%9B%BE%E7%89%8712.png" alt="图12"> </p>
+<p>如图所示，计数，进位正常，设计正确。</p>
+<p>b. 小时模块仿真：</p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/2022/12/30/%E6%95%B0%E5%AD%97%E9%92%9F%E7%9A%84%E8%AE%BE%E8%AE%A1/%E5%9B%BE%E7%89%8713.png" alt="图13"> </p>
+<p>如图所示，计数，进位正常，设计正确。</p>
+<h3 id="2-遇到主要问题及解决办法"><a href="#2-遇到主要问题及解决办法" class="headerlink" title="2. 遇到主要问题及解决办法"></a>2. <strong>遇到主要问题及解决办法</strong></h3><p>a. 动态扫描频率导致数码管显示异常</p>
+<p>解决：请教老师大概频率，动手调试测试得以解决</p>
+<p>b. 小时一直无法正常计数与校准</p>
+<p>解决：同步清零未加与非门，粗心用与门导致</p>
+<h2 id="四、结果展示"><a href="#四、结果展示" class="headerlink" title="四、结果展示"></a>四、<strong>结果展示</strong></h2><p> <strong>（具体展示如视频附件）</strong></p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/2022/12/30/%E6%95%B0%E5%AD%97%E9%92%9F%E7%9A%84%E8%AE%BE%E8%AE%A1/%E5%9B%BE%E7%89%8714.png" alt="图14"> </p>
+<p>如图所示，数码管的选择功能正常，显示正常；准点报时功能正常（如图液晶模块边的单独数码管所示）；各功能（123为秒、分、时校时加法计数控制开关，456分别为秒、分、时暂停控制开关，8为清零开关）正常。</p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/2022/12/30/%E6%95%B0%E5%AD%97%E9%92%9F%E7%9A%84%E8%AE%BE%E8%AE%A1/%E5%9B%BE%E7%89%8715.png" alt="图15"> </p>
+
+
+<div class="article-footer reveal fs14"><section id="license"><div class="header"><span>许可协议</span></div><div class="body"><p>本文采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">署名-非商业性使用-相同方式共享 4.0 国际</a> 许可协议，转载请注明出处。</p>
+</div></section></div>
+
+</article>
+
+<div class="related-wrap reveal" id="read-next"><section class="body"><div class="item" id="prev"><div class="note">较新文章</div><a href="/2022/12/30/%E6%95%99%E5%B8%88%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9FC%E8%AF%AD%E8%A8%80(%E4%B8%80)-%E7%B3%BB%E7%BB%9F%E4%BB%8B%E7%BB%8D/">教师管理系统C语言(一)-系统介绍</a></div><div class="item" id="next"><div class="note">较早文章</div><a href="/2022/12/29/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/">博客搭建</a></div></section></div>
+
+
+
+
+
+
+
+
+      
+<footer class="page-footer reveal fs12"><hr><div class="sitemap"><div class="sitemap-group"><span class="fs14">博客</span><a href="/">近期</a><a href="/">标签</a></div><div class="sitemap-group"><span class="fs14">社交</span><a href="/">友链</a><a href="/">留言板</a></div><div class="sitemap-group"><span class="fs14">更多</span><a href="/">联系我</a><a href="/">GitHub</a></div></div><div class="text"><p>本博客所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议，转载请注明出处。</p>
+</div></footer>
+
+      <div class='float-panel mobile-only blur' style='display:none'>
+  <button type='button' class='sidebar-toggle mobile' onclick='sidebar.toggle()'>
+    <svg class="icon" style="width: 1em; height: 1em;vertical-align: middle;fill: currentColor;overflow: hidden;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="15301"><path d="M566.407 808.3c26.9-0.1 49.3-20.8 51.6-47.6-1.9-27.7-23.9-49.7-51.6-51.6h-412.6c-28.2-1.4-52.6 19.5-55.5 47.6 2.3 26.8 24.6 47.5 51.6 47.6h416.5v4z m309.3-249.9c26.9-0.1 49.3-20.8 51.6-47.6-2.2-26.8-24.6-47.5-51.6-47.6h-721.9c-27.7-2.8-52.5 17.4-55.3 45.1-0.1 0.8-0.1 1.7-0.2 2.5 0.9 27.2 23.6 48.5 50.7 47.6H875.707z m-103.1-245.9c26.9-0.1 49.3-20.8 51.6-47.6-0.4-28.3-23.2-51.1-51.5-51.6h-618.9c-29.5-1.1-54.3 21.9-55.5 51.4v0.2c1.4 27.8 25.2 49.2 53 47.8 0.8 0 1.7-0.1 2.5-0.2h618.8z" p-id="15302"></path><path d="M566.407 808.3c26.9-0.1 49.3-20.8 51.6-47.6-1.9-27.7-23.9-49.7-51.6-51.6h-412.6c-28.2-1.4-52.6 19.5-55.5 47.6 1.9 27.7 23.9 49.7 51.6 51.6h416.5z m309.3-249.9c26.9-0.1 49.3-20.8 51.6-47.6-2.2-26.8-24.6-47.5-51.6-47.6h-721.9c-27.7-2.8-52.5 17.4-55.3 45.1-0.1 0.8-0.1 1.7-0.2 2.5 0.9 27.2 23.6 48.5 50.7 47.6H875.707z m-103.1-245.9c26.9-0.1 49.3-20.8 51.6-47.6-0.4-28.3-23.2-51.1-51.5-51.6h-618.9c-29.5-1.1-54.3 21.9-55.5 51.4v0.2c1.4 27.8 25.2 49.2 53 47.8 0.8 0 1.7-0.1 2.5-0.2h618.8z" p-id="15303"></path></svg>
+  </button>
+</div>
+
+    </div>
+  </div>
+  <div class='scripts'>
+    <script type="text/javascript">
+  const stellar = {
+    // 懒加载 css https://github.com/filamentgroup/loadCSS
+    loadCSS: (href, before, media, attributes) => {
+      var doc = window.document;
+      var ss = doc.createElement("link");
+      var ref;
+      if (before) {
+        ref = before;
+      } else {
+        var refs = (doc.body || doc.getElementsByTagName("head")[0]).childNodes;
+        ref = refs[refs.length - 1];
+      }
+      var sheets = doc.styleSheets;
+      if (attributes) {
+        for (var attributeName in attributes) {
+          if (attributes.hasOwnProperty(attributeName)) {
+            ss.setAttribute(attributeName, attributes[attributeName]);
+          }
+        }
+      }
+      ss.rel = "stylesheet";
+      ss.href = href;
+      ss.media = "only x";
+      function ready(cb) {
+        if (doc.body) {
+          return cb();
+        }
+        setTimeout(function () {
+          ready(cb);
+        });
+      }
+      ready(function () {
+        ref.parentNode.insertBefore(ss, before ? ref : ref.nextSibling);
+      });
+      var onloadcssdefined = function (cb) {
+        var resolvedHref = ss.href;
+        var i = sheets.length;
+        while (i--) {
+          if (sheets[i].href === resolvedHref) {
+            return cb();
+          }
+        }
+        setTimeout(function () {
+          onloadcssdefined(cb);
+        });
+      };
+      function loadCB() {
+        if (ss.addEventListener) {
+          ss.removeEventListener("load", loadCB);
+        }
+        ss.media = media || "all";
+      }
+      if (ss.addEventListener) {
+        ss.addEventListener("load", loadCB);
+      }
+      ss.onloadcssdefined = onloadcssdefined;
+      onloadcssdefined(loadCB);
+      return ss;
+    },
+
+    // 从 butterfly 和 volantis 获得灵感
+    loadScript: (src, opt) => new Promise((resolve, reject) => {
+      var script = document.createElement('script');
+      script.src = src;
+      if (opt) {
+        for (let key of Object.keys(opt)) {
+          script[key] = opt[key]
+        }
+      } else {
+        // 默认异步，如果需要同步，第二个参数传入 {} 即可
+        script.async = true
+      }
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    }),
+
+    // https://github.com/jerryc127/hexo-theme-butterfly
+    jQuery: (fn) => {
+      if (typeof jQuery === 'undefined') {
+        stellar.loadScript(stellar.plugins.jQuery).then(fn)
+      } else {
+        fn()
+      }
+    }
+  };
+  stellar.version = '1.18.5';
+  stellar.github = 'https://github.com/xaoxuu/hexo-theme-stellar/tree/1.18.5';
+  stellar.config = {
+    date_suffix: {
+      just: '刚刚',
+      min: '分钟前',
+      hour: '小时前',
+      day: '天前',
+      month: '个月前',
+    },
+  };
+
+  // required plugins (only load if needs)
+  stellar.plugins = {
+    jQuery: 'https://gcore.jsdelivr.net/npm/jquery@3.6.2/dist/jquery.min.js'
+  };
+
+  if ('local_search') {
+    stellar.search = {};
+    stellar.search.service = 'local_search';
+    if (stellar.search.service == 'local_search') {
+      let service_obj = Object.assign({}, {"field":"all","path":"/search.json","content":true,"sort":"-date"});
+      stellar.search[stellar.search.service] = service_obj;
+    }
+  }
+
+  // stellar js
+  stellar.plugins.stellar = Object.assign({"sites":"/js/plugins/sites.js","friends":"/js/plugins/friends.js","ghinfo":"/js/plugins/ghinfo.js","timeline":"/js/plugins/timeline.js","linkcard":"/js/plugins/linkcard.js","fcircle":"/js/plugins/fcircle.js","weibo":"/js/plugins/weibo.js"});
+
+  stellar.plugins.marked = Object.assign("https://cdn.bootcdn.net/ajax/libs/marked/4.0.18/marked.min.js");
+  // optional plugins
+  if ('true' == 'true') {
+    stellar.plugins.lazyload = Object.assign({"enable":true,"js":"https://gcore.jsdelivr.net/npm/vanilla-lazyload@17.8.3/dist/lazyload.min.js","transition":"blur"});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.swiper = Object.assign({"enable":true,"css":"https://unpkg.com/swiper@8.4.5/swiper-bundle.min.css","js":"https://unpkg.com/swiper@8.4.5/swiper-bundle.min.js"});
+  }
+  if ('' == 'true') {
+    stellar.plugins.scrollreveal = Object.assign({"enable":null,"js":"https://gcore.jsdelivr.net/npm/scrollreveal@4.0.9/dist/scrollreveal.min.js","distance":"8px","duration":500,"interval":100,"scale":1});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.preload = Object.assign({"enable":true,"service":"flying_pages","instant_page":"https://gcore.jsdelivr.net/gh/volantis-x/cdn-volantis@4.1.2/js/instant_page.js","flying_pages":"https://gcore.jsdelivr.net/gh/gijo-varghese/flying-pages@2.1.2/flying-pages.min.js"});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.fancybox = Object.assign({"enable":true,"js":"https://gcore.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js","css":"https://gcore.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.css","selector":".swiper-slide img"});
+  }
+  if ('false' == 'true') {
+    stellar.plugins.heti = Object.assign({"enable":false,"css":"https://unpkg.com/heti@0.9.2/umd/heti.min.css","js":"https://unpkg.com/heti@0.9.2/umd/heti-addon.min.js"});
+  }
+</script>
+
+<!-- required -->
+
+  
+<script src="/js/main.js" async></script>
+
+
+
+<!-- optional -->
+
+
+
+<!-- inject -->
+
+
+  </div>
+</body>
+</html>
