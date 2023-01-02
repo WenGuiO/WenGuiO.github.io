@@ -1506,7 +1506,6 @@ article.md-text.content+.related-wrap {
   border-radius: 2px;
   flex-shrink: 0;
   margin-right: 8px;
-  pointer-events: none;
 }
 .md-text .tag-plugin.checkbox input[type=checkbox]:before,
 .md-text .tag-plugin.checkbox input[type=checkbox]:after {
