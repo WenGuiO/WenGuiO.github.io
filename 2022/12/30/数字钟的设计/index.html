@@ -46,7 +46,7 @@
 <meta property="og:image" content="http://wengui.work/2022/12/30/%E6%95%B0%E5%AD%97%E9%92%9F%E7%9A%84%E8%AE%BE%E8%AE%A1/%E5%9B%BE%E7%89%8714.png">
 <meta property="og:image" content="http://wengui.work/2022/12/30/%E6%95%B0%E5%AD%97%E9%92%9F%E7%9A%84%E8%AE%BE%E8%AE%A1/%E5%9B%BE%E7%89%8715.png">
 <meta property="article:published_time" content="2022-12-30T03:40:18.000Z">
-<meta property="article:modified_time" content="2023-01-02T11:37:16.669Z">
+<meta property="article:modified_time" content="2023-01-03T07:40:47.936Z">
 <meta property="article:author" content="GuiGe">
 <meta property="article:tag" content="数电">
 <meta property="article:tag" content="数字钟">
@@ -125,23 +125,32 @@
 <p>c. 显示模块：对输出结果进行展示，通过输出绑定数码管，实现数字的显示。</p>
 <p>d. 动态扫描模块：辅助显示模块，选择相应的数码管进行显示模块的输出显示。</p>
 <p>e. 其他功能：基于以上模块，通过其输入输出的连接实现对数字钟的计数，暂停，清零功能。</p>
-<h3 id="2-系统框图"><a href="#2-系统框图" class="headerlink" title="2. 系统框图"></a>2. <strong>系统框图</strong></h3><p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/2022/12/30/%E6%95%B0%E5%AD%97%E9%92%9F%E7%9A%84%E8%AE%BE%E8%AE%A1/%E5%9B%BE%E7%89%871.png" alt="图1"> </p>
+<h3 id="2-系统框图"><a href="#2-系统框图" class="headerlink" title="2. 系统框图"></a>2. <strong>系统框图</strong></h3><div class="tag-plugin image"><div class="image-bg"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/2022/12/30/%E6%95%B0%E5%AD%97%E9%92%9F%E7%9A%84%E8%AE%BE%E8%AE%A1/图片1.png" alt="图1.系统框图"></div><div class="image-meta"><span class="image-caption center">图1.系统框图</span></div></div>
+
 <h3 id="3-各模块具体设计"><a href="#3-各模块具体设计" class="headerlink" title="3. 各模块具体设计"></a>3. <strong>各模块具体设计</strong></h3><p>a. <strong>计数模块：</strong></p>
 <p>①　秒，分（60进制）：利用两个74160分别实现个位计数与十位计数，用个位模块的74160进位端口RCO来实现十位的计数。当十位为0101和个位为1001时，重置计数。</p>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/2022/12/30/%E6%95%B0%E5%AD%97%E9%92%9F%E7%9A%84%E8%AE%BE%E8%AE%A1/%E5%9B%BE%E7%89%872.png" alt="图2"> </p>
+<div class="tag-plugin image"><div class="image-bg"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/2022/12/30/%E6%95%B0%E5%AD%97%E9%92%9F%E7%9A%84%E8%AE%BE%E8%AE%A1/图片2.png" alt="图2.秒、分钟计数模块"></div><div class="image-meta"><span class="image-caption center">图2.秒、分钟计数模块</span></div></div> 
+
+
 <p>②　时（24进制）：利用两个74160分别实现个位计数与十位计数，用个位模块的74160进位端口RCO来实现十位的计数。当十位为0010和个位为0011时，重置计数。</p>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/2022/12/30/%E6%95%B0%E5%AD%97%E9%92%9F%E7%9A%84%E8%AE%BE%E8%AE%A1/%E5%9B%BE%E7%89%873.png" alt="图3"> </p>
+<div class="tag-plugin image"><div class="image-bg"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/2022/12/30/%E6%95%B0%E5%AD%97%E9%92%9F%E7%9A%84%E8%AE%BE%E8%AE%A1/图片3.png" alt="图3.时钟计数模块"></div><div class="image-meta"><span class="image-caption center">图3.时钟计数模块</span></div></div> 
+
+
 <p>b. <strong>分频模块：</strong></p>
 <p>①　利用plm实现对计数模块时钟信号的分频（clkk），设置26位比特位，模值为50<em>1024</em>1024，从而得到1hz分频。</p>
 <p>②　利用plm实现对动态扫描计数部分的分频（lclk），通过不断测试，设置20位比特位，模值为25600显示结果正常。</p>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/2022/12/30/%E6%95%B0%E5%AD%97%E9%92%9F%E7%9A%84%E8%AE%BE%E8%AE%A1/%E5%9B%BE%E7%89%874.png" alt="图4"> </p>
+<div class="tag-plugin image"><div class="image-bg"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/2022/12/30/%E6%95%B0%E5%AD%97%E9%92%9F%E7%9A%84%E8%AE%BE%E8%AE%A1/图片4.png" alt="图4.分频模块"></div><div class="image-meta"><span class="image-caption center">图4.分频模块</span></div></div>
+
+
 <p>c. <strong>显示模块：</strong></p>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/2022/12/30/%E6%95%B0%E5%AD%97%E9%92%9F%E7%9A%84%E8%AE%BE%E8%AE%A1/%E5%9B%BE%E7%89%875.png" alt="图5"> </p>
+<div class="tag-plugin image"><div class="image-bg"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/2022/12/30/%E6%95%B0%E5%AD%97%E9%92%9F%E7%9A%84%E8%AE%BE%E8%AE%A1/图片5.png" alt="图5.显示模块"></div><div class="image-meta"><span class="image-caption center">图5.显示模块</span></div></div> 
+
+
 <p>①　数据选择器：具体设计如下图，通过动态扫描的数码管位选信号Q的值来选择对应数码管数据（传入的时、分、秒数据）的选择输出。</p>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/2022/12/30/%E6%95%B0%E5%AD%97%E9%92%9F%E7%9A%84%E8%AE%BE%E8%AE%A1/%E5%9B%BE%E7%89%876.png" alt="图6"> </p>
+<div class="tag-plugin image"><div class="image-bg"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/2022/12/30/%E6%95%B0%E5%AD%97%E9%92%9F%E7%9A%84%E8%AE%BE%E8%AE%A1/图片6.png" alt="图6.数据选择器"></div><div class="image-meta"><span class="image-caption center">图6.数据选择器</span></div></div>
 <p>②　7447元件：翻译经数据选择器选择的数据信号，翻译成对应的数码管显示。</p>
 <p>d. <strong>动态扫描模块：</strong></p>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/2022/12/30/%E6%95%B0%E5%AD%97%E9%92%9F%E7%9A%84%E8%AE%BE%E8%AE%A1/%E5%9B%BE%E7%89%877.png" alt="图7"> </p>
+<div class="tag-plugin image"><div class="image-bg"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/2022/12/30/%E6%95%B0%E5%AD%97%E9%92%9F%E7%9A%84%E8%AE%BE%E8%AE%A1/图片7.png" alt="图7.动态扫描模块"></div><div class="image-meta"><span class="image-caption center">图7.动态扫描模块</span></div></div>
 <p>前面的74160为模8计数器，重复的进行8个数码管的选择信号输出，74138通过选择信号控制相应数码管的输出，配合显示模块的时钟数据来进行输出。</p>
 <p>e. <strong>秒表，计时器的功能设计：</strong></p>
 <p>①　清零（clrn信号）：</p>
@@ -150,26 +159,30 @@
 <p>时钟信号与暂停控制信号组成与门，暂停控制信号后加非门，保证没有任何操作时可以正常工作，而当输入信号1时，通过与门实现对时钟信号的阻断，从而实现暂停（连接方式如下图）。</p>
 <p>③　校时（s信号）：</p>
 <p>在时分秒三个计数模块加入控制信号。控制信号与每个计数器的进位信号组成或门，从而当输入脉冲控制信号时，在没有进位的情况下，每个模块能实现加法计数。（连接方式如下图）</p>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/2022/12/30/%E6%95%B0%E5%AD%97%E9%92%9F%E7%9A%84%E8%AE%BE%E8%AE%A1/%E5%9B%BE%E7%89%878.png" alt="图8"> </p>
+<div class="tag-plugin image"><div class="image-bg"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/2022/12/30/%E6%95%B0%E5%AD%97%E9%92%9F%E7%9A%84%E8%AE%BE%E8%AE%A1/图片8.png" alt="图8.清零-暂停-校时"></div><div class="image-meta"><span class="image-caption center">图8.清零-暂停-校时</span></div></div> 
+
 <p>f. <strong>准点报时功能：</strong></p>
 <p>通过判断秒钟与分钟的值，当它们都为00：00或00：01时，通过Q输出来控制输出实现报时效果。</p>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/2022/12/30/%E6%95%B0%E5%AD%97%E9%92%9F%E7%9A%84%E8%AE%BE%E8%AE%A1/%E5%9B%BE%E7%89%879.png" alt="图9"> </p>
-<h3 id="4-设计总图（电路连接总图）："><a href="#4-设计总图（电路连接总图）：" class="headerlink" title="4. 设计总图（电路连接总图）："></a>4. <strong>设计总图（电路连接总图）：</strong></h3><p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/2022/12/30/%E6%95%B0%E5%AD%97%E9%92%9F%E7%9A%84%E8%AE%BE%E8%AE%A1/%E5%9B%BE%E7%89%8710.png" alt="图10"> </p>
+<div class="tag-plugin image"><div class="image-bg"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/2022/12/30/%E6%95%B0%E5%AD%97%E9%92%9F%E7%9A%84%E8%AE%BE%E8%AE%A1/图片9.png" alt="图9.准点报时"></div><div class="image-meta"><span class="image-caption center">图9.准点报时</span></div></div>
+<h3 id="4-设计总图（电路连接总图）："><a href="#4-设计总图（电路连接总图）：" class="headerlink" title="4. 设计总图（电路连接总图）："></a>4. <strong>设计总图（电路连接总图）：</strong></h3><div class="tag-plugin image"><div class="image-bg"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/2022/12/30/%E6%95%B0%E5%AD%97%E9%92%9F%E7%9A%84%E8%AE%BE%E8%AE%A1/图片10.png" alt="图10.总线路设计"></div><div class="image-meta"><span class="image-caption center">图10.总线路设计</span></div></div> 
 <h2 id="三、仿真与调试"><a href="#三、仿真与调试" class="headerlink" title="三、仿真与调试"></a>三、<strong>仿真与调试</strong></h2><h3 id="1-计数-仿真"><a href="#1-计数-仿真" class="headerlink" title="1. 计数 仿真"></a>1. <strong>计数 仿真</strong></h3><p>a. 秒，分计数模块仿真：</p>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/2022/12/30/%E6%95%B0%E5%AD%97%E9%92%9F%E7%9A%84%E8%AE%BE%E8%AE%A1/%E5%9B%BE%E7%89%8711.png" alt="图11"> </p>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/2022/12/30/%E6%95%B0%E5%AD%97%E9%92%9F%E7%9A%84%E8%AE%BE%E8%AE%A1/%E5%9B%BE%E7%89%8712.png" alt="图12"> </p>
+<div class="tag-plugin image"><div class="image-bg"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/2022/12/30/%E6%95%B0%E5%AD%97%E9%92%9F%E7%9A%84%E8%AE%BE%E8%AE%A1/图片11.png" alt="图11"></div><div class="image-meta"><span class="image-caption center">图11</span></div></div> 
+
+<div class="tag-plugin image"><div class="image-bg"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/2022/12/30/%E6%95%B0%E5%AD%97%E9%92%9F%E7%9A%84%E8%AE%BE%E8%AE%A1/图片12.png" alt="图12"></div><div class="image-meta"><span class="image-caption center">图12</span></div></div> 
+
 <p>如图所示，计数，进位正常，设计正确。</p>
 <p>b. 小时模块仿真：</p>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/2022/12/30/%E6%95%B0%E5%AD%97%E9%92%9F%E7%9A%84%E8%AE%BE%E8%AE%A1/%E5%9B%BE%E7%89%8713.png" alt="图13"> </p>
+<div class="tag-plugin image"><div class="image-bg"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/2022/12/30/%E6%95%B0%E5%AD%97%E9%92%9F%E7%9A%84%E8%AE%BE%E8%AE%A1/图片13.png" alt="图13"></div><div class="image-meta"><span class="image-caption center">图13</span></div></div>
 <p>如图所示，计数，进位正常，设计正确。</p>
 <h3 id="2-遇到主要问题及解决办法"><a href="#2-遇到主要问题及解决办法" class="headerlink" title="2. 遇到主要问题及解决办法"></a>2. <strong>遇到主要问题及解决办法</strong></h3><p>a. 动态扫描频率导致数码管显示异常</p>
 <p>解决：请教老师大概频率，动手调试测试得以解决</p>
 <p>b. 小时一直无法正常计数与校准</p>
 <p>解决：同步清零未加与非门，粗心用与门导致</p>
 <h2 id="四、结果展示"><a href="#四、结果展示" class="headerlink" title="四、结果展示"></a>四、<strong>结果展示</strong></h2><p> <strong>（具体展示如视频附件）</strong></p>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/2022/12/30/%E6%95%B0%E5%AD%97%E9%92%9F%E7%9A%84%E8%AE%BE%E8%AE%A1/%E5%9B%BE%E7%89%8714.png" alt="图14"> </p>
+<div class="tag-plugin image"><div class="image-bg"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/2022/12/30/%E6%95%B0%E5%AD%97%E9%92%9F%E7%9A%84%E8%AE%BE%E8%AE%A1/图片14.png" alt="图14"></div><div class="image-meta"><span class="image-caption center">图14</span></div></div>
+
 <p>如图所示，数码管的选择功能正常，显示正常；准点报时功能正常（如图液晶模块边的单独数码管所示）；各功能（123为秒、分、时校时加法计数控制开关，456分别为秒、分、时暂停控制开关，8为清零开关）正常。</p>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/2022/12/30/%E6%95%B0%E5%AD%97%E9%92%9F%E7%9A%84%E8%AE%BE%E8%AE%A1/%E5%9B%BE%E7%89%8715.png" alt="图15"> </p>
+<div class="tag-plugin image"><div class="image-bg"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/2022/12/30/%E6%95%B0%E5%AD%97%E9%92%9F%E7%9A%84%E8%AE%BE%E8%AE%A1/图片15.png" alt="图15"></div><div class="image-meta"><span class="image-caption center">图15</span></div></div> 
 
 
 
@@ -184,7 +197,7 @@
       <div class='title cap theme'>您可能感兴趣的文章</div>
     </section>
     <section class='body'>
-    <div class="related-posts"><a class="item" href="/2022/12/28/bug日志/" title="bug日志"><span class="title">bug日志</span></a></div></section></div>
+    <div class="related-posts"><a class="item" href="/2023/01/01/Happy-new-year-2023/" title="Happy New Year -- 2023 !"><span class="title">Happy New Year -- 2023 !</span></a></div></section></div>
 
 
 
