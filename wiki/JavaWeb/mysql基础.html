@@ -35,7 +35,7 @@
 <meta property="og:image" content="http://wengui.work/assets/wiki/JavaWeb/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%9F%BA%E7%A1%80/sql%E8%BF%90%E7%AE%97%E7%AC%A6.png">
 <meta property="og:image" content="http://wengui.work/assets/wiki/JavaWeb/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%9F%BA%E7%A1%80/%E6%A0%B7%E4%BE%8B%E8%A1%A81.png">
 <meta property="article:published_time" content="2022-01-07T04:52:00.000Z">
-<meta property="article:modified_time" content="2023-01-11T14:13:27.352Z">
+<meta property="article:modified_time" content="2023-01-12T10:30:31.420Z">
 <meta property="article:author" content="GuiGe">
 <meta property="article:tag" content="博客">
 <meta name="twitter:card" content="summary">
@@ -89,7 +89,7 @@
 
 
 
-
+<widget class="widget-wrapper related"><div class="widget-header cap theme dis-select"><span class="name">更多笔记</span></div><div class="widget-body related-posts"><a class="item wiki" href="/wiki/JavaSE/index.html"><span class="title">JavaSE - 基础</span><span class="excerpt">Java学习基础</span></a></div></widget>
 </div>
 
 
@@ -101,7 +101,7 @@
 
   
   
-<div class="bread-nav fs12"><div id="breadcrumb"><a class="cap breadcrumb" id="home" href="/">主页</a><span class="sep"></span><a class="cap breadcrumb" id="menu" href="/wiki/">智库</a><span class="sep"></span><a class="cap breadcrumb" id="proj" href="/wiki/JavaWeb/index.html">JavaWeb</a></div><div id="post-meta">更新于&nbsp;<time datetime="2023-01-11T14:13:27.352Z">2023-01-11</time></div></div>
+<div class="bread-nav fs12"><div id="breadcrumb"><a class="cap breadcrumb" id="home" href="/">主页</a><span class="sep"></span><a class="cap breadcrumb" id="menu" href="/wiki/">智库</a><span class="sep"></span><a class="cap breadcrumb" id="proj" href="/wiki/JavaWeb/index.html">JavaWeb</a></div><div id="post-meta">更新于&nbsp;<time datetime="2023-01-12T10:30:31.420Z">2023-01-12</time></div></div>
 
   <article class='md-text content wiki'>
   <h1 class="article-title"><span>MySQL基础</span></h1>
@@ -153,12 +153,12 @@
 </li>
 <li><p>注释</p>
 <ul>
-<li><p>单行注释: – 注释内容 或 #注释内容(MySQL 特有) </p>
+<li><p>单行注释: <code>--</code> 注释内容 或 <code>#</code>注释内容(MySQL 特有) </p>
 <blockquote>
-<p>注意：使用– 添加单行注释时，–后面一定要加空格，而#没有要求。</p>
+<p>注意：使用<code>--</code> 添加单行注释时，<code>--</code>后面一定要加空格，而<code>#</code>没有要求。</p>
 </blockquote>
 </li>
-<li><p>多行注释: &#x2F;* 注释 *&#x2F;</p>
+<li><p>多行注释: <code>/* 注释内容 */</code></p>
 </li>
 </ul>
 </li>
@@ -174,11 +174,11 @@
 <p>简单理解: 对数据进行查询操作。从数据库表中查询到我们想要的数据。</p>
 </li>
 <li><p>DCL(Data Control Language) 数据控制语言，用来定义数据库的访问权限和安全级别，及创建用户</p>
-<p>DML简单理解就是对数据库进行权限控制。比如我让某一个数据库表只能让某一个用户进行操作等。</p>
+<p>简单理解: 对数据库进行权限控制。比如我让某一个数据库表只能让某一个用户进行操作等。</p>
 </li>
 </ul>
 <blockquote>
-<p>注意： 以后我们最常操作的是 <code>DML</code> 和 <code>DQL</code>  ，因为我们开发中最常操作的就是数据。</p>
+<p>注意： 我们最常操作的是 <code>DML</code> 和 <code>DQL</code>  ，因为开发中最常操作的就是数据。</p>
 </blockquote>
 <h2 id="3-DDL-操作数据库"><a href="#3-DDL-操作数据库" class="headerlink" title="3. DDL:操作数据库"></a>3. DDL:操作数据库</h2><p>操作数据库主要就是对数据库的增删查操作。</p>
 <h3 id="3-1-查询"><a href="#3-1-查询" class="headerlink" title="3.1  查询"></a>3.1  查询</h3><p>查询所有的数据库</p>
@@ -227,13 +227,13 @@
 <h3 id="4-3-数据类型"><a href="#4-3-数据类型" class="headerlink" title="4.3  数据类型"></a>4.3  数据类型</h3><p>MySQL 支持多种类型，可以分为三类：</p>
 <ul>
 <li><p>数值</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">tinyint : 小整数型，占一个字节</span><br><span class="line"><span class="type">int</span>	： 大整数类型，占四个字节</span><br><span class="line">	eg ： age <span class="type">int</span></span><br><span class="line"><span class="keyword">double</span> ： 浮点类型</span><br><span class="line">	使用格式： 字段名 <span class="keyword">double</span>(总长度,小数点后保留的位数)</span><br><span class="line">	eg ： score <span class="keyword">double</span>(<span class="number">5</span>,<span class="number">2</span>)   </span><br></pre></td></tr></table></figure>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">tinyint :</span> <span class="string">小整数型，占一个字节</span></span><br><span class="line"><span class="string">int</span>	<span class="string">：</span> <span class="string">大整数类型，占四个字节</span></span><br><span class="line">	<span class="string">eg</span> <span class="string">：</span> <span class="string">age</span> <span class="string">int</span></span><br><span class="line"><span class="string">double</span> <span class="string">：</span> <span class="string">浮点类型</span></span><br><span class="line">	<span class="string">使用格式：</span> <span class="string">字段名</span> <span class="string">double(总长度,小数点后保留的位数)</span></span><br><span class="line">	<span class="string">eg</span> <span class="string">：</span> <span class="string">score</span> <span class="string">double(5,2)</span>   </span><br></pre></td></tr></table></figure>
 </li>
 <li><p>日期</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">date</span> ： 日期值。只包含年月日</span><br><span class="line">	eg ：birthday <span class="type">date</span> ： </span><br><span class="line">datetime ： 混合日期和时间值。包含年月日时分秒</span><br></pre></td></tr></table></figure>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">date</span> <span class="string">：</span> <span class="string">日期值。只包含年月日</span></span><br><span class="line">	<span class="string">eg</span> <span class="string">：birthday</span> <span class="string">date</span> <span class="string">：</span> </span><br><span class="line"><span class="string">datetime</span> <span class="string">：</span> <span class="string">混合日期和时间值。包含年月日时分秒</span></span><br></pre></td></tr></table></figure>
 </li>
 <li><p>字符串</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">char</span> ： 定长字符串。</span><br><span class="line">	优点：存储性能高</span><br><span class="line">	缺点：浪费空间</span><br><span class="line">	eg ： name <span class="type">char</span>(<span class="number">10</span>)  如果存储的数据字符个数不足<span class="number">10</span>个，也会占<span class="number">10</span>个的空间</span><br><span class="line">	</span><br><span class="line"><span class="type">varchar</span> ： 变长字符串。</span><br><span class="line">	优点：节约空间</span><br><span class="line">	缺点：存储性能底</span><br><span class="line">	eg ： name <span class="type">varchar</span>(<span class="number">10</span>) 如果存储的数据字符个数不足<span class="number">10</span>个，那就数据字符个数是几就占几个的空间	</span><br></pre></td></tr></table></figure></li>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">char</span> <span class="string">：</span> <span class="string">定长字符串。</span></span><br><span class="line">	<span class="string">优点：存储性能高</span></span><br><span class="line">	<span class="string">缺点：浪费空间</span></span><br><span class="line">	<span class="string">eg</span> <span class="string">：</span> <span class="string">name</span> <span class="string">char(10)</span>  <span class="string">如果存储的数据字符个数不足10个，也会占10个的空间</span></span><br><span class="line">	</span><br><span class="line"><span class="string">varchar</span> <span class="string">：</span> <span class="string">变长字符串。</span></span><br><span class="line">	<span class="string">优点：节约空间</span></span><br><span class="line">	<span class="string">缺点：存储性能底</span></span><br><span class="line">	<span class="string">eg</span> <span class="string">：</span> <span class="string">name</span> <span class="string">varchar(10)</span> <span class="string">如果存储的数据字符个数不足10个，那就数据字符个数是几就占几个的空间</span>	</span><br></pre></td></tr></table></figure></li>
 </ul>
 <h3 id="4-4-删除表"><a href="#4-4-删除表" class="headerlink" title="4.4  删除表"></a>4.4  删除表</h3><ul>
 <li><p><strong>删除表</strong></p>
@@ -270,9 +270,9 @@
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> 表名(列名<span class="number">1</span>,列名<span class="number">2</span>,…) <span class="keyword">VALUES</span>(值<span class="number">1</span>,值<span class="number">2</span>,…),(值<span class="number">1</span>,值<span class="number">2</span>,…),(值<span class="number">1</span>,值<span class="number">2</span>,…)…;</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> 表名 <span class="keyword">VALUES</span>(值<span class="number">1</span>,值<span class="number">2</span>,…),(值<span class="number">1</span>,值<span class="number">2</span>,…),(值<span class="number">1</span>,值<span class="number">2</span>,…)…;</span><br></pre></td></tr></table></figure>
 </li>
 <li><p><strong>练习</strong></p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> stu;</span><br></pre></td></tr></table></figure></li>
+</li>
 </ul>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 给指定列添加数据</span></span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> stu (id, NAME) <span class="keyword">VALUES</span> (<span class="number">1</span>, <span class="string">&#x27;张三&#x27;</span>);</span><br><span class="line"><span class="comment">-- 给所有列添加数据，列名的列表可以省略的</span></span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> stu (id,NAME,sex,birthday,score,email,tel,STATUS) <span class="keyword">VALUES</span> (<span class="number">2</span>,<span class="string">&#x27;李四&#x27;</span>,<span class="string">&#x27;男&#x27;</span>,<span class="string">&#x27;1999-11-11&#x27;</span>,<span class="number">88.88</span>,<span class="string">&#x27;lisi@itcast.cn&#x27;</span>,<span class="string">&#x27;13888888888&#x27;</span>,<span class="number">1</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> stu <span class="keyword">VALUES</span> (<span class="number">2</span>,<span class="string">&#x27;李四&#x27;</span>,<span class="string">&#x27;男&#x27;</span>,<span class="string">&#x27;1999-11-11&#x27;</span>,<span class="number">88.88</span>,<span class="string">&#x27;lisi@itcast.cn&#x27;</span>,<span class="string">&#x27;13888888888&#x27;</span>,<span class="number">1</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 批量添加数据</span></span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> stu <span class="keyword">VALUES</span> </span><br><span class="line">	(<span class="number">2</span>,<span class="string">&#x27;李四&#x27;</span>,<span class="string">&#x27;男&#x27;</span>,<span class="string">&#x27;1999-11-11&#x27;</span>,<span class="number">88.88</span>,<span class="string">&#x27;lisi@itcast.cn&#x27;</span>,<span class="string">&#x27;13888888888&#x27;</span>,<span class="number">1</span>),</span><br><span class="line">	(<span class="number">2</span>,<span class="string">&#x27;李四&#x27;</span>,<span class="string">&#x27;男&#x27;</span>,<span class="string">&#x27;1999-11-11&#x27;</span>,<span class="number">88.88</span>,<span class="string">&#x27;lisi@itcast.cn&#x27;</span>,<span class="string">&#x27;13888888888&#x27;</span>,<span class="number">1</span>),</span><br><span class="line">	(<span class="number">2</span>,<span class="string">&#x27;李四&#x27;</span>,<span class="string">&#x27;男&#x27;</span>,<span class="string">&#x27;1999-11-11&#x27;</span>,<span class="number">88.88</span>,<span class="string">&#x27;lisi@itcast.cn&#x27;</span>,<span class="string">&#x27;13888888888&#x27;</span>,<span class="number">1</span>);</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 给指定列添加数据</span></span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> stu (id, NAME) <span class="keyword">VALUES</span> (<span class="number">1</span>, <span class="string">&#x27;张三&#x27;</span>);</span><br><span class="line"><span class="comment">-- 给所有列添加数据，列名的列表可以省略的</span></span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> stu (id,NAME,sex,birthday,score,email,tel,STATUS) <span class="keyword">VALUES</span> (<span class="number">2</span>,<span class="string">&#x27;李四&#x27;</span>,<span class="string">&#x27;男&#x27;</span>,<span class="string">&#x27;1999-11-11&#x27;</span>,<span class="number">88.88</span>,<span class="string">&#x27;lisi@qq.com&#x27;</span>,<span class="string">&#x27;13888888888&#x27;</span>,<span class="number">1</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> stu <span class="keyword">VALUES</span> (<span class="number">2</span>,<span class="string">&#x27;李四&#x27;</span>,<span class="string">&#x27;男&#x27;</span>,<span class="string">&#x27;1999-11-11&#x27;</span>,<span class="number">88.88</span>,<span class="string">&#x27;lisi@qq.com&#x27;</span>,<span class="string">&#x27;13888888888&#x27;</span>,<span class="number">1</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 批量添加数据</span></span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> stu <span class="keyword">VALUES</span> </span><br><span class="line">	(<span class="number">2</span>,<span class="string">&#x27;李四&#x27;</span>,<span class="string">&#x27;男&#x27;</span>,<span class="string">&#x27;1999-11-11&#x27;</span>,<span class="number">88.88</span>,<span class="string">&#x27;lisi@qq.com&#x27;</span>,<span class="string">&#x27;13888888888&#x27;</span>,<span class="number">1</span>),</span><br><span class="line">	(<span class="number">2</span>,<span class="string">&#x27;李四&#x27;</span>,<span class="string">&#x27;男&#x27;</span>,<span class="string">&#x27;1999-11-11&#x27;</span>,<span class="number">88.88</span>,<span class="string">&#x27;lisi@qq.com&#x27;</span>,<span class="string">&#x27;13888888888&#x27;</span>,<span class="number">1</span>),</span><br><span class="line">	(<span class="number">2</span>,<span class="string">&#x27;李四&#x27;</span>,<span class="string">&#x27;男&#x27;</span>,<span class="string">&#x27;1999-11-11&#x27;</span>,<span class="number">88.88</span>,<span class="string">&#x27;lisi@qq.com&#x27;</span>,<span class="string">&#x27;13888888888&#x27;</span>,<span class="number">1</span>);</span><br></pre></td></tr></table></figure>
 
 
 <h3 id="5-2-修改数据"><a href="#5-2-修改数据" class="headerlink" title="5.2  修改数据"></a>5.2  修改数据</h3><ul>
