@@ -89,7 +89,7 @@
 
 
 
-<widget class="widget-wrapper related"><div class="widget-header cap theme dis-select"><span class="name">更多笔记</span></div><div class="widget-body related-posts"><a class="item wiki" href="/wiki/JavaSE/index.html"><span class="title">JavaSE - 基础</span><span class="excerpt">Java学习基础</span></a></div></widget>
+<widget class="widget-wrapper related"><div class="widget-header cap theme dis-select"><span class="name">更多知识库</span></div><div class="widget-body related-posts"><a class="item wiki" href="/wiki/JavaSE/index.html"><span class="title">JavaSE - 基础</span><span class="excerpt">Java学习基础</span></a></div></widget>
 </div>
 
 
@@ -548,6 +548,18 @@
 
   
 
+  <div class='related-wrap md-text reveal' id="comments">
+    <section class='header cmt-title cap theme'>
+      快来参与讨论吧
+    </section>
+    <section class='body cmt-body waline'>
+      
+
+<div id="waline_container" class="waline_thread"><svg class="loading" style="vertical-align: middle;fill: currentColor;overflow: hidden;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2709"><path d="M832 512c0-176-144-320-320-320V128c211.2 0 384 172.8 384 384h-64zM192 512c0 176 144 320 320 320v64C300.8 896 128 723.2 128 512h64z" p-id="2710"></path></svg></div>
+
+    </section>
+  </div>
+
 
 
 
@@ -715,6 +727,30 @@
 
 
 <!-- optional -->
+
+  <script>
+  function load_comment(){
+    if(!document.getElementById("waline_container"))return;
+    stellar.loadCSS('https://unpkg.com/@waline/client@2.14.1/dist/waline.css');
+    stellar.loadScript('https://unpkg.com/@waline/client@2.14.1/dist/waline.js', {defer:true}).then(function () {
+      const el = document.getElementById("waline_container");
+      var path = el.getAttribute('comment_id');
+      if (!path) {
+        path = decodeURI(window.location.pathname);
+      }
+      Waline.init(Object.assign({"js":"https://unpkg.com/@waline/client@2.14.1/dist/waline.js","css":"https://unpkg.com/@waline/client@2.14.1/dist/waline.css","serverURL":"https://waline-to-blog-mcu8exvuo-wenguio.vercel.app","commentCount":true,"pageview":false,"emoji":["https://unpkg.com/@waline/emojis@1.1.0/weibo","https://unpkg.com/@waline/emojis@1.1.0/alus","https://unpkg.com/@waline/emojis@1.1.0/bilibili","https://unpkg.com/@waline/emojis@1.1.0/qq","https://unpkg.com/@waline/emojis@1.1.0/tieba","https://unpkg.com/@waline/emojis@1.1.0/tw-emoji","https://unpkg.com/@waline/emojis@1.1.0/bmoji"],"locale":{"placeholder":"评论可不登录，填写邮箱或注册并登录后评论，即可在第一时间收到消息提醒。"}}, {
+        el: '#waline_container',
+        path: path,
+      }));
+    });
+  }
+  window.addEventListener('DOMContentLoaded', (event) => {
+    console.log('DOM fully loaded and parsed');
+    load_comment();
+  });
+
+</script>
+
 
 
 
