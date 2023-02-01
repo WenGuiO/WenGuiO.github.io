@@ -32,28 +32,28 @@
     <meta name="description" content="一、目的和要求教师工资管理是较难处理的信息管理，使用传统方法，浪费时间，并不高效，并且数据容易丢失。为方便处理教师的信息，提高信息管理效率，此次选题为教师工资管理系统。 一个较为完善的教师工资管理系统，需要包含一个教师的完整信息：教师号、姓名、性别、单位名称、家庭住址、联系电话、基本工资、津贴、生活补贴、应发工资、电话费、水电费、房租、所得税、卫生费、公积金，需要对数据进行录入、排序，同时可以对其">
 <meta property="og:type" content="article">
 <meta property="og:title" content="教师管理系统C语言(一)-系统介绍">
-<meta property="og:url" content="http://wengui.work/2022/12/30/%E6%95%99%E5%B8%88%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9FC%E8%AF%AD%E8%A8%80(%E4%B8%80)-%E7%B3%BB%E7%BB%9F%E4%BB%8B%E7%BB%8D/index.html">
+<meta property="og:url" content="https://wengui.work/2022/12/30/%E6%95%99%E5%B8%88%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9FC%E8%AF%AD%E8%A8%80(%E4%B8%80)-%E7%B3%BB%E7%BB%9F%E4%BB%8B%E7%BB%8D/index.html">
 <meta property="og:site_name" content="GuiGe">
 <meta property="og:description" content="一、目的和要求教师工资管理是较难处理的信息管理，使用传统方法，浪费时间，并不高效，并且数据容易丢失。为方便处理教师的信息，提高信息管理效率，此次选题为教师工资管理系统。 一个较为完善的教师工资管理系统，需要包含一个教师的完整信息：教师号、姓名、性别、单位名称、家庭住址、联系电话、基本工资、津贴、生活补贴、应发工资、电话费、水电费、房租、所得税、卫生费、公积金，需要对数据进行录入、排序，同时可以对其">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://wengui.work/assets/post/%E6%95%99%E5%B8%88%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9FC%E8%AF%AD%E8%A8%80(%E4%B8%80)-%E7%B3%BB%E7%BB%9F%E4%BB%8B%E7%BB%8D/%E5%9B%BE%E7%89%871.png">
-<meta property="og:image" content="http://wengui.work/assets/post/%E6%95%99%E5%B8%88%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9FC%E8%AF%AD%E8%A8%80(%E4%B8%80)-%E7%B3%BB%E7%BB%9F%E4%BB%8B%E7%BB%8D/%E5%9B%BE%E7%89%872.png">
-<meta property="og:image" content="http://wengui.work/assets/post/%E6%95%99%E5%B8%88%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9FC%E8%AF%AD%E8%A8%80(%E4%B8%80)-%E7%B3%BB%E7%BB%9F%E4%BB%8B%E7%BB%8D/%E5%9B%BE%E7%89%873.png">
-<meta property="og:image" content="http://wengui.work/assets/post/%E6%95%99%E5%B8%88%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9FC%E8%AF%AD%E8%A8%80(%E4%B8%80)-%E7%B3%BB%E7%BB%9F%E4%BB%8B%E7%BB%8D/%E5%9B%BE%E7%89%874.png">
-<meta property="og:image" content="http://wengui.work/assets/post/%E6%95%99%E5%B8%88%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9FC%E8%AF%AD%E8%A8%80(%E4%B8%80)-%E7%B3%BB%E7%BB%9F%E4%BB%8B%E7%BB%8D/%E5%9B%BE%E7%89%875.png">
-<meta property="og:image" content="http://wengui.work/assets/post/%E6%95%99%E5%B8%88%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9FC%E8%AF%AD%E8%A8%80(%E4%B8%80)-%E7%B3%BB%E7%BB%9F%E4%BB%8B%E7%BB%8D/%E5%9B%BE%E7%89%876.png">
-<meta property="og:image" content="http://wengui.work/assets/post/%E6%95%99%E5%B8%88%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9FC%E8%AF%AD%E8%A8%80(%E4%B8%80)-%E7%B3%BB%E7%BB%9F%E4%BB%8B%E7%BB%8D/%E5%9B%BE%E7%89%877.png">
-<meta property="og:image" content="http://wengui.work/assets/post/%E6%95%99%E5%B8%88%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9FC%E8%AF%AD%E8%A8%80(%E4%B8%80)-%E7%B3%BB%E7%BB%9F%E4%BB%8B%E7%BB%8D/%E5%9B%BE%E7%89%878.png">
-<meta property="og:image" content="http://wengui.work/assets/post/%E6%95%99%E5%B8%88%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9FC%E8%AF%AD%E8%A8%80(%E4%B8%80)-%E7%B3%BB%E7%BB%9F%E4%BB%8B%E7%BB%8D/%E5%9B%BE%E7%89%879.png">
-<meta property="og:image" content="http://wengui.work/assets/post/%E6%95%99%E5%B8%88%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9FC%E8%AF%AD%E8%A8%80(%E4%B8%80)-%E7%B3%BB%E7%BB%9F%E4%BB%8B%E7%BB%8D/%E5%9B%BE%E7%89%8710.png">
-<meta property="og:image" content="http://wengui.work/assets/post/%E6%95%99%E5%B8%88%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9FC%E8%AF%AD%E8%A8%80(%E4%B8%80)-%E7%B3%BB%E7%BB%9F%E4%BB%8B%E7%BB%8D/%E5%9B%BE%E7%89%8711.png">
-<meta property="og:image" content="http://wengui.work/assets/post/%E6%95%99%E5%B8%88%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9FC%E8%AF%AD%E8%A8%80(%E4%B8%80)-%E7%B3%BB%E7%BB%9F%E4%BB%8B%E7%BB%8D/%E5%9B%BE%E7%89%8712.png">
+<meta property="og:image" content="https://wengui.work/assets/post/%E6%95%99%E5%B8%88%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9FC%E8%AF%AD%E8%A8%80(%E4%B8%80)-%E7%B3%BB%E7%BB%9F%E4%BB%8B%E7%BB%8D/%E5%9B%BE%E7%89%871.png">
+<meta property="og:image" content="https://wengui.work/assets/post/%E6%95%99%E5%B8%88%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9FC%E8%AF%AD%E8%A8%80(%E4%B8%80)-%E7%B3%BB%E7%BB%9F%E4%BB%8B%E7%BB%8D/%E5%9B%BE%E7%89%872.png">
+<meta property="og:image" content="https://wengui.work/assets/post/%E6%95%99%E5%B8%88%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9FC%E8%AF%AD%E8%A8%80(%E4%B8%80)-%E7%B3%BB%E7%BB%9F%E4%BB%8B%E7%BB%8D/%E5%9B%BE%E7%89%873.png">
+<meta property="og:image" content="https://wengui.work/assets/post/%E6%95%99%E5%B8%88%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9FC%E8%AF%AD%E8%A8%80(%E4%B8%80)-%E7%B3%BB%E7%BB%9F%E4%BB%8B%E7%BB%8D/%E5%9B%BE%E7%89%874.png">
+<meta property="og:image" content="https://wengui.work/assets/post/%E6%95%99%E5%B8%88%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9FC%E8%AF%AD%E8%A8%80(%E4%B8%80)-%E7%B3%BB%E7%BB%9F%E4%BB%8B%E7%BB%8D/%E5%9B%BE%E7%89%875.png">
+<meta property="og:image" content="https://wengui.work/assets/post/%E6%95%99%E5%B8%88%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9FC%E8%AF%AD%E8%A8%80(%E4%B8%80)-%E7%B3%BB%E7%BB%9F%E4%BB%8B%E7%BB%8D/%E5%9B%BE%E7%89%876.png">
+<meta property="og:image" content="https://wengui.work/assets/post/%E6%95%99%E5%B8%88%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9FC%E8%AF%AD%E8%A8%80(%E4%B8%80)-%E7%B3%BB%E7%BB%9F%E4%BB%8B%E7%BB%8D/%E5%9B%BE%E7%89%877.png">
+<meta property="og:image" content="https://wengui.work/assets/post/%E6%95%99%E5%B8%88%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9FC%E8%AF%AD%E8%A8%80(%E4%B8%80)-%E7%B3%BB%E7%BB%9F%E4%BB%8B%E7%BB%8D/%E5%9B%BE%E7%89%878.png">
+<meta property="og:image" content="https://wengui.work/assets/post/%E6%95%99%E5%B8%88%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9FC%E8%AF%AD%E8%A8%80(%E4%B8%80)-%E7%B3%BB%E7%BB%9F%E4%BB%8B%E7%BB%8D/%E5%9B%BE%E7%89%879.png">
+<meta property="og:image" content="https://wengui.work/assets/post/%E6%95%99%E5%B8%88%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9FC%E8%AF%AD%E8%A8%80(%E4%B8%80)-%E7%B3%BB%E7%BB%9F%E4%BB%8B%E7%BB%8D/%E5%9B%BE%E7%89%8710.png">
+<meta property="og:image" content="https://wengui.work/assets/post/%E6%95%99%E5%B8%88%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9FC%E8%AF%AD%E8%A8%80(%E4%B8%80)-%E7%B3%BB%E7%BB%9F%E4%BB%8B%E7%BB%8D/%E5%9B%BE%E7%89%8711.png">
+<meta property="og:image" content="https://wengui.work/assets/post/%E6%95%99%E5%B8%88%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9FC%E8%AF%AD%E8%A8%80(%E4%B8%80)-%E7%B3%BB%E7%BB%9F%E4%BB%8B%E7%BB%8D/%E5%9B%BE%E7%89%8712.png">
 <meta property="article:published_time" content="2022-12-30T03:56:50.000Z">
 <meta property="article:modified_time" content="2023-01-30T12:12:17.180Z">
 <meta property="article:author" content="GuiGe">
 <meta property="article:tag" content="C语言">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="http://wengui.work/assets/post/%E6%95%99%E5%B8%88%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9FC%E8%AF%AD%E8%A8%80(%E4%B8%80)-%E7%B3%BB%E7%BB%9F%E4%BB%8B%E7%BB%8D/%E5%9B%BE%E7%89%871.png">
+<meta name="twitter:image" content="https://wengui.work/assets/post/%E6%95%99%E5%B8%88%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9FC%E8%AF%AD%E8%A8%80(%E4%B8%80)-%E7%B3%BB%E7%BB%9F%E4%BB%8B%E7%BB%8D/%E5%9B%BE%E7%89%871.png">
   
   
 

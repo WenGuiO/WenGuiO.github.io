@@ -32,32 +32,32 @@
     <meta name="description" content="一、项目概况1. 选题目的数字钟的出现，给人类提供了巨大的便利，人类可以知道自己某个时刻具体干什么事。例如，秒表可以用来记录某一件事的所用的时间，时钟则可以记录一天的过程。本次实验选题目的，就是通过自己所学到的知识去设计一个数字钟，了解数字钟实现的原理，以及加强自己对所学知识的运用。 2. 项目构思要实现数字钟，需要有计数模块，它是是最核心的一部分；需要有对时钟信号进行分频的分频模块；需要有对输出">
 <meta property="og:type" content="article">
 <meta property="og:title" content="数字钟的设计">
-<meta property="og:url" content="http://wengui.work/2022/12/30/%E6%95%B0%E5%AD%97%E9%92%9F%E7%9A%84%E8%AE%BE%E8%AE%A1/index.html">
+<meta property="og:url" content="https://wengui.work/2022/12/30/%E6%95%B0%E5%AD%97%E9%92%9F%E7%9A%84%E8%AE%BE%E8%AE%A1/index.html">
 <meta property="og:site_name" content="GuiGe">
 <meta property="og:description" content="一、项目概况1. 选题目的数字钟的出现，给人类提供了巨大的便利，人类可以知道自己某个时刻具体干什么事。例如，秒表可以用来记录某一件事的所用的时间，时钟则可以记录一天的过程。本次实验选题目的，就是通过自己所学到的知识去设计一个数字钟，了解数字钟实现的原理，以及加强自己对所学知识的运用。 2. 项目构思要实现数字钟，需要有计数模块，它是是最核心的一部分；需要有对时钟信号进行分频的分频模块；需要有对输出">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://wengui.work/assets/post/%E6%95%B0%E5%AD%97%E9%92%9F%E7%9A%84%E8%AE%BE%E8%AE%A1/%E5%9B%BE%E7%89%871.png">
-<meta property="og:image" content="http://wengui.work/assets/post/%E6%95%B0%E5%AD%97%E9%92%9F%E7%9A%84%E8%AE%BE%E8%AE%A1/%E5%9B%BE%E7%89%872.png">
-<meta property="og:image" content="http://wengui.work/assets/post/%E6%95%B0%E5%AD%97%E9%92%9F%E7%9A%84%E8%AE%BE%E8%AE%A1/%E5%9B%BE%E7%89%873.png">
-<meta property="og:image" content="http://wengui.work/assets/post/%E6%95%B0%E5%AD%97%E9%92%9F%E7%9A%84%E8%AE%BE%E8%AE%A1/%E5%9B%BE%E7%89%874.png">
-<meta property="og:image" content="http://wengui.work/assets/post/%E6%95%B0%E5%AD%97%E9%92%9F%E7%9A%84%E8%AE%BE%E8%AE%A1/%E5%9B%BE%E7%89%875.png">
-<meta property="og:image" content="http://wengui.work/assets/post/%E6%95%B0%E5%AD%97%E9%92%9F%E7%9A%84%E8%AE%BE%E8%AE%A1/%E5%9B%BE%E7%89%876.png">
-<meta property="og:image" content="http://wengui.work/assets/post/%E6%95%B0%E5%AD%97%E9%92%9F%E7%9A%84%E8%AE%BE%E8%AE%A1/%E5%9B%BE%E7%89%877.png">
-<meta property="og:image" content="http://wengui.work/assets/post/%E6%95%B0%E5%AD%97%E9%92%9F%E7%9A%84%E8%AE%BE%E8%AE%A1/%E5%9B%BE%E7%89%878.png">
-<meta property="og:image" content="http://wengui.work/assets/post/%E6%95%B0%E5%AD%97%E9%92%9F%E7%9A%84%E8%AE%BE%E8%AE%A1/%E5%9B%BE%E7%89%879.png">
-<meta property="og:image" content="http://wengui.work/assets/post/%E6%95%B0%E5%AD%97%E9%92%9F%E7%9A%84%E8%AE%BE%E8%AE%A1/%E5%9B%BE%E7%89%8710.png">
-<meta property="og:image" content="http://wengui.work/assets/post/%E6%95%B0%E5%AD%97%E9%92%9F%E7%9A%84%E8%AE%BE%E8%AE%A1/%E5%9B%BE%E7%89%8711.png">
-<meta property="og:image" content="http://wengui.work/assets/post/%E6%95%B0%E5%AD%97%E9%92%9F%E7%9A%84%E8%AE%BE%E8%AE%A1/%E5%9B%BE%E7%89%8712.png">
-<meta property="og:image" content="http://wengui.work/assets/post/%E6%95%B0%E5%AD%97%E9%92%9F%E7%9A%84%E8%AE%BE%E8%AE%A1/%E5%9B%BE%E7%89%8713.png">
-<meta property="og:image" content="http://wengui.work/assets/post/%E6%95%B0%E5%AD%97%E9%92%9F%E7%9A%84%E8%AE%BE%E8%AE%A1/%E5%9B%BE%E7%89%8714.png">
-<meta property="og:image" content="http://wengui.work/assets/post/%E6%95%B0%E5%AD%97%E9%92%9F%E7%9A%84%E8%AE%BE%E8%AE%A1/%E5%9B%BE%E7%89%8715.png">
+<meta property="og:image" content="https://wengui.work/assets/post/%E6%95%B0%E5%AD%97%E9%92%9F%E7%9A%84%E8%AE%BE%E8%AE%A1/%E5%9B%BE%E7%89%871.png">
+<meta property="og:image" content="https://wengui.work/assets/post/%E6%95%B0%E5%AD%97%E9%92%9F%E7%9A%84%E8%AE%BE%E8%AE%A1/%E5%9B%BE%E7%89%872.png">
+<meta property="og:image" content="https://wengui.work/assets/post/%E6%95%B0%E5%AD%97%E9%92%9F%E7%9A%84%E8%AE%BE%E8%AE%A1/%E5%9B%BE%E7%89%873.png">
+<meta property="og:image" content="https://wengui.work/assets/post/%E6%95%B0%E5%AD%97%E9%92%9F%E7%9A%84%E8%AE%BE%E8%AE%A1/%E5%9B%BE%E7%89%874.png">
+<meta property="og:image" content="https://wengui.work/assets/post/%E6%95%B0%E5%AD%97%E9%92%9F%E7%9A%84%E8%AE%BE%E8%AE%A1/%E5%9B%BE%E7%89%875.png">
+<meta property="og:image" content="https://wengui.work/assets/post/%E6%95%B0%E5%AD%97%E9%92%9F%E7%9A%84%E8%AE%BE%E8%AE%A1/%E5%9B%BE%E7%89%876.png">
+<meta property="og:image" content="https://wengui.work/assets/post/%E6%95%B0%E5%AD%97%E9%92%9F%E7%9A%84%E8%AE%BE%E8%AE%A1/%E5%9B%BE%E7%89%877.png">
+<meta property="og:image" content="https://wengui.work/assets/post/%E6%95%B0%E5%AD%97%E9%92%9F%E7%9A%84%E8%AE%BE%E8%AE%A1/%E5%9B%BE%E7%89%878.png">
+<meta property="og:image" content="https://wengui.work/assets/post/%E6%95%B0%E5%AD%97%E9%92%9F%E7%9A%84%E8%AE%BE%E8%AE%A1/%E5%9B%BE%E7%89%879.png">
+<meta property="og:image" content="https://wengui.work/assets/post/%E6%95%B0%E5%AD%97%E9%92%9F%E7%9A%84%E8%AE%BE%E8%AE%A1/%E5%9B%BE%E7%89%8710.png">
+<meta property="og:image" content="https://wengui.work/assets/post/%E6%95%B0%E5%AD%97%E9%92%9F%E7%9A%84%E8%AE%BE%E8%AE%A1/%E5%9B%BE%E7%89%8711.png">
+<meta property="og:image" content="https://wengui.work/assets/post/%E6%95%B0%E5%AD%97%E9%92%9F%E7%9A%84%E8%AE%BE%E8%AE%A1/%E5%9B%BE%E7%89%8712.png">
+<meta property="og:image" content="https://wengui.work/assets/post/%E6%95%B0%E5%AD%97%E9%92%9F%E7%9A%84%E8%AE%BE%E8%AE%A1/%E5%9B%BE%E7%89%8713.png">
+<meta property="og:image" content="https://wengui.work/assets/post/%E6%95%B0%E5%AD%97%E9%92%9F%E7%9A%84%E8%AE%BE%E8%AE%A1/%E5%9B%BE%E7%89%8714.png">
+<meta property="og:image" content="https://wengui.work/assets/post/%E6%95%B0%E5%AD%97%E9%92%9F%E7%9A%84%E8%AE%BE%E8%AE%A1/%E5%9B%BE%E7%89%8715.png">
 <meta property="article:published_time" content="2022-12-30T03:40:18.000Z">
 <meta property="article:modified_time" content="2023-01-30T12:12:22.036Z">
 <meta property="article:author" content="GuiGe">
 <meta property="article:tag" content="数电">
 <meta property="article:tag" content="数字钟">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="http://wengui.work/assets/post/%E6%95%B0%E5%AD%97%E9%92%9F%E7%9A%84%E8%AE%BE%E8%AE%A1/%E5%9B%BE%E7%89%871.png">
+<meta name="twitter:image" content="https://wengui.work/assets/post/%E6%95%B0%E5%AD%97%E9%92%9F%E7%9A%84%E8%AE%BE%E8%AE%A1/%E5%9B%BE%E7%89%871.png">
   
   
 
