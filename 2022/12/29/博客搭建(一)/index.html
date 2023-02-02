@@ -3,7 +3,7 @@
 
 <head>
   <meta name="generator" content="Hexo 6.3.0">
-  <meta name="hexo-theme" content="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.18.5">
+  <meta name="hexo-theme" content="https://github.com/WenGuiO.github.io/tree/1.18.5">
   <meta charset="utf-8">
   
 
@@ -90,7 +90,7 @@
 
 <header class="header"><div class="logo-wrap"><a class="avatar" href="/about/"><div class="bg" style="opacity:0;background-image:url(https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.4/avatar/round/rainbow64@3x.webp);"></div><img no-lazy class="avatar" src="/assets/img/avatar1.jpg" onerror="javascript:this.classList.add('error');this.src='https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.4/image/2659360.svg';"></a><a class="title" href="/"><div class="main" ff="title">GuiGe</div><div class="sub normal cap">事常足，心常惬</div><div class="sub hover cap" style="opacity:0"> wengui.work</div></a></div>
 
-<nav class="menu dis-select"><a class="nav-item active" href="/">文章</a><a class="nav-item" href="/wiki/">智库</a><a class="nav-item" href="/notes/">宝盒</a><a class="nav-item" href="/more/">更多</a></nav>
+<nav class="menu dis-select"><a class="nav-item active" href="/">文章</a><a class="nav-item" href="/wiki/">智库</a><a class="nav-item" href="/notes/">宝盒</a><a class="nav-item" href="/about/">更多</a></nav>
 </header>
 
 
@@ -208,7 +208,6 @@
 </br>
 <script type="text/javascript">
 function show_runtime() {
-    window.setTimeout("show_runtime()", 1000);
     X = new Date("12/26/2022 20:34:01");
     Y = new Date();
     T = (Y.getTime() - X.getTime());
@@ -220,9 +219,9 @@ function show_runtime() {
     c = (b - B) * 60;
     C = Math.floor((b - B) * 60);
     D = Math.floor((c - C) * 60);
-    runtime_span.innerHTML = "⏱️本站已运行 " + A + "天" + B + "小时" + C + "分" + D + "秒"
+    runtime_span.innerHTML = "⏱️本站已运行 " + A + "天" + B + "小时" + C + "分" + D + "秒";
 }
-show_runtime();
+window.setInterval("show_runtime()", 1000);
 </script>
 <span id="runtime_span"></span>
 </center>

@@ -3,7 +3,7 @@
 
 <head>
   <meta name="generator" content="Hexo 6.3.0">
-  <meta name="hexo-theme" content="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.18.5">
+  <meta name="hexo-theme" content="https://github.com/WenGuiO.github.io/tree/1.18.5">
   <meta charset="utf-8">
   
 
@@ -531,7 +531,6 @@
 </br>
 <script type="text/javascript">
 function show_runtime() {
-    window.setTimeout("show_runtime()", 1000);
     X = new Date("12/26/2022 20:34:01");
     Y = new Date();
     T = (Y.getTime() - X.getTime());
@@ -543,9 +542,9 @@ function show_runtime() {
     c = (b - B) * 60;
     C = Math.floor((b - B) * 60);
     D = Math.floor((c - C) * 60);
-    runtime_span.innerHTML = "⏱️本站已运行 " + A + "天" + B + "小时" + C + "分" + D + "秒"
+    runtime_span.innerHTML = "⏱️本站已运行 " + A + "天" + B + "小时" + C + "分" + D + "秒";
 }
-show_runtime();
+window.setInterval("show_runtime()", 1000);
 </script>
 <span id="runtime_span"></span>
 </center>
