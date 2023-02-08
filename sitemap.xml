@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://wengui.work/2023/02/08/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA(%E7%99%BD%E5%AB%96%E7%AF%87)/</loc>
+    
+    <lastmod>2023-02-08</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://wengui.work/more/index.html</loc>
     
     <lastmod>2023-02-07</lastmod>
@@ -229,7 +238,7 @@
 
   <url>
     <loc>https://wengui.work/</loc>
-    <lastmod>2023-02-07</lastmod>
+    <lastmod>2023-02-08</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -237,70 +246,70 @@
   
   <url>
     <loc>https://wengui.work/tags/%E7%94%9F%E6%B4%BB/</loc>
-    <lastmod>2023-02-07</lastmod>
+    <lastmod>2023-02-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://wengui.work/tags/%E6%9D%82%E8%AE%B0/</loc>
-    <lastmod>2023-02-07</lastmod>
+    <lastmod>2023-02-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://wengui.work/tags/%E5%B7%A5%E5%85%B7/</loc>
-    <lastmod>2023-02-07</lastmod>
+    <lastmod>2023-02-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://wengui.work/tags/%E6%95%99%E7%A8%8B/</loc>
-    <lastmod>2023-02-07</lastmod>
+    <lastmod>2023-02-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://wengui.work/tags/Linux/</loc>
-    <lastmod>2023-02-07</lastmod>
+    <lastmod>2023-02-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://wengui.work/tags/bug/</loc>
-    <lastmod>2023-02-07</lastmod>
+    <lastmod>2023-02-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://wengui.work/tags/%E5%8D%9A%E5%AE%A2/</loc>
-    <lastmod>2023-02-07</lastmod>
+    <lastmod>2023-02-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://wengui.work/tags/C%E8%AF%AD%E8%A8%80/</loc>
-    <lastmod>2023-02-07</lastmod>
+    <lastmod>2023-02-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://wengui.work/tags/%E6%95%B0%E7%94%B5/</loc>
-    <lastmod>2023-02-07</lastmod>
+    <lastmod>2023-02-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://wengui.work/tags/%E6%95%B0%E5%AD%97%E9%92%9F/</loc>
-    <lastmod>2023-02-07</lastmod>
+    <lastmod>2023-02-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
@@ -309,42 +318,42 @@
   
   <url>
     <loc>https://wengui.work/categories/%E6%9D%82%E8%AE%B0/</loc>
-    <lastmod>2023-02-07</lastmod>
+    <lastmod>2023-02-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://wengui.work/categories/%E6%95%99%E7%A8%8B/</loc>
-    <lastmod>2023-02-07</lastmod>
+    <lastmod>2023-02-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://wengui.work/categories/Linux/</loc>
-    <lastmod>2023-02-07</lastmod>
+    <lastmod>2023-02-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://wengui.work/categories/%E6%97%A5%E5%BF%97%E8%AE%B0%E5%BD%95/</loc>
-    <lastmod>2023-02-07</lastmod>
+    <lastmod>2023-02-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://wengui.work/categories/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/</loc>
-    <lastmod>2023-02-07</lastmod>
+    <lastmod>2023-02-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://wengui.work/categories/%E5%AE%9E%E9%AA%8C%E8%AE%BE%E8%AE%A1/</loc>
-    <lastmod>2023-02-07</lastmod>
+    <lastmod>2023-02-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
