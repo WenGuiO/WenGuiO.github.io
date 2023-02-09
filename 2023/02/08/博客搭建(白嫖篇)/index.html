@@ -29,18 +29,18 @@
   <title>博客搭建(白嫖篇) - GuiGe</title>
 
   
-    <meta name="description" content="搭建说明准备应用的配置Node.js 配置Hexo 框架的配置与使用说明Git 配置与部署使用Gitee page 的部署">
+    <meta name="description" content="搭建说明Node.js 配置Hexo 框架的配置与使用说明Git 配置与部署使用VS Code 便捷管理Gitee page 的部署">
 <meta property="og:type" content="article">
 <meta property="og:title" content="博客搭建(白嫖篇)">
 <meta property="og:url" content="https://wengui.work/2023/02/08/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA(%E7%99%BD%E5%AB%96%E7%AF%87)/index.html">
 <meta property="og:site_name" content="GuiGe">
-<meta property="og:description" content="搭建说明准备应用的配置Node.js 配置Hexo 框架的配置与使用说明Git 配置与部署使用Gitee page 的部署">
+<meta property="og:description" content="搭建说明Node.js 配置Hexo 框架的配置与使用说明Git 配置与部署使用VS Code 便捷管理Gitee page 的部署">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2023-02-08T15:11:27.000Z">
-<meta property="article:modified_time" content="2023-02-08T15:12:38.323Z">
+<meta property="article:modified_time" content="2023-02-09T10:17:26.847Z">
 <meta property="article:author" content="GuiGe">
 <meta property="article:tag" content="博客">
-<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:card" content="summary">
   
   
 
@@ -92,7 +92,7 @@
 </div></widget>
 
 
-<widget class="widget-wrapper toc single" id="data-toc"><div class="widget-header cap dis-select"><span class="name">博客搭建(白嫖篇)</span></div><div class="widget-body fs14"><div class="doc-tree active"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%90%AD%E5%BB%BA%E8%AF%B4%E6%98%8E"><span class="toc-text">搭建说明</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%87%86%E5%A4%87%E5%BA%94%E7%94%A8%E7%9A%84%E9%85%8D%E7%BD%AE"><span class="toc-text">准备应用的配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Node-js-%E9%85%8D%E7%BD%AE"><span class="toc-text">Node.js 配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Hexo-%E6%A1%86%E6%9E%B6%E7%9A%84%E9%85%8D%E7%BD%AE%E4%B8%8E%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E"><span class="toc-text">Hexo 框架的配置与使用说明</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Git-%E9%85%8D%E7%BD%AE%E4%B8%8E%E9%83%A8%E7%BD%B2%E4%BD%BF%E7%94%A8"><span class="toc-text">Git 配置与部署使用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Gitee-page-%E7%9A%84%E9%83%A8%E7%BD%B2"><span class="toc-text">Gitee page 的部署</span></a></li></ol></div></div></widget>
+<widget class="widget-wrapper toc single" id="data-toc"><div class="widget-header cap dis-select"><span class="name">博客搭建(白嫖篇)</span></div><div class="widget-body fs14"><div class="doc-tree active"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%90%AD%E5%BB%BA%E8%AF%B4%E6%98%8E"><span class="toc-text">搭建说明</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Node-js-%E9%85%8D%E7%BD%AE"><span class="toc-text">Node.js 配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Hexo-%E6%A1%86%E6%9E%B6%E7%9A%84%E9%85%8D%E7%BD%AE%E4%B8%8E%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E"><span class="toc-text">Hexo 框架的配置与使用说明</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Git-%E9%85%8D%E7%BD%AE%E4%B8%8E%E9%83%A8%E7%BD%B2%E4%BD%BF%E7%94%A8"><span class="toc-text">Git 配置与部署使用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#VS-Code-%E4%BE%BF%E6%8D%B7%E7%AE%A1%E7%90%86"><span class="toc-text">VS Code 便捷管理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Gitee-page-%E7%9A%84%E9%83%A8%E7%BD%B2"><span class="toc-text">Gitee page 的部署</span></a></li></ol></div></div></widget>
 
 
 
@@ -110,7 +110,7 @@
 
 <article class='md-text content post'>
 <h1 class="article-title"><span>博客搭建(白嫖篇)</span></h1>
-<h2 id="搭建说明"><a href="#搭建说明" class="headerlink" title="搭建说明"></a>搭建说明</h2><h2 id="准备应用的配置"><a href="#准备应用的配置" class="headerlink" title="准备应用的配置"></a>准备应用的配置</h2><h2 id="Node-js-配置"><a href="#Node-js-配置" class="headerlink" title="Node.js 配置"></a>Node.js 配置</h2><h2 id="Hexo-框架的配置与使用说明"><a href="#Hexo-框架的配置与使用说明" class="headerlink" title="Hexo 框架的配置与使用说明"></a>Hexo 框架的配置与使用说明</h2><h2 id="Git-配置与部署使用"><a href="#Git-配置与部署使用" class="headerlink" title="Git 配置与部署使用"></a>Git 配置与部署使用</h2><h2 id="Gitee-page-的部署"><a href="#Gitee-page-的部署" class="headerlink" title="Gitee page 的部署"></a>Gitee page 的部署</h2>
+<h2 id="搭建说明"><a href="#搭建说明" class="headerlink" title="搭建说明"></a>搭建说明</h2><h2 id="Node-js-配置"><a href="#Node-js-配置" class="headerlink" title="Node.js 配置"></a>Node.js 配置</h2><h2 id="Hexo-框架的配置与使用说明"><a href="#Hexo-框架的配置与使用说明" class="headerlink" title="Hexo 框架的配置与使用说明"></a>Hexo 框架的配置与使用说明</h2><h2 id="Git-配置与部署使用"><a href="#Git-配置与部署使用" class="headerlink" title="Git 配置与部署使用"></a>Git 配置与部署使用</h2><h2 id="VS-Code-便捷管理"><a href="#VS-Code-便捷管理" class="headerlink" title="VS Code 便捷管理"></a>VS Code 便捷管理</h2><h2 id="Gitee-page-的部署"><a href="#Gitee-page-的部署" class="headerlink" title="Gitee page 的部署"></a>Gitee page 的部署</h2>
 
 
 
