@@ -26,21 +26,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="theme-color" content="#f8f8f8">
 
-  <title>JavaSE：线程池 - GuiGe</title>
+  <title>JavaSE：线程池 - 闻桂の小窝</title>
 
   
     <meta name="description" content="线程池介绍线程池是一个可以复用线程的技术。 如果用户每发起一个请求，后台就创建一个新线程来处理，下次新任务来了又要再次创建新线程，而线程的创建对于系统的开销是很大的，会严重影响系统性能。 线程池便是为处理这一状况。 工作流程提交一个任务到线程池中，线程池的工作流程如下：    判断线程池里的核心线程是否都在执行任务，如果不是（核心线程空闲或者还有核心线程没有被创建）则创建一个新的工作线程来执行任务">
 <meta property="og:type" content="website">
 <meta property="og:title" content="线程池">
 <meta property="og:url" content="https://wengui.work/wiki/JavaSE/%E7%BA%BF%E7%A8%8B%E6%B1%A0.html">
-<meta property="og:site_name" content="GuiGe">
+<meta property="og:site_name" content="闻桂の小窝">
 <meta property="og:description" content="线程池介绍线程池是一个可以复用线程的技术。 如果用户每发起一个请求，后台就创建一个新线程来处理，下次新任务来了又要再次创建新线程，而线程的创建对于系统的开销是很大的，会严重影响系统性能。 线程池便是为处理这一状况。 工作流程提交一个任务到线程池中，线程池的工作流程如下：    判断线程池里的核心线程是否都在执行任务，如果不是（核心线程空闲或者还有核心线程没有被创建）则创建一个新的工作线程来执行任务">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://wengui.work/assets/wiki/JavaSE/%E5%A4%9A%E7%BA%BF%E7%A8%8B/%E7%BA%BF%E7%A8%8B%E6%B1%A0%E5%B7%A5%E4%BD%9C%E6%B5%81%E7%A8%8B.png">
 <meta property="og:image" content="https://wengui.work/assets/wiki/JavaSE/%E5%A4%9A%E7%BA%BF%E7%A8%8B/%E9%98%BF%E9%87%8C%E5%B7%B4%E5%B7%B4%E5%BC%80%E5%8F%91%E6%89%8B%E5%86%8C-EXecutors.png">
 <meta property="article:published_time" content="2022-01-13T12:49:00.000Z">
 <meta property="article:modified_time" content="2023-01-15T15:05:45.222Z">
-<meta property="article:author" content="GuiGe">
+<meta property="article:author" content="wengui">
 <meta property="article:tag" content="wengui, 博客">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://wengui.work/assets/wiki/JavaSE/%E5%A4%9A%E7%BA%BF%E7%A8%8B/%E7%BA%BF%E7%A8%8B%E6%B1%A0%E5%B7%A5%E4%BD%9C%E6%B5%81%E7%A8%8B.png">
