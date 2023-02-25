@@ -26,21 +26,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="theme-color" content="#f8f8f8">
 
-  <title>博客搭建(白嫖篇) - 闻桂の小窝</title>
+  <title>博客搭建(免费部署) - 闻桂の小窝</title>
 
   
     <meta name="description" content="小白、非本专业者教程–不管是哪个行业，都可以拥有一个属于自己的博客或网站，我们可以在自己的空间内自由发挥。本篇文章将通过Hexo与Gitee Page来讲解如何免费的搭建自己的小网站。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="博客搭建(白嫖篇)">
-<meta property="og:url" content="https://wengui.work/2023/02/08/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA(%E7%99%BD%E5%AB%96%E7%AF%87)/index.html">
+<meta property="og:title" content="博客搭建(免费部署)">
+<meta property="og:url" content="https://wengui.work/2023/02/08/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA(%E5%85%8D%E8%B4%B9%E9%83%A8%E7%BD%B2)/index.html">
 <meta property="og:site_name" content="闻桂の小窝">
 <meta property="og:description" content="小白、非本专业者教程–不管是哪个行业，都可以拥有一个属于自己的博客或网站，我们可以在自己的空间内自由发挥。本篇文章将通过Hexo与Gitee Page来讲解如何免费的搭建自己的小网站。">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2023-02-08T15:11:27.000Z">
-<meta property="article:modified_time" content="2023-02-09T15:42:44.100Z">
+<meta property="article:modified_time" content="2023-02-25T06:39:01.740Z">
 <meta property="article:author" content="wengui">
 <meta property="article:tag" content="博客">
-<meta name="twitter:card" content="summary">
+<meta name="twitter:card" content="summary_large_image">
   
   
 
@@ -92,7 +92,7 @@
 </div></widget>
 
 
-<widget class="widget-wrapper toc single" id="data-toc"><div class="widget-header cap dis-select"><span class="name">博客搭建(白嫖篇)</span></div><div class="widget-body fs14"><div class="doc-tree active"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%90%AD%E5%BB%BA%E8%AF%B4%E6%98%8E"><span class="toc-text">搭建说明</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Node-js-%E9%85%8D%E7%BD%AE"><span class="toc-text">Node.js 配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Hexo-%E6%A1%86%E6%9E%B6%E7%9A%84%E9%85%8D%E7%BD%AE%E4%B8%8E%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E"><span class="toc-text">Hexo 框架的配置与使用说明</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Git-%E9%85%8D%E7%BD%AE%E4%B8%8E%E9%83%A8%E7%BD%B2%E4%BD%BF%E7%94%A8"><span class="toc-text">Git 配置与部署使用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#VS-Code-%E4%BE%BF%E6%8D%B7%E7%AE%A1%E7%90%86"><span class="toc-text">VS Code 便捷管理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Gitee-page-%E7%9A%84%E9%83%A8%E7%BD%B2"><span class="toc-text">Gitee page 的部署</span></a></li></ol></div></div></widget>
+<widget class="widget-wrapper toc single" id="data-toc"><div class="widget-header cap dis-select"><span class="name">博客搭建(免费部署)</span></div><div class="widget-body fs14"><div class="doc-tree active"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%90%AD%E5%BB%BA%E8%AF%B4%E6%98%8E"><span class="toc-text">搭建说明</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%A2%84%E5%A4%87%E5%BA%94%E7%94%A8%E9%85%8D%E7%BD%AE"><span class="toc-text">预备应用配置</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-Node-js-%E9%85%8D%E7%BD%AE"><span class="toc-text">1. Node.js 配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-Git-%E9%85%8D%E7%BD%AE"><span class="toc-text">2. Git 配置</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Hexo-%E6%A1%86%E6%9E%B6%E7%9A%84%E9%85%8D%E7%BD%AE%E4%B8%8E%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E"><span class="toc-text">Hexo 框架的配置与使用说明</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BD%91%E9%A1%B5%E7%9A%84%E9%83%A8%E7%BD%B2"><span class="toc-text">网页的部署</span></a></li></ol></div></div></widget>
 
 
 
@@ -109,11 +109,19 @@
 <div class="bread-nav fs12"><div id="breadcrumb"><a class="cap breadcrumb" href="/">主页</a><span class="sep"></span><a class="cap breadcrumb" href="/">文章</a><span class="sep"></span><a class="cap breadcrumb-link" href="/categories/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/">博客搭建</a></div><div id="post-meta">发布于&nbsp;<time datetime="2023-02-08T15:11:27.000Z">2023-02-08</time></div></div>
 
 <article class='md-text content post'>
-<h1 class="article-title"><span>博客搭建(白嫖篇)</span></h1>
+<h1 class="article-title"><span>博客搭建(免费部署)</span></h1>
 <p>小白、非本专业者教程–不管是哪个行业，都可以拥有一个属于自己的博客或网站，我们可以在自己的空间内自由发挥。本篇文章将通过<code>Hexo</code>与<code>Gitee Page</code>来讲解如何免费的搭建自己的小网站。</p>
 <span id="more"></span>
 
-<h2 id="搭建说明"><a href="#搭建说明" class="headerlink" title="搭建说明"></a>搭建说明</h2><h2 id="Node-js-配置"><a href="#Node-js-配置" class="headerlink" title="Node.js 配置"></a>Node.js 配置</h2><h2 id="Hexo-框架的配置与使用说明"><a href="#Hexo-框架的配置与使用说明" class="headerlink" title="Hexo 框架的配置与使用说明"></a>Hexo 框架的配置与使用说明</h2><h2 id="Git-配置与部署使用"><a href="#Git-配置与部署使用" class="headerlink" title="Git 配置与部署使用"></a>Git 配置与部署使用</h2><h2 id="VS-Code-便捷管理"><a href="#VS-Code-便捷管理" class="headerlink" title="VS Code 便捷管理"></a>VS Code 便捷管理</h2><h2 id="Gitee-page-的部署"><a href="#Gitee-page-的部署" class="headerlink" title="Gitee page 的部署"></a>Gitee page 的部署</h2>
+<h2 id="搭建说明"><a href="#搭建说明" class="headerlink" title="搭建说明"></a>搭建说明</h2><p>关于博客框架有多种，比较常见热门的为WordPress，VuePress，Hugo，Hexo等等。在这里，WenGui不进行介绍，如果想要了解可自行对以上关键字进行搜索。</p>
+<p>WenGui浅尝过以上框架，最终本站选用了 Hexo，主要便是看重了以下优点：</p>
+<ul>
+<li>纯静态博客，部署简单、成本低廉、运行优化高效，被攻击的可能性更低。</li>
+<li>博客网站没有网站后台，不存在后台安全漏洞的问题。</li>
+<li>支持Markdown解析文章，一个网页我们可轻易的通过主题和Markdown来渲染成一个漂亮的网页。</li>
+</ul>
+<p>相比与其他框架，Hexo更加便于我们的博客管理，对于其他非专业者来说，最大的优势便是只需学习Markdown语法便可生成我们的文章与页面设计。</p>
+<h2 id="预备应用配置"><a href="#预备应用配置" class="headerlink" title="预备应用配置"></a>预备应用配置</h2><h3 id="1-Node-js-配置"><a href="#1-Node-js-配置" class="headerlink" title="1. Node.js 配置"></a>1. Node.js 配置</h3><h3 id="2-Git-配置"><a href="#2-Git-配置" class="headerlink" title="2. Git 配置"></a>2. Git 配置</h3><h2 id="Hexo-框架的配置与使用说明"><a href="#Hexo-框架的配置与使用说明" class="headerlink" title="Hexo 框架的配置与使用说明"></a>Hexo 框架的配置与使用说明</h2><h2 id="网页的部署"><a href="#网页的部署" class="headerlink" title="网页的部署"></a>网页的部署</h2>
 
 
 
