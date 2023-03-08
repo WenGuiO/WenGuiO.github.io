@@ -2,6 +2,24 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://wengui.work/wiki/WebSecurity/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95.html</loc>
+    
+    <lastmod>2023-03-08</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://wengui.work/wiki/WebSecurity/index.html</loc>
+    
+    <lastmod>2023-03-08</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://wengui.work/about/index.html</loc>
     
     <lastmod>2023-02-28</lastmod>
@@ -229,7 +247,7 @@
 
   <url>
     <loc>https://wengui.work/</loc>
-    <lastmod>2023-03-06</lastmod>
+    <lastmod>2023-03-08</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -237,56 +255,56 @@
   
   <url>
     <loc>https://wengui.work/tags/%E7%94%9F%E6%B4%BB/</loc>
-    <lastmod>2023-03-06</lastmod>
+    <lastmod>2023-03-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://wengui.work/tags/%E6%9D%82%E8%AE%B0/</loc>
-    <lastmod>2023-03-06</lastmod>
+    <lastmod>2023-03-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://wengui.work/tags/%E5%B7%A5%E5%85%B7/</loc>
-    <lastmod>2023-03-06</lastmod>
+    <lastmod>2023-03-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://wengui.work/tags/%E6%95%99%E7%A8%8B/</loc>
-    <lastmod>2023-03-06</lastmod>
+    <lastmod>2023-03-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://wengui.work/tags/%E5%8D%9A%E5%AE%A2/</loc>
-    <lastmod>2023-03-06</lastmod>
+    <lastmod>2023-03-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://wengui.work/tags/C%E8%AF%AD%E8%A8%80/</loc>
-    <lastmod>2023-03-06</lastmod>
+    <lastmod>2023-03-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://wengui.work/tags/%E6%95%B0%E7%94%B5/</loc>
-    <lastmod>2023-03-06</lastmod>
+    <lastmod>2023-03-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://wengui.work/tags/%E6%95%B0%E5%AD%97%E9%92%9F/</loc>
-    <lastmod>2023-03-06</lastmod>
+    <lastmod>2023-03-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
@@ -295,28 +313,28 @@
   
   <url>
     <loc>https://wengui.work/categories/%E6%9D%82%E8%AE%B0/</loc>
-    <lastmod>2023-03-06</lastmod>
+    <lastmod>2023-03-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://wengui.work/categories/%E6%95%99%E7%A8%8B/</loc>
-    <lastmod>2023-03-06</lastmod>
+    <lastmod>2023-03-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://wengui.work/categories/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/</loc>
-    <lastmod>2023-03-06</lastmod>
+    <lastmod>2023-03-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://wengui.work/categories/%E5%AE%9E%E9%AA%8C%E8%AE%BE%E8%AE%A1/</loc>
-    <lastmod>2023-03-06</lastmod>
+    <lastmod>2023-03-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
