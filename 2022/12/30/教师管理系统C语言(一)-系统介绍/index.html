@@ -1,46 +1,465 @@
-.l_body {
-  display: flex;
-  margin: auto;
-  padding: 0 var(--gap-l);
-  justify-content: center;
+<!DOCTYPE html>
+<html lang='zh-CN'>
+
+<head>
+  <meta name="generator" content="Hexo 6.3.0">
+  <meta name="hexo-theme" content="https://github.com/WenGuiO.github.io/tree/1.18.5">
+  <meta charset="utf-8">
+  
+
+  <meta http-equiv='x-dns-prefetch-control' content='on' />
+  <link rel='dns-prefetch' href='https://gcore.jsdelivr.net'>
+  <link rel="preconnect" href="https://gcore.jsdelivr.net" crossorigin>
+  <link rel='dns-prefetch' href='//unpkg.com'>
+  <meta name="msvalidate.01" content="45968838DFB6C9D5B590645B5E53E4F5" />
+
+  <meta name="360-site-verification" content="fd51027118ddbf66f8025e6cc73e816c" />
+  <meta name="baidu-site-verification" content="codeva-l18amtgLO6" />
+  <meta name="sogou_site_verification" content="PW4jAJ0fbl" />
+  <meta name="bytedance-verification-code" content="hyqYqjYQ1Udxu1V3G4bO" />
+
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="HandheldFriendly" content="True" >
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="theme-color" content="#f8f8f8">
+
+  <title>教师管理系统C语言(一)-系统介绍 - 闻桂の小窝</title>
+
+  
+    <meta name="description" content="一、目的和要求教师工资管理是较难处理的信息管理，使用传统方法，浪费时间，并不高效，并且数据容易丢失。为方便处理教师的信息，提高信息管理效率，此次项目设计为教师工资管理系统。 一个较为完善的教师工资管理系统，需要包含一个教师的完整信息：教师号、姓名、性别、单位名称、家庭住址、联系电话、基本工资、津贴、生活补贴、应发工资、电话费、水电费、房租、所得税、卫生费、公积金，需要对数据进行录入、排序，同时可以">
+<meta property="og:type" content="article">
+<meta property="og:title" content="教师管理系统C语言(一)-系统介绍">
+<meta property="og:url" content="https://wengui.work/2022/12/30/%E6%95%99%E5%B8%88%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9FC%E8%AF%AD%E8%A8%80(%E4%B8%80)-%E7%B3%BB%E7%BB%9F%E4%BB%8B%E7%BB%8D/index.html">
+<meta property="og:site_name" content="闻桂の小窝">
+<meta property="og:description" content="一、目的和要求教师工资管理是较难处理的信息管理，使用传统方法，浪费时间，并不高效，并且数据容易丢失。为方便处理教师的信息，提高信息管理效率，此次项目设计为教师工资管理系统。 一个较为完善的教师工资管理系统，需要包含一个教师的完整信息：教师号、姓名、性别、单位名称、家庭住址、联系电话、基本工资、津贴、生活补贴、应发工资、电话费、水电费、房租、所得税、卫生费、公积金，需要对数据进行录入、排序，同时可以">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://wengui.work/assets/post/%E6%95%99%E5%B8%88%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9FC%E8%AF%AD%E8%A8%80(%E4%B8%80)-%E7%B3%BB%E7%BB%9F%E4%BB%8B%E7%BB%8D/%E5%9B%BE%E7%89%871.png">
+<meta property="og:image" content="https://wengui.work/assets/post/%E6%95%99%E5%B8%88%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9FC%E8%AF%AD%E8%A8%80(%E4%B8%80)-%E7%B3%BB%E7%BB%9F%E4%BB%8B%E7%BB%8D/%E5%9B%BE%E7%89%872.png">
+<meta property="og:image" content="https://wengui.work/assets/post/%E6%95%99%E5%B8%88%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9FC%E8%AF%AD%E8%A8%80(%E4%B8%80)-%E7%B3%BB%E7%BB%9F%E4%BB%8B%E7%BB%8D/%E5%9B%BE%E7%89%873.png">
+<meta property="og:image" content="https://wengui.work/assets/post/%E6%95%99%E5%B8%88%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9FC%E8%AF%AD%E8%A8%80(%E4%B8%80)-%E7%B3%BB%E7%BB%9F%E4%BB%8B%E7%BB%8D/%E5%9B%BE%E7%89%874.png">
+<meta property="og:image" content="https://wengui.work/assets/post/%E6%95%99%E5%B8%88%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9FC%E8%AF%AD%E8%A8%80(%E4%B8%80)-%E7%B3%BB%E7%BB%9F%E4%BB%8B%E7%BB%8D/%E5%9B%BE%E7%89%875.png">
+<meta property="og:image" content="https://wengui.work/assets/post/%E6%95%99%E5%B8%88%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9FC%E8%AF%AD%E8%A8%80(%E4%B8%80)-%E7%B3%BB%E7%BB%9F%E4%BB%8B%E7%BB%8D/%E5%9B%BE%E7%89%876.png">
+<meta property="og:image" content="https://wengui.work/assets/post/%E6%95%99%E5%B8%88%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9FC%E8%AF%AD%E8%A8%80(%E4%B8%80)-%E7%B3%BB%E7%BB%9F%E4%BB%8B%E7%BB%8D/%E5%9B%BE%E7%89%877.png">
+<meta property="og:image" content="https://wengui.work/assets/post/%E6%95%99%E5%B8%88%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9FC%E8%AF%AD%E8%A8%80(%E4%B8%80)-%E7%B3%BB%E7%BB%9F%E4%BB%8B%E7%BB%8D/%E5%9B%BE%E7%89%878.png">
+<meta property="og:image" content="https://wengui.work/assets/post/%E6%95%99%E5%B8%88%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9FC%E8%AF%AD%E8%A8%80(%E4%B8%80)-%E7%B3%BB%E7%BB%9F%E4%BB%8B%E7%BB%8D/%E5%9B%BE%E7%89%879.png">
+<meta property="og:image" content="https://wengui.work/assets/post/%E6%95%99%E5%B8%88%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9FC%E8%AF%AD%E8%A8%80(%E4%B8%80)-%E7%B3%BB%E7%BB%9F%E4%BB%8B%E7%BB%8D/%E5%9B%BE%E7%89%8710.png">
+<meta property="og:image" content="https://wengui.work/assets/post/%E6%95%99%E5%B8%88%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9FC%E8%AF%AD%E8%A8%80(%E4%B8%80)-%E7%B3%BB%E7%BB%9F%E4%BB%8B%E7%BB%8D/%E5%9B%BE%E7%89%8711.png">
+<meta property="og:image" content="https://wengui.work/assets/post/%E6%95%99%E5%B8%88%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9FC%E8%AF%AD%E8%A8%80(%E4%B8%80)-%E7%B3%BB%E7%BB%9F%E4%BB%8B%E7%BB%8D/%E5%9B%BE%E7%89%8712.png">
+<meta property="article:published_time" content="2022-12-30T03:56:50.000Z">
+<meta property="article:modified_time" content="2023-02-10T10:41:03.463Z">
+<meta property="article:author" content="wengui">
+<meta property="article:tag" content="C语言">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://wengui.work/assets/post/%E6%95%99%E5%B8%88%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9FC%E8%AF%AD%E8%A8%80(%E4%B8%80)-%E7%B3%BB%E7%BB%9F%E4%BB%8B%E7%BB%8D/%E5%9B%BE%E7%89%871.png">
+  
+  
+
+  </script>
+  
+  <!-- feed -->
+  
+
+  
+    
+<link rel="stylesheet" href="/css/main.css">
+
+  
+
+  
+    <link rel="shortcut icon" href="/assets/img/favicon.png">
+  
+
+  
+
+  
+
+
+  
+</head>
+
+<body>
+  
+
+
+
+
+  <div class='l_body' id='start'>
+    <aside class='l_left' layout='post'>
+    
+
+  
+
+<header class="header"><div class="logo-wrap"><a class="avatar" href="/about/"><div class="bg" style="opacity:0;background-image:url(https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.4/avatar/round/rainbow64@3x.webp);"></div><img no-lazy class="avatar" src="/assets/img/avatar1.jpg" onerror="javascript:this.classList.add('error');this.src='https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.4/image/2659360.svg';"></a><a class="title" href="/"><div class="main" ff="title">闻桂の小窝</div><div class="sub normal cap">事常足，心常惬</div><div class="sub hover cap" style="opacity:0"> wengui</div></a></div>
+
+<nav class="menu dis-select"><a class="nav-item active" href="/">文章</a><a class="nav-item" href="/wiki/">智库</a><a class="nav-item" href="/notes/">宝盒</a><a class="nav-item" href="/about/">更多</a></nav>
+</header>
+
+
+<div class="widgets">
+<widget class="widget-wrapper search"><div class="widget-body"><div class="search-wrapper" id="search"><form class="search-form"><input type="text" class="search-input" id="search-input" data-filter="/blog/" placeholder="文章搜索"><svg t="1670596976048" class="icon search-icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2676" width="200" height="200"><path d="M938.2 832.6L723.8 618.1c-2.5-2.5-5.3-4.4-7.9-6.4 36.2-55.6 57.3-121.8 57.3-193.1C773.3 222.8 614.6 64 418.7 64S64 222.8 64 418.6c0 195.9 158.8 354.6 354.6 354.6 71.3 0 137.5-21.2 193.2-57.4 2 2.7 3.9 5.4 6.3 7.8L832.5 938c14.6 14.6 33.7 21.9 52.8 21.9 19.1 0 38.2-7.3 52.8-21.8 29.2-29.1 29.2-76.4 0.1-105.5M418.7 661.3C284.9 661.3 176 552.4 176 418.6 176 284.9 284.9 176 418.7 176c133.8 0 242.6 108.9 242.6 242.7 0 133.7-108.9 242.6-242.6 242.6" p-id="2677"></path></svg></form><div id="search-result"></div><div class="search-no-result">抱歉，没有找到内容欧~~换个关键词试试！</div></div></div></widget>
+
+<widget class="widget-wrapper markdown"><div class="widget-header cap theme dis-select"><span class="name">寄语</span></div><div class="widget-body fs14"><p>保持期待，奔赴山海</p>
+</div></widget>
+
+
+<widget class="widget-wrapper toc single" id="data-toc"><div class="widget-header cap dis-select"><span class="name">教师管理系统C语言(一)-系统介绍</span></div><div class="widget-body fs14"><div class="doc-tree active"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E7%9B%AE%E7%9A%84%E5%92%8C%E8%A6%81%E6%B1%82"><span class="toc-text">一、目的和要求</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E6%80%BB%E4%BD%93%E8%AE%BE%E8%AE%A1"><span class="toc-text">二、总体设计</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E5%9F%BA%E6%9C%AC%E6%80%9D%E8%B7%AF"><span class="toc-text">1. 基本思路</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E8%AE%BE%E8%AE%A1%E6%80%9D%E6%83%B3%EF%BC%9A"><span class="toc-text">2. 设计思想：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E7%B3%BB%E7%BB%9F%E6%B5%81%E7%A8%8B%E5%9B%BE"><span class="toc-text">3.  系统流程图</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%E3%80%81%E6%95%B0%E6%8D%AE%E5%8F%8A%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E8%AE%BE%E8%AE%A1%E6%8F%8F%E8%BF%B0"><span class="toc-text">三、数据及数据结构设计描述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%9B%E3%80%81%E8%AF%A6%E7%BB%86%E8%AE%BE%E8%AE%A1"><span class="toc-text">四、详细设计</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E5%87%BD%E6%95%B0%E6%B8%85%E5%8D%95%E5%8F%8A%E8%AF%B4%E6%98%8E"><span class="toc-text">1.函数清单及说明</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E5%87%BD%E6%95%B0%E8%B0%83%E7%94%A8%E5%85%B3%E7%B3%BB%E8%AF%B4%E6%98%8E"><span class="toc-text">2. 函数调用关系说明</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%94%E3%80%81%E7%B3%BB%E7%BB%9F%E6%B5%8B%E8%AF%95%E5%88%86%E6%9E%90"><span class="toc-text">五、系统测试分析</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E4%B8%BB%E8%8F%9C%E5%8D%95"><span class="toc-text">1. 主菜单</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E5%BD%95%E5%85%A5%E6%95%99%E5%B8%88%E4%BF%A1%E6%81%AF"><span class="toc-text">2. 录入教师信息</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E4%BF%AE%E6%94%B9%E6%95%99%E5%B8%88%E4%BF%A1%E6%81%AF"><span class="toc-text">3. 修改教师信息</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E5%88%A0%E9%99%A4%E6%95%99%E5%B8%88%E4%BF%A1%E6%81%AF"><span class="toc-text">4. 删除教师信息</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-%E6%9F%A5%E8%AF%A2%E6%95%99%E5%B8%88%E4%BF%A1%E6%81%AF"><span class="toc-text">5. 查询教师信息</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-%E4%BF%9D%E5%AD%98%E6%95%99%E5%B8%88%E4%BF%A1%E6%81%AF%EF%BC%8C%E9%80%80%E5%87%BA%E7%B3%BB%E7%BB%9F"><span class="toc-text">6. 保存教师信息，退出系统</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-%E6%95%99%E5%B8%88%E6%95%B0%E6%8D%AE%E6%8F%90%E5%8F%96"><span class="toc-text">7. 教师数据提取</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%AD%E3%80%81%E5%85%B6%E4%BB%96"><span class="toc-text">六、其他</span></a></li></ol></div></div></widget>
+
+
+
+
+</div>
+
+
+    </aside>
+    <div class='l_main'>
+      
+      
+
+
+<div class="bread-nav fs12"><div id="breadcrumb"><a class="cap breadcrumb" href="/">主页</a><span class="sep"></span><a class="cap breadcrumb" href="/">文章</a><span class="sep"></span><a class="cap breadcrumb-link" href="/categories/%E5%AE%9E%E9%AA%8C%E8%AE%BE%E8%AE%A1/">实验设计</a></div><div id="post-meta">发布于&nbsp;<time datetime="2022-12-30T03:56:50.000Z">2022-12-30</time></div></div>
+
+<article class='md-text content post'>
+<h1 class="article-title"><span>教师管理系统C语言(一)-系统介绍</span></h1>
+<h2 id="一、目的和要求"><a href="#一、目的和要求" class="headerlink" title="一、目的和要求"></a>一、目的和要求</h2><p>教师工资管理是较难处理的信息管理，使用传统方法，浪费时间，并不高效，并且数据容易丢失。为方便处理教师的信息，提高信息管理效率，此次项目设计为教师工资管理系统。</p>
+<p>一个较为完善的教师工资管理系统，需要包含一个教师的完整信息：教师号、姓名、性别、单位名称、家庭住址、联系电话、基本工资、津贴、生活补贴、应发工资、电话费、水电费、房租、所得税、卫生费、公积金，需要对数据进行录入、排序，同时可以对其进行修改、删除、查询功能。本系统面对的对象是教师工资信息管理者，通过执行不同的功能选择，管理者能对教师工资信息进行相应的整理，从而提升信息管理效率。</p>
+<p>我希望，通过这次程序设计可以增强我们对所学知识的更进一步认识，去熟悉掌握与灵活运用c语言，我将以所学的函数、数组、指针、链表、文件等知识来实现教师工资管理系统。</p>
+<h2 id="二、总体设计"><a href="#二、总体设计" class="headerlink" title="二、总体设计"></a>二、总体设计</h2><h3 id="1-基本思路"><a href="#1-基本思路" class="headerlink" title="1. 基本思路"></a>1. 基本思路</h3><p>利用链表，数组来对教师信息进行存储；通过函数，指针来对教师信息进行操作，实现相应的功能。</p>
+<h3 id="2-设计思想："><a href="#2-设计思想：" class="headerlink" title="2. 设计思想："></a>2. 设计思想：</h3><p>A.多个函数来实现整个系统的多个功能。例如，MainMenu函数将整个功能菜单打印出来，显示在界面上，让系统使用者清楚知道有那些功能选择。ShowAllTeacher函数可以遍历系统内存有的教师工资信息，而当想要浏览个别教师信息的时候，调用SearchTeacherById函数与SearchTeacherByName函数，可以分别通过教师号和名字查找到教师。以此类推，调用不同的函数，可以实现数据的录入，修改，删除，保存功能。</p>
+<p>B.系统用一个结构体，记录每个教师所有工资信息，将存有数据的文件读取到链表当中，用链表的结点，来实现排序，删除等功能。</p>
+<p>C.整个系统中最为重要的是指针。通过指针，可以指向任何变量（只要这个变量是在定义过的结构体内的变量），比数组更简洁迅速地找到目的变量，在实现精准查找，删除和修改等功能中起到了巨大的作用。</p>
+<p>D.文件功能，实现将庞大的数据储存，打破数据过大的限制。存入特定的文件后，可以在下一次运行程序中打开文件，对文件的数据进行其他的操作。</p>
+<h3 id="3-系统流程图"><a href="#3-系统流程图" class="headerlink" title="3.  系统流程图"></a>3.  系统流程图</h3><div class="tag-plugin image"><div class="image-bg"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/assets/post/教师管理系统C语言(一)-系统介绍/图片1.png" alt="图1.系统流程"/></div><div class="image-meta"><span class="image-caption center">图1.系统流程</span></div></div> 
+<h2 id="三、数据及数据结构设计描述"><a href="#三、数据及数据结构设计描述" class="headerlink" title="三、数据及数据结构设计描述"></a>三、数据及数据结构设计描述</h2><p>   struct Teacher为教师信息结构体，储存所有教师信息，通过其创造单向链表，其他功能对其操作从而实现教师的增删减改。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Teacher</span></span></span><br><span class="line"><span class="class"></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"></span><br><span class="line">​	<span class="type">int</span> id;</span><br><span class="line"></span><br><span class="line">​	<span class="type">char</span> name[<span class="number">10</span>];</span><br><span class="line"></span><br><span class="line">​	<span class="type">char</span> gender[<span class="number">5</span>];</span><br><span class="line"></span><br><span class="line">​	<span class="type">char</span> work_adress[<span class="number">20</span>];</span><br><span class="line"></span><br><span class="line">​	<span class="type">char</span> home_adress[<span class="number">20</span>];</span><br><span class="line"></span><br><span class="line">​	<span class="type">char</span> tel[<span class="number">11</span>];</span><br><span class="line"></span><br><span class="line">​	<span class="type">double</span> salary;  				<span class="comment">//基本工资 </span></span><br><span class="line"></span><br><span class="line">​	<span class="type">double</span> allowance;  			<span class="comment">//津贴 </span></span><br><span class="line"></span><br><span class="line">​	<span class="type">double</span> living_all;		    <span class="comment">//生活补贴</span></span><br><span class="line"></span><br><span class="line">​	<span class="type">double</span> tel_bill;				<span class="comment">//电话费 </span></span><br><span class="line"></span><br><span class="line">​	<span class="type">double</span> water_electric_bill;		<span class="comment">//水电费 </span></span><br><span class="line"></span><br><span class="line">​	<span class="type">double</span> room_charge;				<span class="comment">//房租</span></span><br><span class="line"></span><br><span class="line">​	<span class="type">double</span> income_tax;				<span class="comment">//所得税 </span></span><br><span class="line"></span><br><span class="line">​	<span class="type">double</span> sanitation_fee;			<span class="comment">//卫生稅 </span></span><br><span class="line"></span><br><span class="line">​	<span class="type">double</span> reserve_fund;			   <span class="comment">//公积金</span></span><br><span class="line"></span><br><span class="line">​	<span class="class"><span class="keyword">struct</span> <span class="title">Teacher</span>* <span class="title">next</span>;</span></span><br><span class="line"></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h2 id="四、详细设计"><a href="#四、详细设计" class="headerlink" title="四、详细设计"></a>四、详细设计</h2><h3 id="1-函数清单及说明"><a href="#1-函数清单及说明" class="headerlink" title="1.函数清单及说明"></a>1.函数清单及说明</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> <span class="title function_">MainMenu</span> <span class="params">()</span>;      <span class="comment">//开始主菜单 </span></span><br><span class="line"></span><br><span class="line"><span class="keyword">struct</span> Teacher *<span class="title function_">ExtractTeacherOfFile</span><span class="params">()</span>;   <span class="comment">//初始化链表（从文件提取数据）</span></span><br><span class="line"></span><br><span class="line"><span class="type">void</span> <span class="title function_">ModifyTeacherInformation</span> <span class="params">(<span class="keyword">struct</span> Teacher *pHead)</span>;    <span class="comment">//信息修改 </span></span><br><span class="line"></span><br><span class="line"><span class="type">void</span> <span class="title function_">AddTeacherInformation</span> <span class="params">(<span class="keyword">struct</span> Teacher *pHead)</span>;       <span class="comment">//信息录入 </span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">IdIsExist</span> <span class="params">(<span class="keyword">struct</span> Teacher *pHead, <span class="type">int</span> id)</span>;    <span class="comment">//判断教师号是否重复 </span></span><br><span class="line"></span><br><span class="line"><span class="type">void</span> <span class="title function_">ShowTeacherInformation</span> <span class="params">(<span class="keyword">struct</span> Teacher *p)</span>;       <span class="comment">//展示教师信息 </span></span><br><span class="line"></span><br><span class="line"><span class="type">void</span> <span class="title function_">DeleteTeacherInformation</span> <span class="params">(<span class="keyword">struct</span> Teacher *pHead)</span>;    <span class="comment">//信息删除 </span></span><br><span class="line"></span><br><span class="line"><span class="type">void</span> <span class="title function_">SearchMenu</span> <span class="params">(<span class="keyword">struct</span> Teacher *pHead)</span>;              <span class="comment">//信息查找主菜单 </span></span><br><span class="line"></span><br><span class="line"><span class="type">void</span> <span class="title function_">SearchTeacherById</span> <span class="params">(<span class="keyword">struct</span> Teacher *pHead)</span>;           <span class="comment">//教师号查找 </span></span><br><span class="line"></span><br><span class="line"><span class="type">void</span> <span class="title function_">SearchTeacherByName</span> <span class="params">(<span class="keyword">struct</span> Teacher *pHead)</span>;         <span class="comment">//姓名查找 </span></span><br><span class="line"></span><br><span class="line"><span class="type">void</span> <span class="title function_">ShowAllTeachers</span> <span class="params">(<span class="keyword">struct</span> Teacher *pHead)</span>;       <span class="comment">//查看所有教师信息 </span></span><br><span class="line"></span><br><span class="line"><span class="type">void</span> <span class="title function_">ReserveTeacherInformation</span> <span class="params">(<span class="keyword">struct</span> Teacher *pHead)</span>;   <span class="comment">//保存信息，退出系统 </span></span><br></pre></td></tr></table></figure>
+
+<h3 id="2-函数调用关系说明"><a href="#2-函数调用关系说明" class="headerlink" title="2. 函数调用关系说明"></a>2. 函数调用关系说明</h3><p>A. 主菜单–int MainMenu()</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">struct</span> Teacher *<span class="title function_">ExtractTeacherOfFile</span><span class="params">()</span>  <span class="comment">//从文件提取教师数据</span></span><br><span class="line"></span><br><span class="line"><span class="type">void</span> <span class="title function_">AddTeacherInformation</span><span class="params">(<span class="keyword">struct</span> Teacher *pHead)</span></span><br><span class="line"></span><br><span class="line"><span class="type">void</span> <span class="title function_">DeleteTeacherInformation</span><span class="params">(<span class="keyword">struct</span> Teacher *pHead)</span></span><br><span class="line"></span><br><span class="line"><span class="type">void</span> <span class="title function_">ModifyTeacherInformation</span><span class="params">(<span class="keyword">struct</span> Teacher *pHead)</span></span><br><span class="line"></span><br><span class="line"><span class="type">void</span> <span class="title function_">SearchMenu</span><span class="params">(<span class="keyword">struct</span> Teacher *pHead)</span></span><br><span class="line"></span><br><span class="line"><span class="type">void</span> <span class="title function_">ReserveTeacherInformation</span><span class="params">(<span class="keyword">struct</span> Teacher *pHead)</span> </span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>B. 录入教师信息–void AddTeacherInformation(struct Teacher *pHead)</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> <span class="title function_">IdIsExist</span><span class="params">(<span class="keyword">struct</span> Teacher* pHead, <span class="type">int</span> id)</span> <span class="comment">//判断教师号是否存在</span></span><br></pre></td></tr></table></figure>
+<p>C. 删除教师信息–void DeleteTeacherInformation(struct Teacher *pHead) </p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">void</span> <span class="title function_">ShowTeacherInformation</span><span class="params">(ptem)</span><span class="comment">//展示当前教师信息</span></span><br></pre></td></tr></table></figure>
+<p>D. 修改教师信息–void ModifyTeacherInformation(struct Teacher *pHead)</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">void</span> <span class="title function_">ShowTeacherInformation</span><span class="params">(ptem)</span></span><br></pre></td></tr></table></figure>
+<p>E. 查找教师信息–void SearchMenu(struct Teacher *pHead)</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">void</span> <span class="title function_">ShowTeacherInformation</span><span class="params">(<span class="keyword">struct</span> Teacher *ptem)</span> </span><br><span class="line"></span><br><span class="line"><span class="type">void</span> <span class="title function_">SearchTeacherById</span><span class="params">(<span class="keyword">struct</span> Teacher *pHead)</span>   <span class="comment">//教师号查询</span></span><br><span class="line"></span><br><span class="line"><span class="type">void</span> <span class="title function_">SearchTeacherByName</span><span class="params">(<span class="keyword">struct</span> Teacher *pHead)</span> <span class="comment">//名字查询</span></span><br><span class="line"></span><br><span class="line"><span class="type">void</span> <span class="title function_">ShowAllTeachers</span><span class="params">(<span class="keyword">struct</span> Teacher *pHead)</span>     <span class="comment">//查看所有教师信息</span></span><br></pre></td></tr></table></figure>
+<p>F. 退出–void ReserveTeacherInformation(struct Teacher *pHead) </p>
+<h2 id="五、系统测试分析"><a href="#五、系统测试分析" class="headerlink" title="五、系统测试分析"></a>五、系统测试分析</h2><h3 id="1-主菜单"><a href="#1-主菜单" class="headerlink" title="1. 主菜单"></a>1. 主菜单</h3><p>程序运行后，成功进入主菜单，输入正确的功能选项可进入相应的功能模块，输入错误则刷新页面重新选择。</p>
+<div class="tag-plugin image"><div class="image-bg"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/assets/post/教师管理系统C语言(一)-系统介绍/图片2.png" alt="图2.主菜单"/></div><div class="image-meta"><span class="image-caption center">图2.主菜单</span></div></div> 
+
+
+<h3 id="2-录入教师信息"><a href="#2-录入教师信息" class="headerlink" title="2. 录入教师信息"></a>2. 录入教师信息</h3><p>选择功能“1”，进入教师信息的录入。录入信息完成后，根据提升可选择是否再次录入，选择否则退出教师录入功能。</p>
+<div class="tag-plugin image"><div class="image-bg"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/assets/post/教师管理系统C语言(一)-系统介绍/图片3.png" alt="图3.教师信息录入"/></div><div class="image-meta"><span class="image-caption center">图3.教师信息录入</span></div></div> 
+
+
+<h3 id="3-修改教师信息"><a href="#3-修改教师信息" class="headerlink" title="3. 修改教师信息"></a>3. 修改教师信息</h3><p>选择功能“2”进入教师信息修改功能，输入教师号，显示当前教师信息，</p>
+<p>可选择相应修改项，</p>
+<div class="tag-plugin image"><div class="image-bg"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/assets/post/教师管理系统C语言(一)-系统介绍/图片4.png" alt="图4.选择修改项"/></div><div class="image-meta"><span class="image-caption center">图4.选择修改项</span></div></div> 
+
+
+<p>确定不再需要修改或修改过一次选择“0”返回则显示修改后信息。</p>
+<div class="tag-plugin image"><div class="image-bg"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/assets/post/教师管理系统C语言(一)-系统介绍/图片5.png" alt="图5.修改后信息"/></div><div class="image-meta"><span class="image-caption center">图5.修改后信息</span></div></div> 
+
+
+<p>未找到该教师则显示“该教师号不存在”，按任意键返回主菜单。</p>
+<div class="tag-plugin image"><div class="image-bg"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/assets/post/教师管理系统C语言(一)-系统介绍/图片6.png" alt="图6.未找到修改教师信息"/></div><div class="image-meta"><span class="image-caption center">图6.未找到修改教师信息</span></div></div>  
+
+
+<h3 id="4-删除教师信息"><a href="#4-删除教师信息" class="headerlink" title="4. 删除教师信息"></a>4. 删除教师信息</h3><p>选择功能“3”进行教师信息删除，输入删除教师号，查找到则提示是否删除，确认删除，展示“删除成功”界面，按任意键返回主菜单。</p>
+<div class="tag-plugin image"><div class="image-bg"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/assets/post/教师管理系统C语言(一)-系统介绍/图片7.png" alt="图7.删除教师信息"/></div><div class="image-meta"><span class="image-caption center">图7.删除教师信息</span></div></div> 
+
+<p>若不存在该教师，则提示“该教师号不存在”，按任意键可返回主菜单。</p>
+<h3 id="5-查询教师信息"><a href="#5-查询教师信息" class="headerlink" title="5. 查询教师信息"></a>5. 查询教师信息</h3><p>选择功能“4”进入教师信息查询，可选择相对应的查询方式来查询。</p>
+<p>A. 以教师号查询</p>
+<div class="tag-plugin image"><div class="image-bg"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/assets/post/教师管理系统C语言(一)-系统介绍/图片8.png" alt="图8.教师号查询"/></div><div class="image-meta"><span class="image-caption center">图8.教师号查询</span></div></div> 
+
+<p>B. 以姓名查询（图9）</p>
+<div class="tag-plugin image"><div class="image-bg"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/assets/post/教师管理系统C语言(一)-系统介绍/图片9.png" alt="图9.姓名查询"/></div><div class="image-meta"><span class="image-caption center">图9.姓名查询</span></div></div>
+
+<div class="tag-plugin image"><div class="image-bg"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/assets/post/教师管理系统C语言(一)-系统介绍/图片10.png" alt="图10.查看所有教师信息"/></div><div class="image-meta"><span class="image-caption center">图10.查看所有教师信息</span></div></div>
+
+<p>C. 查看所有教师信息（图10）</p>
+<p>D. 选择“0”退出</p>
+<h3 id="6-保存教师信息，退出系统"><a href="#6-保存教师信息，退出系统" class="headerlink" title="6. 保存教师信息，退出系统"></a>6. 保存教师信息，退出系统</h3><p>选择功能“0”实现教师信息保存与退出系统，保存成功则显示“保存成功”提示，按任意键退出系统。</p>
+<div class="tag-plugin image"><div class="image-bg"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/assets/post/教师管理系统C语言(一)-系统介绍/图片11.png" alt="图11. 保存教师信息"/></div><div class="image-meta"><span class="image-caption center">图11. 保存教师信息</span></div></div> 
+
+<h3 id="7-教师数据提取"><a href="#7-教师数据提取" class="headerlink" title="7. 教师数据提取"></a>7. 教师数据提取</h3><p>每次系统运行会自动提取储存在文件中的数据，以防对文件操作导致教师数据丢失。关闭系统，再次打开，以功能“4”是否查找到教师信息为依据，判断是否成功提取。提取成功如图12。</p>
+<div class="tag-plugin image"><div class="image-bg"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/assets/post/教师管理系统C语言(一)-系统介绍/图片12.png" alt="图12.提取数据验证展示"/></div><div class="image-meta"><span class="image-caption center">图12.提取数据验证展示</span></div></div>  
+
+
+
+<h2 id="六、其他"><a href="#六、其他" class="headerlink" title="六、其他"></a>六、其他</h2><p>拓展：<br>系统面对对象可以分为两类：系统管理者与教师。系统管理者可以新增教师，或查看修改所有教师的任何信息，而教师只可以查看与更改自己的信息。同时，为保障所有信息的安全性，每位管理员或教师都有自己的用户名和密码。另外，可以增加教师的各项排名情况，使系统的功能更加多样化。</p>
+<p>具体源码设计以及分析请等待更新。</p>
+
+
+
+
+</article>
+
+<div class="related-wrap reveal" id="read-next"><section class="body"><div class="item" id="prev"><div class="note">较新文章</div><a href="/2023/01/01/Happy-new-year-2023/">Happy New Year -- 2023 !</a></div><div class="item" id="next"><div class="note">较早文章</div><a href="/2022/12/30/%E6%95%B0%E5%AD%97%E9%92%9F%E7%9A%84%E8%AE%BE%E8%AE%A1/">数字钟的设计</a></div></section></div>
+
+
+<div class="related-wrap reveal" id="related-posts">
+    <section class='header'>
+      <div class='title cap theme'>你可能感兴趣的文章</div>
+    </section>
+    <section class='body'>
+    <div class="related-posts"><a class="item" href="/2022/12/30/数字钟的设计/" title="数字钟的设计"><span class="title">数字钟的设计</span></a></div></section></div>
+
+
+
+  <div class='related-wrap md-text reveal' id="comments">
+    <section class='header cmt-title cap theme'>
+      路过，就留下你的足迹吧！
+    </section>
+    <section class='body cmt-body giscus'>
+      
+
+<svg class="loading" style="vertical-align: middle;fill: currentColor;overflow: hidden;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2709"><path d="M832 512c0-176-144-320-320-320V128c211.2 0 384 172.8 384 384h-64zM192 512c0 176 144 320 320 320v64C300.8 896 128 723.2 128 512h64z" p-id="2710"></path></svg>
+
+<div id="giscus" data-repo="WenGuiO/BlogState" data-repo-id="R_kgDOI2KBdg" data-category="General" data-category-id="DIC_kwDOI2KBds4CT0UY" data-mapping="pathname" data-strict="0" data-reactions-enabled="1" data-emit-metadata="1" data-input-position="top" data-theme="preferred_color_scheme" data-lang="zh-CN" data-loading="lazy" crossorigin="anonymous"></div>
+
+    </section>
+  </div>
+
+
+
+      
+<footer class="page-footer reveal fs12"><hr><div class="sitemap"><div class="sitemap-group"><span class="fs14">博客</span><a href="/">近期</a><a href="/categories/">分类</a><a href="/tags">标签</a><a href="/archives/">归档</a></div><div class="sitemap-group"><span class="fs14">学习</span><a href="/wiki">项目</a><a href="/wiki/tags/%E7%9F%A5%E8%AF%86%E5%BA%93/index.html">笔记</a><a href="/books/">书籍</a></div><div class="sitemap-group"><span class="fs14">关于</span><a href="/about">本站简介</a><a href="/more/">本站动态</a><a target="_blank" rel="noopener" href="https://github.com/WenGuiO">GitHub</a><a target="_blank" rel="noopener" href="https://gitee.com/wenguio">Gitee</a></div><div class="sitemap-group"><span class="fs14">更多</span><a href="/notes">宝站</a><a href="/message/">留言</a><a href="/support/">支持</a><a href="/notes/music/">音乐</a></div></div><div class="text"><p>本站所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议，转载请注明出处。</p>
+<center>
+</br>
+</br>
+<!--不蒜子计数器-->
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<!--添加一个访问量-->
+<span>
+  本"<span style="color: rgb(13, 109, 252); font-weight: bold;">页面</ a></span>"访问 
+  <span id="busuanzi_value_page_pv" style="color: rgb(13, 109, 252); font-weight: bold;"></span> 次 | 👀总访问 
+  <span id="busuanzi_value_site_pv" style="color: rgb(13, 109, 252); font-weight: bold;"></span> 次 | 👤总访客 
+  <span id="busuanzi_value_site_uv" style="color: rgb(13, 109, 252); font-weight: bold;"></span> 人
+</span>
+</br>
+</br>
+<script type="text/javascript">
+function show_runtime() {
+    X = new Date("12/26/2022 20:34:01");
+    Y = new Date();
+    T = (Y.getTime() - X.getTime());
+    M = 24 * 60 * 60 * 1000;
+    a = T / M;
+    A = Math.floor(a);
+    b = (a - A) * 24;
+    B = Math.floor(b);
+    c = (b - B) * 60;
+    C = Math.floor((b - B) * 60);
+    D = Math.floor((c - C) * 60);
+    runtime_span.innerHTML = "⏱️本站已运行 " + A + "天" + B + "小时" + C + "分" + D + "秒";
 }
-.l_body .l_left {
-  z-index: 8;
-  width: var(--width-left);
-  flex-shrink: 0;
-  position: sticky;
-  position: -webkit-sticky;
-  top: 0;
-}
-.l_body .l_main {
-  flex-shrink: 1;
-  flex-grow: 1;
-  width: 320px;
-  max-width: var(--width-main);
-}
-@media screen and (max-width: $device-mobile-max) {
-  .mobile-only {
-    display: block !important;
+window.setInterval("show_runtime()", 1000);
+</script>
+<span id="runtime_span"></span>
+</center>
+</div></footer>
+
+      <div class='float-panel mobile-only blur' style='display:none'>
+  <button type='button' class='sidebar-toggle mobile' onclick='sidebar.toggle()'>
+    <svg class="icon" style="width: 1em; height: 1em;vertical-align: middle;fill: currentColor;overflow: hidden;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="15301"><path d="M566.407 808.3c26.9-0.1 49.3-20.8 51.6-47.6-1.9-27.7-23.9-49.7-51.6-51.6h-412.6c-28.2-1.4-52.6 19.5-55.5 47.6 2.3 26.8 24.6 47.5 51.6 47.6h416.5v4z m309.3-249.9c26.9-0.1 49.3-20.8 51.6-47.6-2.2-26.8-24.6-47.5-51.6-47.6h-721.9c-27.7-2.8-52.5 17.4-55.3 45.1-0.1 0.8-0.1 1.7-0.2 2.5 0.9 27.2 23.6 48.5 50.7 47.6H875.707z m-103.1-245.9c26.9-0.1 49.3-20.8 51.6-47.6-0.4-28.3-23.2-51.1-51.5-51.6h-618.9c-29.5-1.1-54.3 21.9-55.5 51.4v0.2c1.4 27.8 25.2 49.2 53 47.8 0.8 0 1.7-0.1 2.5-0.2h618.8z" p-id="15302"></path><path d="M566.407 808.3c26.9-0.1 49.3-20.8 51.6-47.6-1.9-27.7-23.9-49.7-51.6-51.6h-412.6c-28.2-1.4-52.6 19.5-55.5 47.6 1.9 27.7 23.9 49.7 51.6 51.6h416.5z m309.3-249.9c26.9-0.1 49.3-20.8 51.6-47.6-2.2-26.8-24.6-47.5-51.6-47.6h-721.9c-27.7-2.8-52.5 17.4-55.3 45.1-0.1 0.8-0.1 1.7-0.2 2.5 0.9 27.2 23.6 48.5 50.7 47.6H875.707z m-103.1-245.9c26.9-0.1 49.3-20.8 51.6-47.6-0.4-28.3-23.2-51.1-51.5-51.6h-618.9c-29.5-1.1-54.3 21.9-55.5 51.4v0.2c1.4 27.8 25.2 49.2 53 47.8 0.8 0 1.7-0.1 2.5-0.2h618.8z" p-id="15303"></path></svg>
+  </button>
+</div>
+
+    </div>
+  </div>
+  <div class='scripts'>
+    <script type="text/javascript">
+  const stellar = {
+    // 懒加载 css https://github.com/filamentgroup/loadCSS
+    loadCSS: (href, before, media, attributes) => {
+      var doc = window.document;
+      var ss = doc.createElement("link");
+      var ref;
+      if (before) {
+        ref = before;
+      } else {
+        var refs = (doc.body || doc.getElementsByTagName("head")[0]).childNodes;
+        ref = refs[refs.length - 1];
+      }
+      var sheets = doc.styleSheets;
+      if (attributes) {
+        for (var attributeName in attributes) {
+          if (attributes.hasOwnProperty(attributeName)) {
+            ss.setAttribute(attributeName, attributes[attributeName]);
+          }
+        }
+      }
+      ss.rel = "stylesheet";
+      ss.href = href;
+      ss.media = "only x";
+      function ready(cb) {
+        if (doc.body) {
+          return cb();
+        }
+        setTimeout(function () {
+          ready(cb);
+        });
+      }
+      ready(function () {
+        ref.parentNode.insertBefore(ss, before ? ref : ref.nextSibling);
+      });
+      var onloadcssdefined = function (cb) {
+        var resolvedHref = ss.href;
+        var i = sheets.length;
+        while (i--) {
+          if (sheets[i].href === resolvedHref) {
+            return cb();
+          }
+        }
+        setTimeout(function () {
+          onloadcssdefined(cb);
+        });
+      };
+      function loadCB() {
+        if (ss.addEventListener) {
+          ss.removeEventListener("load", loadCB);
+        }
+        ss.media = media || "all";
+      }
+      if (ss.addEventListener) {
+        ss.addEventListener("load", loadCB);
+      }
+      ss.onloadcssdefined = onloadcssdefined;
+      onloadcssdefined(loadCB);
+      return ss;
+    },
+
+    // 从 butterfly 和 volantis 获得灵感
+    loadScript: (src, opt) => new Promise((resolve, reject) => {
+      var script = document.createElement('script');
+      script.src = src;
+      if (opt) {
+        for (let key of Object.keys(opt)) {
+          script[key] = opt[key]
+        }
+      } else {
+        // 默认异步，如果需要同步，第二个参数传入 {} 即可
+        script.async = true
+      }
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    }),
+
+    // https://github.com/jerryc127/hexo-theme-butterfly
+    jQuery: (fn) => {
+      if (typeof jQuery === 'undefined') {
+        stellar.loadScript(stellar.plugins.jQuery).then(fn)
+      } else {
+        fn()
+      }
+    }
+  };
+  stellar.version = '1.18.5';
+  stellar.github = 'https://github.com/xaoxuu/hexo-theme-stellar/tree/1.18.5';
+  stellar.config = {
+    date_suffix: {
+      just: '刚刚',
+      min: '分钟前',
+      hour: '小时前',
+      day: '天前',
+      month: '个月前',
+    },
+  };
+
+  // required plugins (only load if needs)
+  stellar.plugins = {
+    jQuery: 'https://gcore.jsdelivr.net/npm/jquery@3.6.2/dist/jquery.min.js'
+  };
+
+  if ('local_search') {
+    stellar.search = {};
+    stellar.search.service = 'local_search';
+    if (stellar.search.service == 'local_search') {
+      let service_obj = Object.assign({}, {"field":"all","path":"/search.json","content":true,"sort":"-date"});
+      stellar.search[stellar.search.service] = service_obj;
+    }
   }
-  .l_body {
-    padding: 0;
+
+  // stellar js
+  stellar.plugins.stellar = Object.assign({"sites":"/js/plugins/sites.js","friends":"/js/plugins/friends.js","ghinfo":"/js/plugins/ghinfo.js","timeline":"/js/plugins/timeline.js","linkcard":"/js/plugins/linkcard.js","fcircle":"/js/plugins/fcircle.js","weibo":"/js/plugins/weibo.js"});
+
+  stellar.plugins.marked = Object.assign("https://cdn.bootcdn.net/ajax/libs/marked/4.0.18/marked.min.js");
+  // optional plugins
+  if ('true' == 'true') {
+    stellar.plugins.lazyload = Object.assign({"enable":true,"js":"https://gcore.jsdelivr.net/npm/vanilla-lazyload@17.8.3/dist/lazyload.min.js","transition":"blur"});
   }
-  .l_body .l_left {
-    position: fixed;
-    transform: translateX(-320px);
-    margin: 0;
-    left: 0;
-    background: var(--site-bg);
-    box-shadow: $boxshadow-card-float;
-    z-index: 9;
+  if ('true' == 'true') {
+    stellar.plugins.swiper = Object.assign({"enable":true,"css":"https://unpkg.com/swiper@8.4.5/swiper-bundle.min.css","js":"https://unpkg.com/swiper@8.4.5/swiper-bundle.min.js"});
   }
-  .l_body .l_main {
-    max-width: 100%;
+  if ('' == 'true') {
+    stellar.plugins.scrollreveal = Object.assign({"enable":null,"js":"https://gcore.jsdelivr.net/npm/scrollreveal@4.0.9/dist/scrollreveal.min.js","distance":"8px","duration":500,"interval":100,"scale":1});
   }
-  .l_body.mobile .l_left {
-    transition: transform 0.3s ease-out;
+  if ('true' == 'true') {
+    stellar.plugins.preload = Object.assign({"enable":true,"service":"flying_pages","instant_page":"https://gcore.jsdelivr.net/gh/volantis-x/cdn-volantis@4.1.2/js/instant_page.js","flying_pages":"https://gcore.jsdelivr.net/gh/gijo-varghese/flying-pages@2.1.2/flying-pages.min.js"});
   }
-  .l_body.mobile.sidebar .l_left {
-    transform: translateX(0px);
+  if ('true' == 'true') {
+    stellar.plugins.fancybox = Object.assign({"enable":true,"js":"https://gcore.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js","css":"https://gcore.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.css","selector":".swiper-slide img"});
   }
-}
+  if ('false' == 'true') {
+    stellar.plugins.heti = Object.assign({"enable":false,"css":"https://unpkg.com/heti@0.9.2/umd/heti.min.css","js":"https://unpkg.com/heti@0.9.2/umd/heti-addon.min.js"});
+  }
+</script>
+
+<!-- required -->
+
+  
+<script src="/js/main.js" async></script>
+
+
+
+<!-- optional -->
+
+  <script>
+  function loadJS() {
+    const els = document.querySelectorAll("#comments #giscus");
+    if (els.length === 0) return;
+    els.forEach((el, i) => {
+      try {
+        el.innerHTML = '';
+      } catch (error) {
+        console.log(error);
+      }
+      var script = document.createElement('script');
+      script.src = 'https://giscus.app/client.js';
+      script.async = true;
+      for (let key of Object.keys(el.attributes)) {
+        let attr = el.attributes[key];
+        if (['class', 'id'].includes(attr.name) === false) {
+          script.setAttribute(attr.name, attr.value);
+        }
+      }
+      el.appendChild(script);
+    });
+  }
+  window.addEventListener('DOMContentLoaded', (event) => {
+    loadJS();
+  });
+</script>
+
+
+
+
+<!-- inject -->
+
+
+  </div>
+</body>
+</html>
