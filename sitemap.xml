@@ -2,6 +2,51 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://wengui.work/notes/index.html</loc>
+    
+    <lastmod>2023-03-20</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://wengui.work/notes/%E7%8E%A9%E4%B8%AA%E9%AD%94%E6%B3%95.html</loc>
+    
+    <lastmod>2023-03-20</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://wengui.work/notes/%E6%9C%9F%E6%9C%AB%E6%95%91%E6%80%A5.html</loc>
+    
+    <lastmod>2023-03-20</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://wengui.work/notes/%E5%BD%B1%E8%A7%86%E8%B5%84%E6%BA%90.html</loc>
+    
+    <lastmod>2023-03-20</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://wengui.work/notes/%E5%A8%B1%E4%B9%90%E5%B7%A5%E5%85%B7.html</loc>
+    
+    <lastmod>2023-03-20</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://wengui.work/more/mysay.html</loc>
     
     <lastmod>2023-03-20</lastmod>
@@ -129,24 +174,6 @@
   
   <url>
     <loc>https://wengui.work/notes/music.html</loc>
-    
-    <lastmod>2023-02-09</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://wengui.work/notes/index.html</loc>
-    
-    <lastmod>2023-02-09</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://wengui.work/notes/%E5%A8%B1%E4%B9%90%E5%B7%A5%E5%85%B7.html</loc>
     
     <lastmod>2023-02-09</lastmod>
     
