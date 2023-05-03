@@ -26,30 +26,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="theme-color" content="#f8f8f8">
 
-  <title>Happy New Year -- 2023 ! - 闻桂の小窝</title>
+  <title>NAT简记 - 闻桂の小窝</title>
 
   
-    <meta property="og:type" content="article">
-<meta property="og:title" content="Happy New Year -- 2023 !">
-<meta property="og:url" content="https://wengui.work/2023/01/01/Happy-new-year-2023/index.html">
+    <meta name="description" content="NAT技术NAT技术介绍概述：网络地址转换（NAT）技术是一种将私有IP地址转换为公共IP地址的技术，使内部网络设备可以访问互联网。 作用：NAT的主要作用是将私有IP地址转换为公共IP地址，从而允许内部网络设备访问互联网。私有IP地址是在内部网络中使用的IP地址，而公共IP地址是在互联网上使用的IP地址。它可以解决IPv4地址不足的问题，同时也可以提高内部网络的安全性，隐藏内部网络的真实IP地址">
+<meta property="og:type" content="article">
+<meta property="og:title" content="NAT简记">
+<meta property="og:url" content="https://wengui.work/2023/05/02/NAT/index.html">
 <meta property="og:site_name" content="闻桂の小窝">
+<meta property="og:description" content="NAT技术NAT技术介绍概述：网络地址转换（NAT）技术是一种将私有IP地址转换为公共IP地址的技术，使内部网络设备可以访问互联网。 作用：NAT的主要作用是将私有IP地址转换为公共IP地址，从而允许内部网络设备访问互联网。私有IP地址是在内部网络中使用的IP地址，而公共IP地址是在互联网上使用的IP地址。它可以解决IPv4地址不足的问题，同时也可以提高内部网络的安全性，隐藏内部网络的真实IP地址">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://wengui.work/assets/post/Happy-new-year-2023/%E5%9B%BE10.jpg">
-<meta property="og:image" content="https://wengui.work/assets/post/Happy-new-year-2023/%E5%9B%BE1.jpg">
-<meta property="og:image" content="https://wengui.work/assets/post/Happy-new-year-2023/%E5%9B%BE3.jpg">
-<meta property="og:image" content="https://wengui.work/assets/post/Happy-new-year-2023/%E5%9B%BE2.jpg">
-<meta property="og:image" content="https://wengui.work/assets/post/Happy-new-year-2023/%E5%9B%BE4.jpg">
-<meta property="og:image" content="https://wengui.work/assets/post/Happy-new-year-2023/%E5%9B%BE6.jpg">
-<meta property="og:image" content="https://wengui.work/assets/post/Happy-new-year-2023/%E5%9B%BE5.jpg">
-<meta property="og:image" content="https://wengui.work/assets/post/Happy-new-year-2023/%E5%9B%BE8.jpg">
-<meta property="og:image" content="https://wengui.work/assets/post/Happy-new-year-2023/%E5%9B%BE7.jpg">
-<meta property="article:published_time" content="2022-12-31T16:00:00.000Z">
-<meta property="article:modified_time" content="2023-01-11T14:11:00.196Z">
+<meta property="article:published_time" content="2023-05-01T17:01:02.000Z">
+<meta property="article:modified_time" content="2023-05-03T10:54:43.662Z">
 <meta property="article:author" content="wengui">
-<meta property="article:tag" content="生活">
-<meta property="article:tag" content="杂记">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://wengui.work/assets/post/Happy-new-year-2023/%E5%9B%BE10.jpg">
+<meta property="article:tag" content="简记">
+<meta name="twitter:card" content="summary">
   
   
 
@@ -101,9 +92,7 @@
 </div></widget>
 
 
-
-<widget class="widget-wrapper recent"><div class="widget-header cap theme dis-select"><span class="name">最近更新</span></div><div class="widget-body related-posts fs14"><a class="item title" href="/2023/05/01/%E8%B7%AF%E7%94%B1%E7%AE%80%E8%AE%B0/"><span class="title">路由简记</span></a><a class="item title" href="/2023/05/02/NAT/"><span class="title">NAT简记</span></a><a class="item title" href="/2023/04/04/Volatility/"><span class="title">Volatility简单记录</span></a><a class="item title" href="/2023/02/08/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA(%E5%85%8D%E8%B4%B9%E9%83%A8%E7%BD%B2)/"><span class="title">博客搭建(免费部署)</span></a><a class="item title" href="/2022/12/30/%E6%95%99%E5%B8%88%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9FC%E8%AF%AD%E8%A8%80(%E4%B8%80)-%E7%B3%BB%E7%BB%9F%E4%BB%8B%E7%BB%8D/"><span class="title">教师管理系统C语言(一)-系统介绍</span></a><a class="item title" href="/2022/12/30/%E6%95%B0%E5%AD%97%E9%92%9F%E7%9A%84%E8%AE%BE%E8%AE%A1/"><span class="title">数字钟的设计</span></a></div></widget>
-
+<widget class="widget-wrapper toc single" id="data-toc"><div class="widget-header cap dis-select"><span class="name">NAT简记</span></div><div class="widget-body fs14"><div class="doc-tree active"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#NAT%E6%8A%80%E6%9C%AF%E4%BB%8B%E7%BB%8D"><span class="toc-text">NAT技术介绍</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%9D%99%E6%80%81NAT"><span class="toc-text">静态NAT</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8A%A8%E6%80%81NAT"><span class="toc-text">动态NAT</span></a></li></ol></div></div></widget>
 
 
 
@@ -117,20 +106,106 @@
       
 
 
-<div class="bread-nav fs12"><div id="breadcrumb"><a class="cap breadcrumb" href="/">主页</a><span class="sep"></span><a class="cap breadcrumb" href="/">文章</a><span class="sep"></span><a class="cap breadcrumb-link" href="/categories/%E6%9D%82%E8%AE%B0/">杂记</a></div><div id="post-meta">发布于&nbsp;<time datetime="2022-12-31T16:00:00.000Z">2023-01-01</time></div></div>
+<div class="bread-nav fs12"><div id="breadcrumb"><a class="cap breadcrumb" href="/">主页</a><span class="sep"></span><a class="cap breadcrumb" href="/">文章</a><span class="sep"></span><a class="cap breadcrumb-link" href="/categories/%E7%AE%80%E8%AE%B0/">简记</a></div><div id="post-meta">发布于&nbsp;<time datetime="2023-05-01T17:01:02.000Z">2023-05-02</time></div></div>
 
 <article class='md-text content post'>
-<h1 class="article-title"><span>Happy New Year -- 2023 !</span></h1>
-<div class="tag-plugin gallery swiper" id="swiper-api" effect="coverflow"><div class="swiper-wrapper"><div class="swiper-slide"><img no-lazy src="/assets/post/Happy-new-year-2023/图10.jpg"/ onerror="javascript:this.classList.add('error');this.src='https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.4/image/2659360.svg';"></div><div class="swiper-slide"><img no-lazy src="/assets/post/Happy-new-year-2023/图1.jpg"/ onerror="javascript:this.classList.add('error');this.src='https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.4/image/2659360.svg';"></div><div class="swiper-slide"><img no-lazy src="/assets/post/Happy-new-year-2023/图3.jpg"/ onerror="javascript:this.classList.add('error');this.src='https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.4/image/2659360.svg';"></div><div class="swiper-slide"><img no-lazy src="/assets/post/Happy-new-year-2023/图2.jpg"/ onerror="javascript:this.classList.add('error');this.src='https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.4/image/2659360.svg';"></div><div class="swiper-slide"><img no-lazy src="/assets/post/Happy-new-year-2023/图4.jpg"/ onerror="javascript:this.classList.add('error');this.src='https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.4/image/2659360.svg';"></div><div class="swiper-slide"><img no-lazy src="/assets/post/Happy-new-year-2023/图6.jpg"/ onerror="javascript:this.classList.add('error');this.src='https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.4/image/2659360.svg';"></div><div class="swiper-slide"><img no-lazy src="/assets/post/Happy-new-year-2023/图5.jpg"/ onerror="javascript:this.classList.add('error');this.src='https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.4/image/2659360.svg';"></div><div class="swiper-slide"><img no-lazy src="/assets/post/Happy-new-year-2023/图8.jpg"/ onerror="javascript:this.classList.add('error');this.src='https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.4/image/2659360.svg';"></div><div class="swiper-slide"><img no-lazy src="/assets/post/Happy-new-year-2023/图7.jpg"/ onerror="javascript:this.classList.add('error');this.src='https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.4/image/2659360.svg';"></div></div><div class="swiper-pagination"></div><div class="swiper-button-prev blur"></div><div class="swiper-button-next blur"></div></div>
+<h1 class="article-title"><span>NAT简记</span></h1>
+<h1 id="NAT技术"><a href="#NAT技术" class="headerlink" title="NAT技术"></a>NAT技术</h1><h2 id="NAT技术介绍"><a href="#NAT技术介绍" class="headerlink" title="NAT技术介绍"></a>NAT技术介绍</h2><p><strong>概述：</strong>网络地址转换（NAT）技术是一种将私有IP地址转换为公共IP地址的技术，使内部网络设备可以访问互联网。</p>
+<p><strong>作用：</strong>NAT的主要作用是将私有IP地址转换为公共IP地址，从而允许内部网络设备访问互联网。私有IP地址是在内部网络中使用的IP地址，而公共IP地址是在互联网上使用的IP地址。它可以解决IPv4地址不足的问题，同时也可以提高内部网络的安全性，隐藏内部网络的真实IP地址。NAT技术可以使用网络设备（路由器或防火墙）来实现，也可以使用专门的NAT设备。</p>
+<p><strong>分类：</strong></p>
+<ul>
+<li><p>静态NAT：将一个特定的私有IP地址映射到一个固定的公共IP地址上，这种映射是静态不变的，一旦设置好就不会改变。</p>
+</li>
+<li><p>动态NAT：动态地将不同的私有IP地址映射到不同的公共IP地址上，根据网络流量的需要进行映射。</p>
+</li>
+<li><p>PAT（端口地址转换）：一种特殊的动态NAT，通过在公共IP地址和端口之间进行映射来允许多个内部网络设备共享一个公共IP地址。</p>
+</li>
+</ul>
+<p><strong>优缺点：</strong></p>
+<p>NAT技术的优点包括：</p>
+<ul>
+<li><p>节省公共IP地址的使用，使得公共IP地址得以更加合理地分配和使用。</p>
+</li>
+<li><p>提高网络安全性，NAT技术可以隐藏内部网络的私有IP地址，从而增加网络的安全性。</p>
+</li>
+<li><p>方便内部网络设备的管理，NAT技术可以对内部网络设备进行管理和控制，例如禁止某些设备访问互联网等。</p>
+</li>
+</ul>
+<p>NAT技术的缺点包括：</p>
+<ul>
+<li><p>可能会影响网络性能，NAT设备需要对网络流量进行转换和处理，这可能会影响网络的性能和速度。</p>
+</li>
+<li><p>可能会影响某些应用程序的正常运行，例如某些需要直接连接到互联网的应用程序，可能会因为NAT而无法正常工作。</p>
+</li>
+</ul>
+<h2 id="静态NAT"><a href="#静态NAT" class="headerlink" title="静态NAT"></a>静态NAT</h2><p>适用场景：适用于需要长期使用映射关系的场景，主要用途如：</p>
+<ul>
+<li>Web服务器</li>
+<li>FTP服务器</li>
+<li>游戏服务器</li>
+<li>邮箱服务器等。</li>
+</ul>
+<p><strong>特点：</strong></p>
+<ul>
+<li><p>静态映射：静态NAT的映射关系是静态的，一旦设置好就不会改变。</p>
+</li>
+<li><p>一对一映射：静态NAT的映射关系是一对一的，即一个私有IP地址映射到一个公共IP地址。每个内部设备需要一个公共IP地址才能在外部网络上访问。</p>
+</li>
+<li><p>安全性：静态NAT可以提高内部网络的安全性，因为它隐藏了内部网络的真实IP地址，只暴露了公共IP地址。这可以减少内部网络设备被攻击的风险。</p>
+</li>
+<li><p>手动配置：静态NAT的配置需要手动设置映射关系，包括指定要映射的私有IP地址和公共IP地址。需要管理员进行手动配置，增加了部署和维护的复杂度。</p>
+</li>
+</ul>
+<h2 id="动态NAT"><a href="#动态NAT" class="headerlink" title="动态NAT"></a>动态NAT</h2><p>适用于场景：</p>
+<ul>
+<li>大量用户上网：动态NAT可以将私有IP地址动态地映射到公共IP地址上，可以满足大量用户同时上网的需求，提高了网络的可扩展性和灵活性。</li>
+<li>公共网络访问：动态NAT可以使内部网络设备通过公共网络访问外部网络。</li>
+<li>公共网络访问内部网络：动态NAT可以使外部网络设备通过公共网络访问内部网络。</li>
+<li>可控性要求较低：相比静态NAT，动态NAT具有较低的可控性，因此适用于可控性要求较低的场景。</li>
+</ul>
+<p>总之，动态NAT适用于大量用户上网、公共网络访问、远程工作人员访问内部网络等场景，可以提高网络的可扩展性和灵活性。需要注意的是，动态NAT虽然具有较高的灵活性，但也存在一些安全性和可控性方面的问题，因此在使用动态NAT时需要综合考虑各种因素，选择合适的方案。</p>
+<p>路由器配置：</p>
+<p>在路由器上配置静态NAT，一般需要使用以下命令：</p>
+<ol>
+<li>配置内外接口</li>
+</ol>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">interface</span> <span class="string">FastEthernet0/0</span></span><br><span class="line"><span class="string">ip</span> <span class="string">nat</span> <span class="string">inside</span></span><br><span class="line"></span><br><span class="line"><span class="string">interface</span> <span class="string">Serial0/1</span></span><br><span class="line"><span class="string">ip</span> <span class="string">nat</span> <span class="string">outside</span></span><br></pre></td></tr></table></figure>
+
+
+
+<ol start="2">
+<li>配置内部地址池：</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ip nat pool pool-name start-ip end-ip netmask subnet-mask</span><br></pre></td></tr></table></figure>
+
+<p>其中，pool-name为地址池的名称，start-ip和end-ip为地址池中可用的IP地址范围，netmask和subnet-mask为地址池的掩码。</p>
+<ol start="3">
+<li>配置NAT地址池和内部地址之间的映射关系：</li>
+</ol>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">ip</span> <span class="string">nat</span> <span class="string">inside</span> <span class="string">source</span> <span class="string">list</span> <span class="string">access-list</span> <span class="string">pool</span> <span class="string">pool-name</span></span><br></pre></td></tr></table></figure>
+
+<p>其中，access-list为内部地址需要被映射的IP地址范围，pool-name为NAT地址池的名称。</p>
+<ol start="4">
+<li>示例：</li>
+</ol>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">ip</span> <span class="string">nat</span> <span class="string">pool</span> <span class="string">mypool</span> <span class="number">203.0</span><span class="number">.113</span><span class="number">.1</span> <span class="number">203.0</span><span class="number">.113</span><span class="number">.10</span> <span class="string">netmask</span> <span class="number">255.255</span><span class="number">.255</span><span class="number">.0</span></span><br><span class="line"></span><br><span class="line"><span class="string">access-list</span> <span class="number">1</span> <span class="string">permit</span> <span class="number">192.168</span><span class="number">.1</span><span class="number">.0</span> <span class="number">0.0</span><span class="number">.0</span><span class="number">.255</span></span><br><span class="line"></span><br><span class="line"><span class="string">ip</span> <span class="string">nat</span> <span class="string">inside</span> <span class="string">source</span> <span class="string">list</span> <span class="number">1</span> <span class="string">pool</span> <span class="string">mypool</span> </span><br></pre></td></tr></table></figure>
+
+<p>配置了一个名为mypool的地址池，其中包含了10个可用的公网IP地址。access-list 1表示内部地址范围为192.168.1.0&#x2F;24，将其映射到mypool地址池中的公网IP地址上。</p>
+
 
 
 
 </article>
 
-<div class="related-wrap reveal" id="read-next"><section class="body"><div class="item" id="prev"><div class="note">较新文章</div><a href="/2023/01/10/MarkDown%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95%E6%95%99%E7%A8%8B/">MarkDown基础语法教程</a></div><div class="item" id="next"><div class="note">较早文章</div><a href="/2022/12/30/%E6%95%99%E5%B8%88%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9FC%E8%AF%AD%E8%A8%80(%E4%B8%80)-%E7%B3%BB%E7%BB%9F%E4%BB%8B%E7%BB%8D/">教师管理系统C语言(一)-系统介绍</a></div></section></div>
+<div class="related-wrap reveal" id="read-next"><section class="body"><div class="item" id="prev"></div><div class="item" id="next"><div class="note">较早文章</div><a href="/2023/05/01/%E8%B7%AF%E7%94%B1%E7%AE%80%E8%AE%B0/">路由简记</a></div></section></div>
 
 
-<div class="related-wrap reveal" id="related-posts"></div>
+<div class="related-wrap reveal" id="related-posts">
+    <section class='header'>
+      <div class='title cap theme'>你可能感兴趣的文章</div>
+    </section>
+    <section class='body'>
+    <div class="related-posts"><a class="item" href="/2023/05/01/路由简记/" title="路由简记"><span class="title">路由简记</span></a></div></section></div>
 
 
 
