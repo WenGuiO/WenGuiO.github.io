@@ -1,0 +1,761 @@
+<!DOCTYPE html>
+<html lang='zh-CN'>
+
+<head>
+  <meta name="generator" content="Hexo 6.3.0">
+  <meta name="hexo-theme" content="https://github.com/WenGuiO.github.io/tree/1.18.5">
+  <meta charset="utf-8">
+  
+
+  <meta http-equiv='x-dns-prefetch-control' content='on' />
+  <link rel='dns-prefetch' href='https://gcore.jsdelivr.net'>
+  <link rel="preconnect" href="https://gcore.jsdelivr.net" crossorigin>
+  <link rel='dns-prefetch' href='//unpkg.com'>
+  <meta name="msvalidate.01" content="45968838DFB6C9D5B590645B5E53E4F5" />
+
+  <meta name="360-site-verification" content="fd51027118ddbf66f8025e6cc73e816c" />
+  <meta name="baidu-site-verification" content="codeva-l18amtgLO6" />
+  <meta name="sogou_site_verification" content="PW4jAJ0fbl" />
+  <meta name="bytedance-verification-code" content="hyqYqjYQ1Udxu1V3G4bO" />
+
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="HandheldFriendly" content="True" >
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="theme-color" content="#f8f8f8">
+
+  <title>CSS简记 - 闻桂の小窝</title>
+
+  
+    <meta name="description" content="1. 概述W3C标准规定了网页是由以下组成：  结构：HTML 表现：CSS 行为：JavaScript  CSS：Cascading Style Sheet（层叠样式表），一种标准的样式表语言，用于描述网页的表现形式（例如网页元素的位置、大小、颜色等）。 2. css 导入方式CSS 导入 HTML有三种方式：  内联样式：在标签内部使用style属性，属性值是css属性键值对 1&lt;div">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CSS简记">
+<meta property="og:url" content="https://wengui.work/2023/01/10/CSS/index.html">
+<meta property="og:site_name" content="闻桂の小窝">
+<meta property="og:description" content="1. 概述W3C标准规定了网页是由以下组成：  结构：HTML 表现：CSS 行为：JavaScript  CSS：Cascading Style Sheet（层叠样式表），一种标准的样式表语言，用于描述网页的表现形式（例如网页元素的位置、大小、颜色等）。 2. css 导入方式CSS 导入 HTML有三种方式：  内联样式：在标签内部使用style属性，属性值是css属性键值对 1&lt;div">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2023-01-10T08:51:00.000Z">
+<meta property="article:modified_time" content="2023-06-10T12:16:50.042Z">
+<meta property="article:author" content="wengui">
+<meta property="article:tag" content="前端">
+<meta name="twitter:card" content="summary">
+  
+  
+
+  </script>
+  
+  <!-- feed -->
+  
+
+  
+    
+<link rel="stylesheet" href="/css/main.css">
+
+  
+
+  
+    <link rel="shortcut icon" href="/assets/img/favicon.png">
+  
+
+  
+
+  
+
+
+  
+</head>
+
+<body>
+  
+
+
+
+
+  <div class='l_body' id='start'>
+    <aside class='l_left' layout='post'>
+    
+
+  
+
+<header class="header"><div class="logo-wrap"><a class="avatar" href="/about/"><div class="bg" style="opacity:0;background-image:url(https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.4/avatar/round/rainbow64@3x.webp);"></div><img no-lazy class="avatar" src="/assets/img/avatar1.jpg" onerror="javascript:this.classList.add('error');this.src='https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.4/image/2659360.svg';"></a><a class="title" href="/"><div class="main" ff="title">闻桂の小窝</div><div class="sub normal cap">事常足，心常惬</div><div class="sub hover cap" style="opacity:0"> wengui</div></a></div>
+
+<nav class="menu dis-select"><a class="nav-item active" href="/">文章</a><a class="nav-item" href="/wiki/">智库</a><a class="nav-item" href="/notes/">宝阁</a><a class="nav-item" href="/about/">更多</a></nav>
+</header>
+
+
+<div class="widgets">
+<widget class="widget-wrapper search"><div class="widget-body"><div class="search-wrapper" id="search"><form class="search-form"><input type="text" class="search-input" id="search-input" data-filter="/blog/" placeholder="文章搜索"><svg t="1670596976048" class="icon search-icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2676" width="200" height="200"><path d="M938.2 832.6L723.8 618.1c-2.5-2.5-5.3-4.4-7.9-6.4 36.2-55.6 57.3-121.8 57.3-193.1C773.3 222.8 614.6 64 418.7 64S64 222.8 64 418.6c0 195.9 158.8 354.6 354.6 354.6 71.3 0 137.5-21.2 193.2-57.4 2 2.7 3.9 5.4 6.3 7.8L832.5 938c14.6 14.6 33.7 21.9 52.8 21.9 19.1 0 38.2-7.3 52.8-21.8 29.2-29.1 29.2-76.4 0.1-105.5M418.7 661.3C284.9 661.3 176 552.4 176 418.6 176 284.9 284.9 176 418.7 176c133.8 0 242.6 108.9 242.6 242.7 0 133.7-108.9 242.6-242.6 242.6" p-id="2677"></path></svg></form><div id="search-result"></div><div class="search-no-result">抱歉，没有找到内容欧~~换个关键词试试！</div></div></div></widget>
+
+<widget class="widget-wrapper markdown"><div class="widget-header cap theme dis-select"><span class="name">寄语</span></div><div class="widget-body fs14"><p>保持期待，奔赴山海</p>
+</div></widget>
+
+
+<widget class="widget-wrapper toc single" id="data-toc"><div class="widget-header cap dis-select"><span class="name">CSS简记</span></div><div class="widget-body fs14"><div class="doc-tree active"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E6%A6%82%E8%BF%B0"><span class="toc-text">1. 概述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-css-%E5%AF%BC%E5%85%A5%E6%96%B9%E5%BC%8F"><span class="toc-text">2. css 导入方式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-css-%E9%80%89%E6%8B%A9%E5%99%A8"><span class="toc-text">3. css 选择器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-css-%E5%B1%9E%E6%80%A7"><span class="toc-text">4. css 属性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%98%E6%96%B9%E6%96%87%E6%A1%A3"><span class="toc-text">官方文档</span></a></li></ol></div></div></widget>
+
+
+
+
+</div>
+
+
+    </aside>
+    <div class='l_main'>
+      
+      
+
+
+<div class="bread-nav fs12"><div id="breadcrumb"><a class="cap breadcrumb" href="/">主页</a><span class="sep"></span><a class="cap breadcrumb" href="/">文章</a><span class="sep"></span><a class="cap breadcrumb-link" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a></div><div id="post-meta">发布于&nbsp;<time datetime="2023-01-10T08:51:00.000Z">2023-01-10</time></div></div>
+
+<article class='md-text content post'>
+<h1 class="article-title"><span>CSS简记</span></h1>
+<h2 id="1-概述"><a href="#1-概述" class="headerlink" title="1. 概述"></a>1. 概述</h2><p>W3C标准规定了网页是由以下组成：</p>
+<ul>
+<li>结构：HTML</li>
+<li>表现：CSS</li>
+<li>行为：JavaScript</li>
+</ul>
+<p>CSS：Cascading Style Sheet（层叠样式表），一种标准的样式表语言，用于描述网页的表现形式（例如网页元素的位置、大小、颜色等）。</p>
+<h2 id="2-css-导入方式"><a href="#2-css-导入方式" class="headerlink" title="2. css 导入方式"></a>2. css 导入方式</h2><p>CSS 导入 HTML有三种方式：</p>
+<ul>
+<li><p><code>内联样式</code>：在标签内部使用style属性，属性值是css属性键值对</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">&quot;color: red&quot;</span>&gt;</span>Hello CSS~<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>  只能作用于这一个标签上，复用性差。</p>
+</blockquote>
+</li>
+<li><p><code>内部样式</code>：定义style标签，在标签内部定义css样式</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span> <span class="attr">type</span>=<span class="string">&quot;text/css&quot;</span>&gt;</span><span class="language-css"></span></span><br><span class="line"><span class="language-css">	<span class="selector-tag">div</span>&#123;</span></span><br><span class="line"><span class="language-css">		<span class="attribute">color</span>: red;</span></span><br><span class="line"><span class="language-css">    &#125;</span></span><br><span class="line"><span class="language-css"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>  这种方式可以做到在该页面中复用。</p>
+</blockquote>
+</li>
+<li><p><code>外部样式</code>：定义link标签，引入外部的css文件</p>
+<p>如有demo.css的css文件，内容如下:</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">div</span>&#123;</span><br><span class="line">	<span class="attribute">color</span>: red;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>在html中引入 css 文件。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">&quot;stylesheet&quot;</span>  <span class="attr">href</span>=<span class="string">&quot;demo.css&quot;</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>  可以在多个页面进行复用。其他的页面想使用同样的样式，只需要使用 <code>link</code> 标签引入该css文件。</p>
+</blockquote>
+</li>
+</ul>
+<h2 id="3-css-选择器"><a href="#3-css-选择器" class="headerlink" title="3. css 选择器"></a>3. css 选择器</h2><p>css 选择器就是选取需设置样式的元素（标签），比如如下css代码：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">div</span> &#123;</span><br><span class="line">	<span class="attribute">color</span>:red;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>上述代码中的 <code>div</code> 就是 css 中的选择器。简单演示下面三种选择器：</p>
+<ul>
+<li><p>元素选择器</p>
+<p>语法：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">元素名称&#123;<span class="attribute">color</span>: red;&#125;</span><br></pre></td></tr></table></figure>
+
+<p>例：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">div</span> &#123;<span class="attribute">color</span>:red&#125; </span><br></pre></td></tr></table></figure>
+</li>
+<li><p>id选择器</p>
+<p>语法：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-id">#id</span>属性值&#123;<span class="attribute">color</span>: red;&#125;</span><br></pre></td></tr></table></figure>
+
+<p>例：</p>
+<p>html代码如下：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;name&quot;</span>&gt;</span>hello css2<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>css代码如下：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-id">#name</span>&#123;<span class="attribute">color</span>: red;&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>类选择器</p>
+<p>语法：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.class</span>属性值&#123;<span class="attribute">color</span>: red;&#125;</span><br></pre></td></tr></table></figure>
+
+<p>例：</p>
+<p>html代码如下：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;cl&quot;</span>&gt;</span>hello CSS<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>css代码如下：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.cl</span>&#123;<span class="attribute">color</span>: red;&#125; </span><br></pre></td></tr></table></figure></li>
+</ul>
+<p>更多选择器用法如下：</p>
+<table>
+<thead>
+<tr>
+<th>选择器</th>
+<th>例子</th>
+<th>例子描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a target="_blank" rel="noopener" href="https://www.w3school.com.cn/cssref/selector_class.asp">.<em>class</em></a></td>
+<td>.intro</td>
+<td>选择 class&#x3D;”intro” 的所有元素。</td>
+</tr>
+<tr>
+<td><a href="(https://www.w3school.com.cn/cssref/selector_class.asp)">.<em>class1</em>.<em>class2</em></a></td>
+<td>.name1.name2</td>
+<td>选择 class 属性中同时有 name1 和 name2 的所有元素。</td>
+</tr>
+<tr>
+<td><a href="(https://www.w3school.com.cn/cssref/selector_class.asp)">.<em>class1</em> .<em>class2</em></a></td>
+<td>.name1 .name2</td>
+<td>选择作为类名 name1 元素后代的所有类名 name2 元素。</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://www.w3school.com.cn/cssref/selector_id.asp">#<em>id</em></a></td>
+<td>#firstname</td>
+<td>选择 id&#x3D;”firstname” 的元素。</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://www.w3school.com.cn/cssref/selector_all.asp">*</a></td>
+<td>*</td>
+<td>选择所有元素。</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://www.w3school.com.cn/cssref/selector_element.asp"><em>element</em></a></td>
+<td>p</td>
+<td>选择所有 &lt;p&gt; 元素。</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://www.w3school.com.cn/cssref/selector_element_class.asp"><em>element</em>.<em>class</em></a></td>
+<td>p.intro</td>
+<td>选择 class&#x3D;”intro” 的所有 &lt;p&gt; 元素。</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://www.w3school.com.cn/cssref/selector_element_comma.asp"><em>element</em>,<em>element</em></a></td>
+<td>div, p</td>
+<td>选择所有 &lt;div&gt; 元素和所有 &lt;p&gt; 元素。</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://www.w3school.com.cn/cssref/selector_element_element.asp"><em>element</em> <em>element</em></a></td>
+<td>div p</td>
+<td>选择 &lt;div&gt; 元素内的所有 &lt;p&gt; 元素。</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://www.w3school.com.cn/cssref/selector_element_gt.asp"><em>element</em>&gt;<em>element</em></a></td>
+<td>div &gt; p</td>
+<td>选择父元素是 &lt;div&gt; 的所有 &lt;p&gt; 元素。</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://www.w3school.com.cn/cssref/selector_element_plus.asp"><em>element</em>+<em>element</em></a></td>
+<td>div + p</td>
+<td>选择紧跟 &lt;div&gt; 元素的首个 &lt;p&gt; 元素。</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://www.w3school.com.cn/cssref/selector_gen_sibling.asp"><em>element1</em>~<em>element2</em></a></td>
+<td>p ~ ul</td>
+<td>选择前面有 &lt;p&gt; 元素的每个 &lt;ul&gt; 元素。</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://www.w3school.com.cn/cssref/selector_attribute.asp"><em>attribute</em>]</a></td>
+<td>[target]</td>
+<td>选择带有 target 属性的所有元素。</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://www.w3school.com.cn/cssref/selector_attribute_value.asp"><em>attribute</em>&#x3D;<em>value</em>]</a></td>
+<td>[target&#x3D;_blank]</td>
+<td>选择带有 target&#x3D;”_blank” 属性的所有元素。</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://www.w3school.com.cn/cssref/selector_attribute_value_contain.asp"><em>attribute</em>~&#x3D;<em>value</em>]</a></td>
+<td>[title~&#x3D;flower]</td>
+<td>选择 title 属性包含单词 “flower” 的所有元素。</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://www.w3school.com.cn/cssref/selector_attribute_value_start.asp"><em>attribute</em>|&#x3D;<em>value</em>]</a></td>
+<td>[lang|&#x3D;en]</td>
+<td>选择 lang 属性值以 “en” 开头的所有元素。</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://www.w3school.com.cn/cssref/selector_attr_begin.asp"><em>attribute</em>^&#x3D;<em>value</em>]</a></td>
+<td>a[href^&#x3D;”https”]</td>
+<td>选择其 src 属性值以 “https” 开头的每个 &lt;a&gt; 元素。</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://www.w3school.com.cn/cssref/selector_attr_end.asp"><em>attribute</em>$&#x3D;<em>value</em>]</a></td>
+<td>a[href$&#x3D;”.pdf”]</td>
+<td>选择其 src 属性以 “.pdf” 结尾的所有 &lt;a&gt; 元素。</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://www.w3school.com.cn/cssref/selector_attr_contain.asp"><em>attribute</em>*&#x3D;<em>value</em>]</a></td>
+<td>a[href*&#x3D;”w3schools”]</td>
+<td>选择其 href 属性值中包含 “abc” 子串的每个 &lt;a&gt; 元素。</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://www.w3school.com.cn/cssref/selector_active.asp">:active</a></td>
+<td>a:active</td>
+<td>选择活动链接。</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://www.w3school.com.cn/cssref/selector_after.asp">::after</a></td>
+<td>p::after</td>
+<td>在每个 &lt;p&gt; 的内容之后插入内容。</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://www.w3school.com.cn/cssref/selector_before.asp">::before</a></td>
+<td>p::before</td>
+<td>在每个 &lt;p&gt; 的内容之前插入内容。</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://www.w3school.com.cn/cssref/selector_checked.asp">:checked</a></td>
+<td>input:checked</td>
+<td>选择每个被选中的 &lt;input&gt; 元素。</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://www.w3school.com.cn/cssref/selector_default.asp">:default</a></td>
+<td>input:default</td>
+<td>选择默认的 &lt;input&gt; 元素。</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://www.w3school.com.cn/cssref/selector_disabled.asp">:disabled</a></td>
+<td>input:disabled</td>
+<td>选择每个被禁用的 &lt;input&gt; 元素。</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://www.w3school.com.cn/cssref/selector_empty.asp">:empty</a></td>
+<td>p:empty</td>
+<td>选择没有子元素的每个 &lt;p&gt; 元素（包括文本节点）。</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://www.w3school.com.cn/cssref/selector_enabled.asp">:enabled</a></td>
+<td>input:enabled</td>
+<td>选择每个启用的 &lt;input&gt; 元素。</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://www.w3school.com.cn/cssref/selector_first-child.asp">:first-child</a></td>
+<td>p:first-child</td>
+<td>选择属于父元素的第一个子元素的每个 &lt;p&gt; 元素。</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://www.w3school.com.cn/cssref/selector_first-letter.asp">::first-letter</a></td>
+<td>p::first-letter</td>
+<td>选择每个 &lt;p&gt; 元素的首字母。</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://www.w3school.com.cn/cssref/selector_first-line.asp">::first-line</a></td>
+<td>p::first-line</td>
+<td>选择每个 &lt;p&gt; 元素的首行。</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://www.w3school.com.cn/cssref/selector_first-of-type.asp">:first-of-type</a></td>
+<td>p:first-of-type</td>
+<td>选择属于其父元素的首个 &lt;p&gt; 元素的每个 &lt;p&gt; 元素。</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://www.w3school.com.cn/cssref/selector_focus.asp">:focus</a></td>
+<td>input:focus</td>
+<td>选择获得焦点的 &lt;input&gt; 元素。</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://www.w3school.com.cn/cssref/selector_fullscreen.asp">:fullscreen</a></td>
+<td>:fullscreen</td>
+<td>选择处于全屏模式的元素。</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://www.w3school.com.cn/cssref/selector_hover.asp">:hover</a></td>
+<td>a:hover</td>
+<td>选择鼠标指针位于其上的链接。</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://www.w3school.com.cn/cssref/selector_in-range.asp">:in-range</a></td>
+<td>input:in-range</td>
+<td>选择其值在指定范围内的 &lt;input&gt; 元素。</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://www.w3school.com.cn/cssref/selector_indeterminate.asp">:indeterminate</a></td>
+<td>input:indeterminate</td>
+<td>选择处于不确定状态的 input 元素。</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://www.w3school.com.cn/cssref/selector_invalid.asp">:invalid</a></td>
+<td>input:invalid</td>
+<td>选择具有无效值的所有 &lt;input&gt; 元素。</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://www.w3school.com.cn/cssref/selector_lang.asp">:lang(<em>language</em>)</a></td>
+<td>p:lang(it)</td>
+<td>选择 lang 属性等于 “it”（意大利）的每个 &lt;p&gt; 元素。</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://www.w3school.com.cn/cssref/selector_last-child.asp">:last-child</a></td>
+<td>p:last-child</td>
+<td>选择属于其父元素最后一个子元素每个 &lt;p&gt; 元素。</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://www.w3school.com.cn/cssref/selector_last-of-type.asp">:last-of-type</a></td>
+<td>p:last-of-type</td>
+<td>选择属于其父元素的最后 &lt;p&gt; 元素的每个 &lt;p&gt; 元素。</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://www.w3school.com.cn/cssref/selector_link.asp">:link</a></td>
+<td>a:link</td>
+<td>选择所有未访问过的链接。</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://www.w3school.com.cn/cssref/selector_not.asp">:not(<em>selector</em>)</a></td>
+<td>:not(p)</td>
+<td>选择非 &lt;p&gt; 元素的每个元素。</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://www.w3school.com.cn/cssref/selector_nth-child.asp">:nth-child(<em>n</em>)</a></td>
+<td>p:nth-child(2)</td>
+<td>选择属于其父元素的第二个子元素的每个 &lt;p&gt; 元素。</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://www.w3school.com.cn/cssref/selector_nth-last-child.asp">:nth-last-child(<em>n</em>)</a></td>
+<td>p:nth-last-child(2)</td>
+<td>同上，从最后一个子元素开始计数。</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://www.w3school.com.cn/cssref/selector_nth-of-type.asp">:nth-of-type(<em>n</em>)</a></td>
+<td>p:nth-of-type(2)</td>
+<td>选择属于其父元素第二个 &lt;p&gt; 元素的每个 &lt;p&gt; 元素。</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://www.w3school.com.cn/cssref/selector_nth-last-of-type.asp">:nth-last-of-type(<em>n</em>)</a></td>
+<td>p:nth-last-of-type(2)</td>
+<td>同上，但是从最后一个子元素开始计数。</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://www.w3school.com.cn/cssref/selector_only-of-type.asp">:only-of-type</a></td>
+<td>p:only-of-type</td>
+<td>选择属于其父元素唯一的 &lt;p&gt; 元素的每个 &lt;p&gt; 元素。</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://www.w3school.com.cn/cssref/selector_only-child.asp">:only-child</a></td>
+<td>p:only-child</td>
+<td>选择属于其父元素的唯一子元素的每个 &lt;p&gt; 元素。</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://www.w3school.com.cn/cssref/selector_optional.asp">:optional</a></td>
+<td>input:optional</td>
+<td>选择不带 “required” 属性的 input 元素。</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://www.w3school.com.cn/cssref/selector_out-of-range.asp">:out-of-range</a></td>
+<td>input:out-of-range</td>
+<td>选择值超出指定范围的 input 元素。</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://www.w3school.com.cn/cssref/selector_placeholder.asp">::placeholder</a></td>
+<td>input::placeholder</td>
+<td>选择已规定 “placeholder” 属性的 input 元素。</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://www.w3school.com.cn/cssref/selector_read-only.asp">:read-only</a></td>
+<td>input:read-only</td>
+<td>选择已规定 “readonly” 属性的 input 元素。</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://www.w3school.com.cn/cssref/selector_read-write.asp">:read-write</a></td>
+<td>input:read-write</td>
+<td>选择未规定 “readonly” 属性的 input 元素。</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://www.w3school.com.cn/cssref/selector_required.asp">:required</a></td>
+<td>input:required</td>
+<td>选择已规定 “required” 属性的 input 元素。</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://www.w3school.com.cn/cssref/selector_root.asp">:root</a></td>
+<td>:root</td>
+<td>选择文档的根元素。</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://www.w3school.com.cn/cssref/selector_selection.asp">::selection</a></td>
+<td>::selection</td>
+<td>选择用户已选取的元素部分。</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://www.w3school.com.cn/cssref/selector_target.asp">:target</a></td>
+<td>#news:target</td>
+<td>选择当前活动的 #news 元素。</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://www.w3school.com.cn/cssref/selector_valid.asp">:valid</a></td>
+<td>input:valid</td>
+<td>选择带有有效值的所有 input 元素。</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://www.w3school.com.cn/cssref/selector_visited.asp">:visited</a></td>
+<td>a:visited</td>
+<td>选择所有已访问的链接。</td>
+</tr>
+</tbody></table>
+<h2 id="4-css-属性"><a href="#4-css-属性" class="headerlink" title="4. css 属性"></a>4. css 属性</h2><p>CSS 属性  用于控制网页的样式和布局。</p>
+<p>css有很多css属性，要想把它们都学会，需要花费很长的时间。学习Java，我们不需要重点掌握。我们只需了解常用的css属性即可。</p>
+<p>常用的css属性，可以参考这篇文章：<a target="_blank" rel="noopener" href="https://www.cnblogs.com/xuanku/p/css_attr.html">CSS属性分类介绍</a></p>
+<h2 id="官方文档"><a href="#官方文档" class="headerlink" title="官方文档"></a><a target="_blank" rel="noopener" href="https://www.w3school.com.cn/cssref/index.asp">官方文档</a></h2><p>以上内容为简单了解与概括，若想了解更多可以浏览<a target="_blank" rel="noopener" href="https://www.w3school.com.cn/cssref/index.asp">官方文档</a></p>
+
+
+
+
+</article>
+
+<div class="related-wrap reveal" id="read-next"><section class="body"><div class="item" id="prev"><div class="note">较新文章</div><a href="/2023/01/13/%E5%A4%9A%E7%BA%BF%E7%A8%8B/">多线程</a></div><div class="item" id="next"><div class="note">较早文章</div><a href="/2023/01/10/HTML/">HTML</a></div></section></div>
+
+
+<div class="related-wrap reveal" id="related-posts">
+    <section class='header'>
+      <div class='title cap theme'>你可能感兴趣的文章</div>
+    </section>
+    <section class='body'>
+    <div class="related-posts"><a class="item" href="/2023/01/10/HTML/" title="HTML"><span class="title">HTML</span></a></div></section></div>
+
+
+
+  <div class='related-wrap md-text reveal' id="comments">
+    <section class='header cmt-title cap theme'>
+      路过，就留下你的足迹吧！
+    </section>
+    <section class='body cmt-body giscus'>
+      
+
+<svg class="loading" style="vertical-align: middle;fill: currentColor;overflow: hidden;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2709"><path d="M832 512c0-176-144-320-320-320V128c211.2 0 384 172.8 384 384h-64zM192 512c0 176 144 320 320 320v64C300.8 896 128 723.2 128 512h64z" p-id="2710"></path></svg>
+
+<div id="giscus" data-repo="WenGuiO/BlogState" data-repo-id="R_kgDOI2KBdg" data-category="General" data-category-id="DIC_kwDOI2KBds4CT0UY" data-mapping="pathname" data-strict="0" data-reactions-enabled="1" data-emit-metadata="1" data-input-position="top" data-theme="preferred_color_scheme" data-lang="zh-CN" data-loading="lazy" crossorigin="anonymous"></div>
+
+    </section>
+  </div>
+
+
+
+      
+<footer class="page-footer reveal fs12"><hr><div class="sitemap"><div class="sitemap-group"><span class="fs14">博客</span><a href="/">近期</a><a href="/categories/">分类</a><a href="/tags">标签</a><a href="/archives/">归档</a></div><div class="sitemap-group"><span class="fs14">学习</span><a href="/wiki">项目</a><a href="/wiki/tags/%E7%9F%A5%E8%AF%86%E5%BA%93/index.html">笔记</a><a href="/books/">书籍</a></div><div class="sitemap-group"><span class="fs14">关于</span><a href="/about">本站简介</a><a href="/more/">本站动态</a><a target="_blank" rel="noopener" href="https://github.com/WenGuiO">GitHub</a><a target="_blank" rel="noopener" href="https://gitee.com/wenguio">Gitee</a></div><div class="sitemap-group"><span class="fs14">更多</span><a href="/notes">宝站</a><a href="/message/">留言</a><a href="/support/">支持</a><a href="/notes/music/">音乐</a></div></div><div class="text"><p>本站所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议，转载请注明出处。</p>
+<center>
+</br>
+</br>
+<!--不蒜子计数器-->
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<!--添加一个访问量-->
+<span>
+  本"<span style="color: rgb(13, 109, 252); font-weight: bold;">页面</ a></span>"访问 
+  <span id="busuanzi_value_page_pv" style="color: rgb(13, 109, 252); font-weight: bold;"></span> 次 | 👀总访问 
+  <span id="busuanzi_value_site_pv" style="color: rgb(13, 109, 252); font-weight: bold;"></span> 次 | 👤总访客 
+  <span id="busuanzi_value_site_uv" style="color: rgb(13, 109, 252); font-weight: bold;"></span> 人
+</span>
+</br>
+</br>
+<script type="text/javascript">
+function show_runtime() {
+    X = new Date("12/26/2022 20:34:01");
+    Y = new Date();
+    T = (Y.getTime() - X.getTime());
+    M = 24 * 60 * 60 * 1000;
+    a = T / M;
+    A = Math.floor(a);
+    b = (a - A) * 24;
+    B = Math.floor(b);
+    c = (b - B) * 60;
+    C = Math.floor((b - B) * 60);
+    D = Math.floor((c - C) * 60);
+    runtime_span.innerHTML = "⏱️本站已运行 " + A + "天" + B + "小时" + C + "分" + D + "秒";
+}
+window.setInterval("show_runtime()", 1000);
+</script>
+<span id="runtime_span"></span>
+</br>
+</br>
+<a href="https://beian.miit.gov.cn/" target="_blank">浙ICP备2022035187号-1</a>
+</center>
+</div></footer>
+
+      <div class='float-panel mobile-only blur' style='display:none'>
+  <button type='button' class='sidebar-toggle mobile' onclick='sidebar.toggle()'>
+    <svg class="icon" style="width: 1em; height: 1em;vertical-align: middle;fill: currentColor;overflow: hidden;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="15301"><path d="M566.407 808.3c26.9-0.1 49.3-20.8 51.6-47.6-1.9-27.7-23.9-49.7-51.6-51.6h-412.6c-28.2-1.4-52.6 19.5-55.5 47.6 2.3 26.8 24.6 47.5 51.6 47.6h416.5v4z m309.3-249.9c26.9-0.1 49.3-20.8 51.6-47.6-2.2-26.8-24.6-47.5-51.6-47.6h-721.9c-27.7-2.8-52.5 17.4-55.3 45.1-0.1 0.8-0.1 1.7-0.2 2.5 0.9 27.2 23.6 48.5 50.7 47.6H875.707z m-103.1-245.9c26.9-0.1 49.3-20.8 51.6-47.6-0.4-28.3-23.2-51.1-51.5-51.6h-618.9c-29.5-1.1-54.3 21.9-55.5 51.4v0.2c1.4 27.8 25.2 49.2 53 47.8 0.8 0 1.7-0.1 2.5-0.2h618.8z" p-id="15302"></path><path d="M566.407 808.3c26.9-0.1 49.3-20.8 51.6-47.6-1.9-27.7-23.9-49.7-51.6-51.6h-412.6c-28.2-1.4-52.6 19.5-55.5 47.6 1.9 27.7 23.9 49.7 51.6 51.6h416.5z m309.3-249.9c26.9-0.1 49.3-20.8 51.6-47.6-2.2-26.8-24.6-47.5-51.6-47.6h-721.9c-27.7-2.8-52.5 17.4-55.3 45.1-0.1 0.8-0.1 1.7-0.2 2.5 0.9 27.2 23.6 48.5 50.7 47.6H875.707z m-103.1-245.9c26.9-0.1 49.3-20.8 51.6-47.6-0.4-28.3-23.2-51.1-51.5-51.6h-618.9c-29.5-1.1-54.3 21.9-55.5 51.4v0.2c1.4 27.8 25.2 49.2 53 47.8 0.8 0 1.7-0.1 2.5-0.2h618.8z" p-id="15303"></path></svg>
+  </button>
+</div>
+
+    </div>
+  </div>
+  <div class='scripts'>
+    <script type="text/javascript">
+  const stellar = {
+    // 懒加载 css https://github.com/filamentgroup/loadCSS
+    loadCSS: (href, before, media, attributes) => {
+      var doc = window.document;
+      var ss = doc.createElement("link");
+      var ref;
+      if (before) {
+        ref = before;
+      } else {
+        var refs = (doc.body || doc.getElementsByTagName("head")[0]).childNodes;
+        ref = refs[refs.length - 1];
+      }
+      var sheets = doc.styleSheets;
+      if (attributes) {
+        for (var attributeName in attributes) {
+          if (attributes.hasOwnProperty(attributeName)) {
+            ss.setAttribute(attributeName, attributes[attributeName]);
+          }
+        }
+      }
+      ss.rel = "stylesheet";
+      ss.href = href;
+      ss.media = "only x";
+      function ready(cb) {
+        if (doc.body) {
+          return cb();
+        }
+        setTimeout(function () {
+          ready(cb);
+        });
+      }
+      ready(function () {
+        ref.parentNode.insertBefore(ss, before ? ref : ref.nextSibling);
+      });
+      var onloadcssdefined = function (cb) {
+        var resolvedHref = ss.href;
+        var i = sheets.length;
+        while (i--) {
+          if (sheets[i].href === resolvedHref) {
+            return cb();
+          }
+        }
+        setTimeout(function () {
+          onloadcssdefined(cb);
+        });
+      };
+      function loadCB() {
+        if (ss.addEventListener) {
+          ss.removeEventListener("load", loadCB);
+        }
+        ss.media = media || "all";
+      }
+      if (ss.addEventListener) {
+        ss.addEventListener("load", loadCB);
+      }
+      ss.onloadcssdefined = onloadcssdefined;
+      onloadcssdefined(loadCB);
+      return ss;
+    },
+
+    // 从 butterfly 和 volantis 获得灵感
+    loadScript: (src, opt) => new Promise((resolve, reject) => {
+      var script = document.createElement('script');
+      script.src = src;
+      if (opt) {
+        for (let key of Object.keys(opt)) {
+          script[key] = opt[key]
+        }
+      } else {
+        // 默认异步，如果需要同步，第二个参数传入 {} 即可
+        script.async = true
+      }
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    }),
+
+    // https://github.com/jerryc127/hexo-theme-butterfly
+    jQuery: (fn) => {
+      if (typeof jQuery === 'undefined') {
+        stellar.loadScript(stellar.plugins.jQuery).then(fn)
+      } else {
+        fn()
+      }
+    }
+  };
+  stellar.version = '1.18.5';
+  stellar.github = 'https://github.com/xaoxuu/hexo-theme-stellar/tree/1.18.5';
+  stellar.config = {
+    date_suffix: {
+      just: '刚刚',
+      min: '分钟前',
+      hour: '小时前',
+      day: '天前',
+      month: '个月前',
+    },
+  };
+
+  // required plugins (only load if needs)
+  stellar.plugins = {
+    jQuery: 'https://gcore.jsdelivr.net/npm/jquery@3.6.2/dist/jquery.min.js'
+  };
+
+  if ('local_search') {
+    stellar.search = {};
+    stellar.search.service = 'local_search';
+    if (stellar.search.service == 'local_search') {
+      let service_obj = Object.assign({}, {"field":"all","path":"/search.json","content":true,"sort":"-date"});
+      stellar.search[stellar.search.service] = service_obj;
+    }
+  }
+
+  // stellar js
+  stellar.plugins.stellar = Object.assign({"sites":"/js/plugins/sites.js","friends":"/js/plugins/friends.js","ghinfo":"/js/plugins/ghinfo.js","timeline":"/js/plugins/timeline.js","linkcard":"/js/plugins/linkcard.js","fcircle":"/js/plugins/fcircle.js","weibo":"/js/plugins/weibo.js"});
+
+  stellar.plugins.marked = Object.assign("https://cdn.bootcdn.net/ajax/libs/marked/4.0.18/marked.min.js");
+  // optional plugins
+  if ('true' == 'true') {
+    stellar.plugins.lazyload = Object.assign({"enable":true,"js":"https://gcore.jsdelivr.net/npm/vanilla-lazyload@17.8.3/dist/lazyload.min.js","transition":"blur"});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.swiper = Object.assign({"enable":true,"css":"https://unpkg.com/swiper@8.4.5/swiper-bundle.min.css","js":"https://unpkg.com/swiper@8.4.5/swiper-bundle.min.js"});
+  }
+  if ('' == 'true') {
+    stellar.plugins.scrollreveal = Object.assign({"enable":null,"js":"https://gcore.jsdelivr.net/npm/scrollreveal@4.0.9/dist/scrollreveal.min.js","distance":"8px","duration":500,"interval":100,"scale":1});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.preload = Object.assign({"enable":true,"service":"flying_pages","instant_page":"https://gcore.jsdelivr.net/gh/volantis-x/cdn-volantis@4.1.2/js/instant_page.js","flying_pages":"https://gcore.jsdelivr.net/gh/gijo-varghese/flying-pages@2.1.2/flying-pages.min.js"});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.fancybox = Object.assign({"enable":true,"js":"https://gcore.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js","css":"https://gcore.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.css","selector":".swiper-slide img"});
+  }
+  if ('false' == 'true') {
+    stellar.plugins.heti = Object.assign({"enable":false,"css":"https://unpkg.com/heti@0.9.2/umd/heti.min.css","js":"https://unpkg.com/heti@0.9.2/umd/heti-addon.min.js"});
+  }
+</script>
+
+<!-- required -->
+
+  
+<script src="/js/main.js" async></script>
+
+
+
+<!-- optional -->
+
+  <script>
+  function loadJS() {
+    const els = document.querySelectorAll("#comments #giscus");
+    if (els.length === 0) return;
+    els.forEach((el, i) => {
+      try {
+        el.innerHTML = '';
+      } catch (error) {
+        console.log(error);
+      }
+      var script = document.createElement('script');
+      script.src = 'https://giscus.app/client.js';
+      script.async = true;
+      for (let key of Object.keys(el.attributes)) {
+        let attr = el.attributes[key];
+        if (['class', 'id'].includes(attr.name) === false) {
+          script.setAttribute(attr.name, attr.value);
+        }
+      }
+      el.appendChild(script);
+    });
+  }
+  window.addEventListener('DOMContentLoaded', (event) => {
+    loadJS();
+  });
+</script>
+
+
+
+
+<!-- inject -->
+
+
+  </div>
+</body>
+</html>
